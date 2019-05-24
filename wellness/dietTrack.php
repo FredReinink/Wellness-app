@@ -45,19 +45,32 @@
     <span class="dot"></span>
   </div>
   
-	<center>
-    <br> 
-    <div class="input-group">
-         <label>How many calories did you eat today?</label>
-         <input type="text" name="username">
-    </div>
-	
-	<br> 
-    <div class="input-group">
-         <label>How much do you weigh today?</label>
-         <input type="text" name="username">
-    </div>
   
+  <?php include('server.php') ?>
+  <form method="post" action="dietTrack.php">
+
+  	<?php include('errors.php'); ?>
+		<center>
+		<br> 
+		<div class="input-group">
+			 <label>Enter the date you want to track</label>
+			 <input type="date" name="date">
+		</div>
+		<br> 
+		<div class="input-group">
+			 <label>How many calories did you eat on that day?</label>
+			 <input type="text" name="calories">
+		</div>
+		<br> 
+		<div class="input-group">
+			 <label>How much did you weigh on that day?</label>
+			 <input type="text" name="weight">
+		</div>
+		<br>
+		<div class="input-group">
+			<button type="submit" class="btn" name="submit_diet_info">Submit</button>
+		</div>
+  </form>
   
 </body>
 </html>

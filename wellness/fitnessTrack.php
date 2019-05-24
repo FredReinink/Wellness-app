@@ -36,5 +36,41 @@
       <a href="login.php">Sign-Out</a>
     </div>
   </div>
+  
+    <!-- circle dots -->
+  <br>
+  <div style="text-align:center">
+    <span class="dot"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+  </div>
+  
+  
+  <?php include('server.php') ?>
+  <form method="post" action="fitnessTrack.php">
+
+  	<?php include('errors.php'); ?>
+		<center>
+		<br> 
+		<div class="input-group">
+			 <label>Enter the date you want to track</label>
+			 <input type="date" name="date">
+		</div>
+		<br> 
+		<div class="input-group">
+			 <label>How many hours did you exercise that day?</label>
+			 <input type="text" name="exercise" max = 24>
+		</div>
+		<br> 
+		<div class="input-group">
+			 <label>How many hours did you sleep that day?</label>
+			 <input type="text" name="sleep" max = 24>
+		</div>
+		<br>
+		<div class="input-group">
+			<button type="submit" class="btn" name="submit_fitness_info">Submit</button>
+		</div>
+  </form>
+  
 </body>
 </html>
