@@ -194,6 +194,11 @@ function url_sanitize($url)
 	return $url;
 }
 
+//sanitizing dates
+function date_sanitize($date)
+{
+}
+
 //checking if URLS already exist in data system or not
 function url_already_exists( $url, $db)
 {
@@ -201,12 +206,6 @@ function url_already_exists( $url, $db)
 	$result = mysqli_query($db, $query);
 	return mysqli_num_rows($result) == 1;
 }
-
-
-
-
-
-
 
 //adding challenges 
 // for adding new bookmarks and expanding the table 
@@ -237,11 +236,6 @@ if (isset($_POST['add_challenge']))
       
 }
 
-
-
-
-
-
 //delete challenge
 if(isset($_POST['delete_challenge']))
 {
@@ -260,17 +254,59 @@ if(isset($_POST['delete_challenge']))
    echo "Deleted !";
 }
 
+//submit fitness tracking information
+if (isset($_POST['submit_fitness_info']))
+{
+	$date = $_POST['date'];
 
+	$date_year = substr($date, 0, 4);
+	$date_month = substr($date, 5, 2);
+	$date_day = substr($date, 8, 2);
+	
+	$exercise_hours = $_POST['exercise'];
+	$sleep_hours = $_POST['sleep'];
+	
+	$username = $_SESSION['username'];
+	
+	$query = "INSERT INTO fitnessTracker (username, date_year, date_month, date_day, exercise_hours, sleep_hours) 
+  			  VALUES('$username', '$date_year', '$date_month', '$date_day', '$exercise_hours', '$sleep_hours')";
+  	mysqli_query($db, $query);
+	var_dump(mysqli_error($db));
+	
+	if (!$result){
+		var_dump(mysqli_error($db));
+	}
+}
 
+//submit diet tracking information
+if (isset($_POST['submit_diet_info']))
+{
+	$date = $_POST['date'];
 
-
+	$date_year = substr($date, 0, 4);
+	$date_month = substr($date, 5, 2);
+	$date_day = substr($date, 8, 2);
+	
+	$calories = $_POST['calories'];
+	$weight = $_POST['weight'];
+	
+	$username = $_SESSION['username'];
+	
+  	$query = "INSERT INTO dietTracker (username, date_year, date_month, date_day, calories_consumed, weight) 
+  			  VALUES('$username', '$date_year', '$date_month', '$date_day', '$calories', '$weight')";
+  	$result = mysqli_query($db, $query);
+	
+	if (!$result){
+		var_dump(mysqli_error($db));
+	}
+}
 
 
 //add the challenge user has completed in the table
 if (isset($_POST['challenge_submission'])) 
 {
 
-        $username = $_POST['username'];
+        $username = $_SESSION['username'];
         $challenge_name = $_POST['challenge_name'];
         $submission = $_POST['submission'];
         $points_granted = 5; 
@@ -291,13 +327,11 @@ if (isset($_POST['challenge_submission']))
         // add challenge submission info to the system
 		$query = "INSERT INTO challenges (username, challenge_name, submission, points_granted ) VALUES ('$username', '$challenge_name', '$submission' , '$points_granted')";
 		$result = mysqli_query($db, $query);
-        mysqli_num_rows($result);
         
 
         // add challenge submission info to the system
 		$query = "INSERT INTO userPoints (username, points ) VALUES ('$username', '$points_granted')";
 		$result = mysqli_query($db, $query);
-		mysqli_num_rows($result);
       
 
       echo "<div style=\"text-align:center\">";

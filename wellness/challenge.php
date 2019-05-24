@@ -99,12 +99,6 @@
    <form method="post" action="challenge.php">
        <?php include('errors.php'); ?>
    <br>
-
-    <br> 
-    <div class="input-group">
-         <label>Enter Username</label>
-         <input type="text" name="username">
-    </div>
    
     <br> 
     <div class="input-group">

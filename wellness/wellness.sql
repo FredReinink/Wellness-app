@@ -82,3 +82,31 @@ CREATE TABLE userPoints
     FOREIGN KEY (username) REFERENCES users(username),
     points int
 );
+
+DROP TABLE IF EXISTS dietTracker;
+CREATE TABLE dietTracker
+(
+	username varchar(255) NOT NULL,
+	date_year int NOT NULL,
+	date_month int NOT NULL,
+	date_day int NOT NULL,
+	calories_consumed int,
+	weight int,
+	
+	FOREIGN KEY (username) REFERENCES users(username),
+	PRIMARY KEY(date_year, date_month, date_day)
+);
+
+DROP TABLE IF EXISTS fitnessTracker;
+CREATE TABLE fitnessTracker
+(
+	username varchar(255) NOT NULL,
+	date_year int NOT NULL,
+	date_month int NOT NULL,
+	date_day int NOT NULL,
+	exercise_hours int,
+	sleep_hours int,
+	
+	FOREIGN KEY (username) REFERENCES users(username),
+	PRIMARY KEY(date_year, date_month, date_day)
+)
