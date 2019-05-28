@@ -12,6 +12,7 @@ CREATE TABLE users
     last_name varchar(225) NOT NULL
 );
 
+INSERT INTO users (username, email, password, first_name, last_name) VALUES ("admin101", "admin@well.com", "6F5393979D674DE36C433B47B7D8908E", "admin","admin");
 
 DROP TABLE IF EXISTS userWellnessTest;
 CREATE TABLE userWellnessTest
