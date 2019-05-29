@@ -1,6 +1,10 @@
 <?php
 session_start();
 
+//initialize error log
+ini_set("log_errors", 1);
+ini_set("error_log", "php-error.log");
+
 // initializing variables
 $username = "";
 $email    = "";
@@ -58,6 +62,10 @@ if (isset($_POST['reg_user']))
   	$query = "INSERT INTO users (username, email, password, first_name, last_name) 
   			  VALUES('$username', '$email', '$password', '$firstName', '$lastName')";
   	mysqli_query($db, $query);
+	
+	//initialize followedExercises
+	$query = "INSERT INTO followedExercises (username, num_exercises) VALUES ('$username', '0')";
+	mysqli_query($db, $query);
    
     // Enter user session 
   	$_SESSION['username'] = $username;
@@ -265,14 +273,54 @@ if (isset($_POST['submit_fitness_info']))
 	
 	$exercise_hours = $_POST['exercise'];
 	$sleep_hours = $_POST['sleep'];
+	$cardio_minutes = $_POST['cardio_minutes'];
+	$cardio_heartrate = $_POST['cardio_heartrate'];
 	
 	$username = $_SESSION['username'];
 	
 	$query = "INSERT INTO fitnessTracker (username, date_year, date_month, date_day, exercise_hours, sleep_hours) 
   			  VALUES('$username', '$date_year', '$date_month', '$date_day', '$exercise_hours', '$sleep_hours')";
-  	mysqli_query($db, $query);
-	var_dump(mysqli_error($db));
+  	$result = mysqli_query($db, $query);
 	
+	if (!$result){
+		var_dump(mysqli_error($db));
+	}
+	
+	$query = "INSERT INTO cardioTracker (username, date_year, date_month, date_day, cardio_minutes, cardio_heartrate) 
+  			  VALUES('$username', '$date_year', '$date_month', '$date_day', '$cardio_minutes', '$cardio_heartrate')";
+	$result = mysqli_query($db, $query);
+	
+	if (!$result){
+		var_dump(mysqli_error($db));
+	}
+}
+
+//add exercise to followedExercises
+if (isset($_POST['add_exercise']))
+{
+	$username = $_SESSION['username'];
+	$exercise_name = $_POST['addExercise'];
+	
+	$query = "SELECT num_exercises FROM followedExercises WHERE username = '$username'";
+	$result = mysqli_query($db, $query);
+
+	$fields = mysqli_fetch_assoc($result);
+	
+	$num_exercises = (int) $fields['num_exercises'];
+  
+    if ($num_exercises > 15) {
+      array_push($errors, "You are already tracking the maximum number of exercises");
+    }
+	
+	$num_exercises_plus_one = $num_exercises + 1;
+	$num_ex_as_string = (string)($num_exercises_plus_one);
+	
+	//format a query string to correspond to the field names in the DB. Ex: "user_exercise7_name"
+	$queryString = "user_exercise".$num_ex_as_string."_name";
+	
+	$query = "UPDATE followedExercises SET $queryString = '$exercise_name', num_exercises = '$num_exercises_plus_one' WHERE username = $username";
+	$result = mysqli_query($db, $query);
+
 	if (!$result){
 		var_dump(mysqli_error($db));
 	}

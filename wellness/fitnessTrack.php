@@ -45,11 +45,14 @@
     <span class="dot"></span>
   </div>
   
-  
   <?php include('server.php') ?>
   <form method="post" action="fitnessTrack.php">
 
   	<?php include('errors.php'); ?>
+	
+		<button type="submit" formaction="addExercise.php">Add Exercise</button>
+		<button type="submit" formaction="removeExercise.php">Remove Exercise</button>
+	
 		<center>
 		<br> 
 		<div class="input-group">
@@ -67,6 +70,15 @@
 			 <input type="text" name="sleep" max = 24>
 		</div>
 		<br>
+		<div class="input-group">
+			 <label>How many minutes of cardio did you do?</label>
+			 <input type="text" name="cardio_minutes">
+		</div>
+		<br>
+		<div class="input-group">
+			 <label>What was your heartrate during your cardio?</label>
+			 <input type="text" name="cardio_heartrate">
+		</div>
 		<div class="input-group">
 			<button type="submit" class="btn" name="submit_fitness_info">Submit</button>
 		</div>
