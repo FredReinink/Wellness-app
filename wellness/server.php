@@ -343,6 +343,38 @@ if (isset($_POST['challenge_submission']))
 
 
 
+if(isset($_POST['submit1']))
+{
+  
+
+      $search_value=$_POST['search'];
+     // $user_check_query = "SELECT * FROM articles WHERE article_ID OR ArticleTitle OR ArticleAuthors OR urls OR Article_Topic1 OR Article_Topic2 OR Article_Topic3 OR Article_Tag1 OR Article_Tag2 OR Article_Tag3OR Article_Tag4 LIKE '%$search_value%'";
+    $user_check_query = "SELECT ArticleTitle, urls FROM articles WHERE ArticleAuthors = $search_value";
+    
+ 
+     $result = mysqli_query($db, $user_check_query);
+
+          if ($result==null)
+          {
+            echo "No articles on this topic exists in our directory currently. Please visit again later.";
+          }
+
+          else
+          {
+            echo "Your search results are: <br>";
+            while (($row = $result -> fetch_assoc()))
+            {
+              echo "<div style=\"text-align:center\">";
+              echo "{$row['ArticleTitle']}   |   ";
+              echo "<a href='{$row['urls']}' target='_new'> {$row['urls']} </a><br>";
+
+            }
+
+          }
+            
+          return;
+
+}
 
 
 
