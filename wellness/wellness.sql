@@ -95,7 +95,7 @@ CREATE TABLE dietTracker
 	weight int,
 	
 	FOREIGN KEY (username) REFERENCES users(username),
-	PRIMARY KEY(date_year, date_month, date_day)
+	PRIMARY KEY(username, date_year, date_month, date_day)
 );
 
 DROP TABLE IF EXISTS fitnessTracker;
@@ -109,5 +109,125 @@ CREATE TABLE fitnessTracker
 	sleep_hours int,
 	
 	FOREIGN KEY (username) REFERENCES users(username),
-	PRIMARY KEY(date_year, date_month, date_day)
-)
+	PRIMARY KEY(username, date_year, date_month, date_day)
+);
+
+DROP TABLE IF EXISTS cardioTracker;
+CREATE TABLE cardioTracker
+(
+ 	username varchar(255) NOT NULL,
+	date_year int NOT NULL,
+	date_month int NOT NULL,
+	date_day int NOT NULL,
+	
+	cardio_minutes int,
+	cardio_heartrate int,
+	
+	FOREIGN KEY (username) REFERENCES fitnessTracker(username),
+	PRIMARY KEY(username, date_year, date_month, date_day)
+
+);
+
+DROP TABLE IF EXISTS followedExercises;
+CREATE TABLE followedExercises
+(
+	username varchar(255) NOT NULL,
+	num_exercises int DEFAULT 0 NOT NULL,
+
+	user_exercise1_name varchar(255),
+	user_exercise2_name varchar(255),
+	user_exercise3_name varchar(255),
+	user_exercise4_name varchar(255),
+	user_exercise5_name varchar(255),
+	user_exercise6_name varchar(255),
+	user_exercise7_name varchar(255),
+	user_exercise8_name varchar(255),
+	user_exercise9_name varchar(255),
+	user_exercise10_name varchar(255),
+	user_exercise11_name varchar(255),
+	user_exercise12_name varchar(255),
+	user_exercise13_name varchar(255),
+	user_exercise14_name varchar(255),
+	user_exercise15_name varchar(255),
+	
+	FOREIGN KEY (username) REFERENCES users(username),
+	PRIMARY KEY (username)
+);
+
+DROP TABLE IF EXISTS weightLiftingTracker;
+CREATE TABLE weightLiftingTracker
+(
+	username varchar(255) NOT NULL,
+	date_year int NOT NULL,
+	date_month int NOT NULL,
+	date_day int NOT NULL,
+	exercise_name varchar(255) NOT NULL,
+	
+	num_exercises int DEFAULT 0 NOT NULL,
+	
+	user_exercise1_name varchar(255),
+	user_exercise1_weight int,
+	user_exercise1_reps int,
+	
+	user_exercise2_name varchar(255),
+	user_exercise2_weight int,
+	user_exercise2_reps int,
+	
+	user_exercise3_name varchar(255),
+	user_exercise3_weight int,
+	user_exercise3_reps int,
+	
+	user_exercise4_name varchar(255),
+	user_exercise4_weight int,
+	user_exercise4_reps int,
+	
+	user_exercise5_name varchar(255),
+	user_exercise5_weight int,
+	user_exercise5_reps int,
+	
+	user_exercise6_name varchar(255),
+	user_exercise6_weight int,
+	user_exercise6_reps int,
+	
+	user_exercise7_name varchar(255),
+	user_exercise7_weight int,
+	user_exercise7_reps int,
+	
+	user_exercise8_name varchar(255),
+	user_exercise8_weight int,
+	user_exercise8_reps int,
+	
+	user_exercise9_name varchar(255),
+	user_exercise9_weight int,
+	user_exercise9_reps int,
+	
+	user_exercise10_name varchar(255),
+	user_exercise10_weight int,
+	user_exercise10_reps int,
+	
+	user_exercise11_name varchar(255),
+	user_exercise11_weight int,
+	user_exercise11_reps int,
+	
+	user_exercise12_name varchar(255),
+	user_exercise12_weight int,
+	user_exercise12_reps int,
+	
+	user_exercise13_name varchar(255),
+	user_exercise13_weight int,
+	user_exercise13_reps int,
+
+	user_exercise14_name varchar(255),
+	user_exercise14_weight int,
+	user_exercise14_reps int,
+	
+	user_exercise15_name varchar(255),
+	user_exercise15_weight int,
+	user_exercise15_reps int,
+	
+	
+	FOREIGN KEY (username) REFERENCES fitnessTracker(username),
+	PRIMARY KEY(username, date_year, date_month, date_day)
+
+	
+);
