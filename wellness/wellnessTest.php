@@ -142,35 +142,64 @@ button:hover
 
 
 <body>
+<?php include('server.php') ?>
 
-<form id="regForm" action="/action_page.php">
+<form id="regForm" action="wellnessTest.php" method= "post">
+  
+  <?php include('errors.php'); ?>
+
   <h1>Wellness Test</h1>
   <!-- One "tab" for each step in the form: -->
-  <div class="tab">General:
+  <div class="tab"><b>General:</b>
     <p><input placeholder="Weight (kg)..." oninput="this.className = ''" name="weight"></p>
     <p><input placeholder="Height (cm)..." oninput="this.className = ''" name="height"></p>
     <p><input placeholder="Sex (Enter F/M)..." oninput="this.className = ''" name="sex"></p>
     <p><input placeholder="Age..." oninput="this.className = ''" name="age"></p>
-
   </div>
-  <div class="tab">Heart Rate
+
+
+  <div class="tab"><b>Heart Rate</b>
     <p><input placeholder="Resting pulse..." oninput="this.className = ''" name="rest_pulse"></p>
     <p><input placeholder="Max heart rate..." oninput="this.className = ''" name="Max_heart_rate"></p>
   </div>
-  <div class="tab">Activity
+
+
+  <div class="tab"><b>Activity </b>
+    <br><b>Choose from following activity level: </b>
+    <br>1 - Not active: A desk job and little or no regular exercise
+    <br>2 - Lightly active: 1-3 days/week of light exercise
+    <br>3 - Moderately active: 3-5 days/week of moderate exercise
+    <br>4 - Very active: 6-7 days/week of strenuous exercise
+    <br>5 - Extremely active: A physically demanding job, and daily strenuous exercise
+    <br>
+    <br><b>Choose from following weight goal:</b>
+    <br>1 - Lose
+    <br>2 - Stay the same
+    <br>3 - Gain
     <p><input placeholder="Activity Level..." oninput="this.className = ''" name="Activity_level"></p>
     <p><input placeholder="Weight Goal" oninput="this.className = ''" name="Weight_goal"></p>
   </div>
   
+
+  <center>
   <div style="overflow:auto;">
     <div style="float:right;">
       <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
       <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
+
+      <br>
+      <br><b>Upon completing the test, select the date and submit. </b>
+      <p><input placeholder = "date enter..." type= "date" name="date" required></p>
+
+      <button type="submit" class="btn" name = "submitData" >Submit</button>
     </div>
   </div>
+  </center>
+
+
+
   <!-- Circles which indicates the steps of the form: -->
   <div style="text-align:center;margin-top:40px;">
-    <span class="step"></span>
     <span class="step"></span>
     <span class="step"></span>
     <span class="step"></span>
@@ -186,23 +215,38 @@ button:hover
 
 
 
+
+
+
+
+<!-- some JavaScript --> 
 <script>
 var currentTab = 0; // Current tab is set to be the first tab (0)
 showTab(currentTab); // Display the current tab
 
-function showTab(n) {
+function showTab(n)
+ {
   // This function will display the specified tab of the form...
   var x = document.getElementsByClassName("tab");
   x[n].style.display = "block";
   //... and fix the Previous/Next buttons:
-  if (n == 0) {
+  if (n == 0) 
+  {
     document.getElementById("prevBtn").style.display = "none";
-  } else {
+  } 
+  
+  else 
+  {
     document.getElementById("prevBtn").style.display = "inline";
   }
-  if (n == (x.length - 1)) {
-    document.getElementById("nextBtn").innerHTML = "Submit";
-  } else {
+
+  if (n == (x.length - 1)) 
+  {
+    document.getElementById("nextBtn").style.display = "none";
+  } 
+  
+  else
+  {
     document.getElementById("nextBtn").innerHTML = "Next";
   }
   //... and run a function that will display the correct step indicator:
@@ -213,6 +257,7 @@ function nextPrev(n)
 {
   // This function will figure out which tab to display
   var x = document.getElementsByClassName("tab");
+
   // Exit the function if any field in the current tab is invalid:
   if (n == 1 && !validateForm()) return false;
   // Hide the current tab:
@@ -220,9 +265,10 @@ function nextPrev(n)
   // Increase or decrease the current tab by 1:
   currentTab = currentTab + n;
   // if you have reached the end of the form...
-  if (currentTab >= x.length) {
+  if (currentTab >= x.length) 
+  {
     // ... the form gets submitted:
-    document.getElementById("regForm").submit();
+    //document.getElementById("regForm").submit();
     return false;
   }
   // Otherwise, display the correct tab:
@@ -236,9 +282,11 @@ function validateForm()
   x = document.getElementsByClassName("tab");
   y = x[currentTab].getElementsByTagName("input");
   // A loop that checks every input field in the current tab:
-  for (i = 0; i < y.length; i++) {
+  for (i = 0; i < y.length; i++) 
+  {
     // If a field is empty...
-    if (y[i].value == "") {
+    if (y[i].value == "") 
+    {
       // add an "invalid" class to the field:
       y[i].className += " invalid";
       // and set the current valid status to false
@@ -246,51 +294,27 @@ function validateForm()
     }
   }
   // If the valid status is true, mark the step as finished and valid:
-  if (valid) {
+  if (valid) 
+  {
     document.getElementsByClassName("step")[currentTab].className += " finish";
   }
   return valid; // return the valid status
 }
 
+
 function fixStepIndicator(n) 
 {
   // This function removes the "active" class of all steps...
   var i, x = document.getElementsByClassName("step");
-  for (i = 0; i < x.length; i++) {
+  for (i = 0; i < x.length; i++)
+  {
     x[i].className = x[i].className.replace(" active", "");
   }
   //... and adds the "active" class on the current step:
   x[n].className += " active";
 }
+
 </script>
-
-
-
-
- <h2><center>Your Results </center></h2>
-
- To do
-
- <br> - activity level should be drop down 
- <br> - add restriction/validation on entry so user can't enter wrong values 
- <br> - add date? 
- <br> - in sql file add primary auto increment value for test ID 
- <br> - add session for user. 
-
- <br> - display results (calculated field) - add graphic for this 
-
-
-  <p>
-  <!-- circle dots -->
-  <div style="text-align:center">
-    <span class="dot"></span>
-    <span class="dot"></span>
-    <span class="dot"></span>
-  </div>
-  </p>
-  
-  
-
 
 
 </body>

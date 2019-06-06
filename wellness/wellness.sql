@@ -17,23 +17,18 @@ INSERT INTO users (username, email, password, first_name, last_name) VALUES ("ad
 DROP TABLE IF EXISTS userWellnessTest;
 CREATE TABLE userWellnessTest
 (
+	testID int NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	username varchar(225) NOT NULL,
-    FOREIGN KEY (username) REFERENCES users(username),  
     Age int NOT NULL,
     Height_cm varchar(225) NOT NULL,
     Weight_kg varchar(225) NOT NULL,
     BMI_calculated varchar(225) NOT NULL,
     Test_Date date NOT NULL,
     Sex varchar(225) NOT NULL,
-    Waist_Size_inch varchar(225) NOT NULL,
-    Waist_height_Ratio varchar(225) NOT NULL,
-    W_H_Result varchar(225) NOT NULL,
     ActivityLevel varchar(225) NOT NULL,
     WeightGoal varchar(225) NOT NULL,
-    calories_Intake varchar(225) NOT NULL,
     restingPulse varchar(225) NOT NULL,
-    MaxHeartRate varchar(225) NOT NULL,
-    TargetHRZone varchar(225) NOT NULL
+    MaxHeartRate varchar(225) NOT NULL	
 );
 
 
@@ -230,4 +225,14 @@ CREATE TABLE weightLiftingTracker
 	PRIMARY KEY(username, date_year, date_month, date_day)
 
 	
+);
+
+
+DROP TABLE IF EXISTS feedBack;
+CREATE TABLE feedBack
+(
+	name varchar(255) NOT NULL,
+	fromEmail varchar(255) NOT NULL,
+	subject varchar(255) NOT NULL,
+	message text NOT NULL
 );

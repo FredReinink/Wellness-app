@@ -156,15 +156,21 @@
 <!-- Footer -->
 <footer class="w3-padding-64 w3-light-grey w3-small w3-center" id="footer">
     <div class="w3-row-padding">
-      <div class="w3-col s6">
+      <div class="w3-col s5">
         <h2><b>Contact Us</b></h2>
         Questions? Go ahead.
-        <form action="/action_page.php" target="_blank">
+
+          <?php include('server.php') ?>
+        <form method = "post" action="homePage.php" >
+
+          <?php include('errors.php'); ?>
+
           <p><input class="w3-input w3-border" type="text" placeholder="Name" name="Name" required></p>
-          <p><input class="w3-input w3-border" type="text" placeholder="Email" name="Email" required></p>
+          <p><input class="w3-input w3-border" type="email" placeholder="Email" name="Email" required></p>
           <p><input class="w3-input w3-border" type="text" placeholder="Subject" name="Subject" required></p>
           <p><input class="w3-input w3-border" type="text" placeholder="Message" name="Message" required></p>
-          <button type="submit" class="w3-button w3-block w3-black">Send</button>
+          <button type="submit" name="emailForm" class="w3-button w3-block w3-black">Send</button>
+
         </form>
       </div>
     
