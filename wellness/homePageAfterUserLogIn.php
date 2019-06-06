@@ -10,13 +10,13 @@
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lobster">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lobster">
 
 
   <style>
        .w3-sidebar a {font-family: "Roboto", sans-serif}
         body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
-</style>
+  </style>
 
   
   
@@ -129,7 +129,7 @@
   
 
   <!--Sign-in Button--> 
-  <button class="block"  onclick="location.href='login.php'">Sign-In</button>
+  <button class="block"  onclick="location.href='login.php'">Sign-out</button>
 
 
   <!--Javascript for automatic slide show --> 
@@ -160,18 +160,28 @@
   </script>
 
 
+
+
+
 <!-- Footer -->
 <footer class="w3-padding-64 w3-light-grey w3-small w3-center" id="footer">
     <div class="w3-row-padding">
-      <div class="w3-col s6">
+      <div class="w3-col s5">
         <h2><b>Contact Us</b></h2>
         Questions? Go ahead.
-        <form action="/action_page.php" target="_blank">
+
+        
+        <form method = "post" action="homePageAfterUserLogIn.php" >
+        
+        <?php include('server.php') ?>
+        <?php include('errors.php'); ?>
+
           <p><input class="w3-input w3-border" type="text" placeholder="Name" name="Name" required></p>
-          <p><input class="w3-input w3-border" type="text" placeholder="Email" name="Email" required></p>
+          <p><input class="w3-input w3-border" type="email" placeholder="Email" name="Email" required></p>
           <p><input class="w3-input w3-border" type="text" placeholder="Subject" name="Subject" required></p>
           <p><input class="w3-input w3-border" type="text" placeholder="Message" name="Message" required></p>
-          <button type="submit" class="w3-button w3-block w3-black">Send</button>
+          <button type="submit" name="emailForm" class="w3-button w3-block w3-black">Send</button>
+
         </form>
       </div>
     

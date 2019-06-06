@@ -115,6 +115,37 @@ if (isset($_POST['login_user']))
 
 
 
+//emailForm
+
+if(isset($_POST['emailForm']))
+{
+
+
+    $fromEmail = mysqli_real_escape_string($db, $_POST['Email']);
+    $name = mysqli_real_escape_string($db, $_POST['Name']);
+    $subject = mysqli_real_escape_string($db, $_POST['Subject']);
+    $message = $_POST['Message'];
+
+    // send query
+    $message = mysqli_real_escape_string($db, $_POST['Message']);
+    $query = "INSERT INTO feedBack(name, fromEmail, subject, message) VALUES ('$name', '$fromEmail', '$subject', '$message')";
+    $result = mysqli_query($db, $query);
+    
+  
+    echo "Thank you! We'll contact you soon.";
+  
+    
+}
+
+
+
+
+
+
+
+
+
+
 //adding URLS/Articles 
 
 // for adding new bookmarks and expanding the table 
@@ -156,7 +187,7 @@ if (isset($_POST['add_bookmark']))
       // add url to the system
         $query = "INSERT INTO articles(ArticleTitle, ArticleAuthors, urls, ArticleTopic_1, ArticleTopic_2, ArticleTopic_3, ArticleTag_1, ArticleTag_2, ArticleTag_3, ArticleTag_4  ) VALUES ('$ArticleTitle', '$ArticleAuthors', '$url', '$ArticleTopic_1', '$ArticleTopic_2', '$ArticleTopic_3', '$ArticleTag_1', '$ArticleTag_2', '$ArticleTag_3', '$ArticleTag_4')";
         $result = mysqli_query($db, $query);
-        mysqli_num_rows($result);
+        //mysqli_num_rows($result);
       
       echo "<div style=\"text-align:center\">";
       echo "Added!";
@@ -236,13 +267,17 @@ if (isset($_POST['add_challenge']))
       // add url to the system
 		$query = "INSERT INTO listOfChallenges (challenge_name, challenge_description, points_submission ) VALUES ('$challenge_name', '$challenge_description' , '$points_submission')";
 		$result = mysqli_query($db, $query);
-		mysqli_num_rows($result);
+		//mysqli_num_rows($result);
       
       echo "<div style=\"text-align:center\">";
       echo "Added!";
       return;
       
 }
+
+
+
+
 
 //delete challenge
 if(isset($_POST['delete_challenge']))
@@ -261,6 +296,9 @@ if(isset($_POST['delete_challenge']))
    echo "<div style=\"text-align:center\">";  
    echo "Deleted !";
 }
+
+
+
 
 //submit fitness tracking information
 if (isset($_POST['submit_fitness_info']))
@@ -428,6 +466,581 @@ if(isset($_POST['submit1']))
 
 
 
+
+
+
+// wellnessTest
+if(isset($_POST['submitData']))
+{
+  $username = $_SESSION['username'];
+  $weight = $_POST['weight'];
+  $height = $_POST['height'];
+  $height = $height / 100; 
+  $sex = $_POST['sex'];
+  $age = $_POST['age'];
+  $rest_pulse = $_POST['rest_pulse'];
+  $Max_heart_rate = $_POST['Max_heart_rate'];
+  $Activity_level = $_POST['Activity_level'];
+  $Weight_goal = $_POST['Weight_goal'];
+  $date = $_POST['date'];
+
+  $BMI = calculateBMI($weight, $height); 
+
+  heartRate ($age, $rest_pulse, $Max_heart_rate); 
+  $BMR = calcBMR($sex, $weight, $height, $age);
+  recommendDailyCaloryInput($BMR, $Activity_level, $Weight_goal);
+
+
+
+
+
+
+  //store info on the database Table userWellnessTest
+
+  $user_check_query = "INSERT INTO userWellnessTest (username, Age, Height_cm, Weight_kg, BMI_calculated, Sex, ActivityLevel, WeightGoal, restingPulse, MaxHeartRate)
+   VALUES ('$username', '$age' , '$height', '$weight', '$BMI', '$sex', '$Activity_level', '$Weight_goal', '$rest_pulse', '$Max_heart_rate') ";
+ 
+  $result = mysqli_query($db, $user_check_query);
+
+      echo "<div style=\"text-align:center\">";
+      echo "Thanks!"; 
+  
+      return;
+      
+
+}
+
+
+
+
+// https://www.thecalculatorsite.com/articles/health/bmi-formula-for-bmi-calculations.php
+//function to calculate BMI
+function calculateBMI($weight, $height)
+{
+  $BMI = $weight / ($height * $height);
+
+
+ 
+ echo "<h1><center><b>ASSESSMENT RESULTS </b></center></h1>";
+
+ echo "<p>
+ <div style=\"text-align:center\">
+   <span class=\"dot\"></span>
+   <span class=\"dot\"></span>
+   <span class=\"dot\"></span>
+ </div>
+ </p>";
+
+
+  echo "<div style=\"text-align:center\">";
+  echo "<b>BMI: </b>"; 
+  echo number_format($BMI, 1);
+  echo "<br>";
+
+  
+  if ($BMI >= 40)
+  {
+    echo "Very Severaly Obese";
+  }
+
+  else if ($BMI < 40 && $BMI >= 35)
+  {
+    echo "Severely Obese";
+  }
+
+  else if ($BMI < 35 && $BMI >= 30)
+  {
+    echo "Moderately Obese";
+   
+  }
+
+  else if ($BMI < 30 && $BMI >= 25)
+  {
+    echo "Oveweight";
+    // oveweight 
+  }
+
+  else if ($BMI < 25 && $BMI >= 18.5)
+  {
+    echo "Normal (healthy weight)";
+    // normal (healthy weight) 
+  }
+
+   else if ($BMI < 18.5 && $BMI >= 16)
+  {
+    echo "Underweight";
+    // underweight 
+  }
+
+  else if ($BMI < 16 && $BMI >= 15)
+  {
+    echo "Severely Underweight";
+    // severely underweight 
+  }
+
+  else if ($BMI < 15)
+  {
+    echo "Severely Underweight";
+    // very severely underweight
+  }
+
+  else
+  {
+    echo "Error in value entered. Please take the test again. Thanks!";
+  }
+
+  return $BMI; 
+}
+
+
+
+
+
+// function to calculate target heart rate 
+//reference: https://my.clevelandclinic.org/health/diagnostics/17402-pulse--heart-rate/test-details
+function heartRate ($age, $rest_pulse, $Max_heart_rate)
+{
+  echo "<div style=\"text-align:center\">";
+  echo "<br>";
+  echo "<b>Your current Max Heart Rate: </b>";
+  echo $Max_heart_rate;
+
+  echo "<br>";
+  echo "<b>Allowable Max Heart Rate: </b> ";
+  $maxHeartRate_ShouldBe = 220 - $age; 
+  echo $maxHeartRate_ShouldBe;
+
+  echo "<br>";
+  
+
+  if ($age  > 70)
+  {
+    echo "<b>Ideal Target Heart Rate (HR) Zone (60-85%): 90 – 123</b>";
+  }
+
+  else if ($age <=70 && $age>65)
+  {
+    echo "<b>Ideal Target Heart Rate (HR) Zone (60-85%): 93 – 132</b>";
+  }
+
+  else if ($age <=65 && $age>60)
+  {
+    echo "<b>Ideal Target Heart Rate (HR) Zone (60-85%): 96 – 136</b>";
+  }
+
+  else if ($age <=60 && $age>55)
+  {
+    echo "<b>Ideal Target Heart Rate (HR) Zone (60-85%): 99 – 140</b>";
+  }
+
+  else if ($age <=55 && $age>50)
+  {
+    echo "<b>Ideal Target Heart Rate (HR) Zone (60-85%): 102 – 145</b>";
+  }
+
+  else if ($age <=50 && $age>45)
+  {
+    echo "<b>Ideal Target Heart Rate (HR) Zone (60-85%): 105 – 149</b>";
+  }
+
+  else if ($age <=45 && $age>40)
+  {
+    echo "<b>Ideal Target Heart Rate (HR) Zone (60-85%): 108 – 153</b>";
+  }
+
+  else if ($age <=40 && $age>35)
+  {
+    echo "<b>Ideal Target Heart Rate (HR) Zone (60-85%): 111 – 157</b>";
+  }
+
+  else if ($age <=35 && $age>30)
+  {
+    echo "<b>Ideal Target Heart Rate (HR) Zone (60-85%): 114 – 162</b>";
+  }
+
+  else if ($age <=30 && $age>25)
+  {
+    echo "<b>Ideal Target Heart Rate (HR) Zone (60-85%): 117 – 166</b>";
+  }
+
+  else if ($age <=25 && $age>20)
+  {
+    echo "<b>Ideal Target Heart Rate (HR) Zone (60-85%): 120 – 170</b>";
+  }
+
+  else if ($age <= 20)
+  {
+    echo "<b>Ideal Target Heart Rate (HR) Zone (60-85%): 100 - 120</b>";
+  }
+
+  else
+  {
+    echo "<b>Ideal Error in value entered. Please take the test again. Thanks!</b>";
+  }
+
+}
+
+
+function calcBMR($sex, $weight, $height, $age)
+{
+  //Use original harris-benedict equation to calculate Men BMR
+  if ($sex == 'M' || $sex == 'm' || $sex == 'MALE' || $sex == 'male')
+  {
+      echo "<div style=\"text-align:center\">";
+
+      $BMR = 66.4720 + (13.7516 * $weight) + (5.0033 * $height) - (6.7550 * $age);
+      echo "<br> Your BMR = ";
+      echo number_format($BMR, 1);
+      
+  }
+
+  else if ($sex == 'F' || $sex == 'f' || $sex == 'FEMALE' || $sex == 'female')
+  {
+      $BMR = 655.0955 + (9.5634 * $weight) + (1.8496 * $height) - (4.6756 * $age);
+      echo "<br> Your BMR = ";
+      echo number_format($BMR, 1);
+      
+  }
+
+  else
+  {
+    echo "<br> Error in value entered. Results will be incorrect. Please take the test again. Thanks!";
+    $BMR = 0; 
+    
+  }
+
+  return $BMR;
+
+}
+
+
+
+function recommendDailyCaloryInput($BMR, $Activity_level, $Weight_goal)
+{
+
+  echo "<div style=\"text-align:center\">";
+
+  //Recommend calory intake for: maintain weight weight_goal 2 with various levels of activities. 
+  //Data comes from: https://bmi-calories.com/calorie-intake-calculator.html
+
+  if ($Weight_goal == 2)
+  {
+
+      if ($Activity_level = 1)
+      {
+        $DailKilocaloriesNeeded = $BMR * 1.2;  
+
+        echo "<b><br>Your recommended daily calory intake: </b>";
+        echo number_format($DailKilocaloriesNeeded, 0);
+        
+
+      
+      }
+    
+      else if ($Activity_level = 2)
+      {
+        $DailKilocaloriesNeeded = $BMR * 1.375; 
+        
+        echo "<b><br>Your recommended daily calory intake: </b>";
+        echo number_format($DailKilocaloriesNeeded, 0);
+      }
+    
+      else if ($Activity_level = 3)
+      {
+        $DailKilocaloriesNeeded = $BMR * 1.55;  
+
+        echo "<b><br>Your recommended daily calory intake: </b>";
+        echo number_format($DailKilocaloriesNeeded, 0);
+      }
+    
+      else if ($Activity_level = 4)
+      {
+        $DailKilocaloriesNeeded = $BMR * 1.725;  
+
+        echo "<b><br>Your recommended daily calory intake: </b>";
+        echo number_format($DailKilocaloriesNeeded, 0);
+      }
+    
+      else if ( $Activity_level = 5)
+      {
+        $DailKilocaloriesNeeded = $BMR * 1.9;  
+
+        echo "<b><br>Your recommended daily calory intake: </b>";
+        echo $number_format($DailKilocaloriesNeeded, 0);
+      }
+
+      else
+      {
+        echo "Error in value entered. Results will be incorrect. Please take the test again. Thanks!";
+        $DailKilocaloriesNeeded = 0; 
+      }
+
+  }
+  
+
+
+
+
+
+
+  //Recommend calory intake for: lose weight weight_goal 1 with various levels of activities. 
+  //Data comes from: https://bmi-calories.com/calorie-intake-calculator.html
+
+  //Case 1: To lose 2.5 kg/month --> or lose 0.0833 kg/day
+  //Case 2: To lose 5 kg/month --> or lose 0.1667 kg/day
+  //Case 3: To lose 7 kg/month --> or lose 0.233 kg/day
+
+  /*1 kilocalory = 1 eating Calory 
+  Based on assumption need 3000 calory lose to 1 lb. 
+  Thus, 2.2 lb = 1 kg = 6600 calories to lose 1 kg
+  for 0.0833 kg loss = 6600 * 0.0833 = 549.78;
+  for 0.1667 kg loss = 6600 * 0.1667 = 1100.22;
+  for 0.2333 kg loss = 6600 * 0.2333 = 1539.78;
+  */
+
+
+  else if ($Weight_goal == 1)
+  {
+        
+      if ($Activity_level = 1)
+      {
+        $DailKilocaloriesNeeded = $BMR * 1.2;  
+        //case 1
+        $DailyCalCase1 = $DailKilocaloriesNeeded - 549.78;
+        //case 2
+        $DailyCalCase2 = $DailKilocaloriesNeeded - 1100.22;
+        //case 3
+        $DailyCalCase3 = $DailKilocaloriesNeeded - 1539.78;
+
+        echo "<b><br>Your recommended daily calory intake: </b>";
+        echo "<br><b>Case 1:</b> To lose 2.5 kg/month - ";
+        echo number_format($DailyCalCase1, 0);
+        echo "<br><b>Case 2:</b> To lose 5 kg/month - ";
+        echo number_format($DailyCalCase2, 0);
+        echo "<br><b>Case 3:</b> To lose 7 kg/month - ";
+        echo number_format($DailyCalCase3, 0);
+
+      }
+    
+      else if ($Activity_level = 2)
+      {
+        $DailKilocaloriesNeeded = $BMR * 1.375; 
+        //case 1
+        $DailyCalCase1 = $DailKilocaloriesNeeded - 549.78;
+        //case 2
+        $DailyCalCase2 = $DailKilocaloriesNeeded - 1100.22;
+        //case 3
+        $DailyCalCase3 = $DailKilocaloriesNeeded - 1539.78; 
+
+        echo "<b><br>Your recommended daily calory intake: </b>";
+        echo "<br><b>Case 1:</b> To lose 2.5 kg/month - ";
+        echo number_format($DailyCalCase1, 0);
+        echo "<br><b>Case 2:</b> To lose 5 kg/month - ";
+        echo number_format($DailyCalCase2, 0);
+        echo "<br><b>Case 3:</b> To lose 7 kg/month - ";
+        echo number_format($DailyCalCase3, 0);
+      }
+    
+      else if ($Activity_level = 3)
+      {
+        $DailKilocaloriesNeeded = $BMR * 1.55;
+        //case 1
+        $DailyCalCase1 = $DailKilocaloriesNeeded - 549.78;
+        //case 2
+        $DailyCalCase2 = $DailKilocaloriesNeeded - 1100.22;
+        //case 3
+        $DailyCalCase3 = $DailKilocaloriesNeeded - 1539.78;  
+
+        echo "<b><br>Your recommended daily calory intake: </b>";
+        echo "<br><b>Case 1:</b> To lose 2.5 kg/month - ";
+        echo number_format($DailyCalCase1, 0);
+        echo "<br><b>Case 2:</b> To lose 5 kg/month - ";
+        echo number_format($DailyCalCase2, 0);
+        echo "<br><b>Case 3:</b> To lose 7 kg/month - ";
+        echo number_format($DailyCalCase3, 0);
+      }
+    
+      else if ($Activity_level = 4)
+      {
+        $DailKilocaloriesNeeded = $BMR * 1.725;  
+        //case 1
+        $DailyCalCase1 = $DailKilocaloriesNeeded - 549.78;
+        //case 2
+        $DailyCalCase2 = $DailKilocaloriesNeeded - 1100.22;
+        //case 3
+        $DailyCalCase3 = $DailKilocaloriesNeeded - 1539.78;
+
+        echo "<b><br>Your recommended daily calory intake: </b>";
+        echo "<br><b>Case 1:</b> To lose 2.5 kg/month - ";
+        echo number_format($DailyCalCase1, 0);
+        echo "<br><b>Case 2:</b> To lose 5 kg/month - ";
+        echo number_format($DailyCalCase2, 0);
+        echo "<br><b>Case 3:</b> To lose 7 kg/month - ";
+        echo number_format($DailyCalCase3, 0);
+      }
+    
+      else if ( $Activity_level = 5)
+      {
+        $DailKilocaloriesNeeded = $BMR * 1.9;
+        //case 1
+        $DailyCalCase1 = $DailKilocaloriesNeeded - 549.78;
+        //case 2
+        $DailyCalCase2 = $DailKilocaloriesNeeded - 1100.22;
+        //case 3
+        $DailyCalCase3 = $DailKilocaloriesNeeded - 1539.78;
+
+        echo "<b><br>Your recommended daily calory intake: </b>";
+        echo "<br><b>Case 1:</b> To lose 2.5 kg/month - ";
+        echo number_format($DailyCalCase1, 0);
+        echo "<br><b>Case 2:</b> To lose 5 kg/month - ";
+        echo number_format($DailyCalCase2, 0);
+        echo "<br><b>Case 3:</b> To lose 7 kg/month - ";
+        echo number_format($DailyCalCase3, 0);
+      }
+
+      else
+      {
+        echo "Error in value entered. Results will be incorrect. Please take the test again. Thanks!";
+        $DailKilocaloriesNeeded = 0; 
+      }
+
+  }
+
+
+
+
+  
+  
+  
+
+  //Recommend calory intake for: gain weight weight_goal 3 with various levels of activities. 
+
+  //Case 1: To gain 2.5 kg/month --> or gain 0.0833 kg/day
+  //Case 2: To gain 5 kg/month --> or gain 0.1667 kg/day
+  //Case 3: To gain 7 kg/month --> or gain 0.233 kg/day
+
+  /*1 kilocalory = 1 eating Calory 
+  Based on assumption need 3000 calory lose to 1 lb. 
+  Thus, 2.2 lb = 1 kg = 6600 calories to lose 1 kg
+  for 0.0833 kg gain = 6600 * 0.0833 = 549.78;
+  for 0.1667 kg gain = 6600 * 0.1667 = 1100.22;
+  for 0.2333 kg gain = 6600 * 0.2333 = 1539.78;
+  */
+
+
+  else if ($Weight_goal == 3)
+  {
+        
+      if ($Activity_level = 1)
+      {
+        $DailKilocaloriesNeeded = $BMR * 1.2;  
+        //case 1
+        $DailyCalCase1 = $DailKilocaloriesNeeded + 549.78;
+        //case 2
+        $DailyCalCase2 = $DailKilocaloriesNeeded + 1100.22;
+        //case 3
+        $DailyCalCase3 = $DailKilocaloriesNeeded + 1539.78;
+
+        echo "<b><br>Your recommended daily calory intake: </b>";
+        echo "<br><b>Case 1:</b> To gain 2.5 kg/month - ";
+        echo number_format($DailyCalCase1, 0);
+        echo "<br><b>Case 2:</b> To gain 5 kg/month - ";
+        echo number_format($DailyCalCase2, 0);
+        echo "<br><b>Case 3:</b> To gain 7 kg/month - ";
+        echo number_format($DailyCalCase3, 0);
+      }
+    
+      else if ($Activity_level = 2)
+      {
+        $DailKilocaloriesNeeded = $BMR * 1.375; 
+        //case 1
+        $DailyCalCase1 = $DailKilocaloriesNeeded + 549.78;
+        //case 2
+        $DailyCalCase2 = $DailKilocaloriesNeeded + 1100.22;
+        //case 3
+        $DailyCalCase3 = $DailKilocaloriesNeeded + 1539.78;
+
+        echo "<b><br>Your recommended daily calory intake: </b>";
+        echo "<br><b>Case 1:</b> To gain 2.5 kg/month - ";
+        echo number_format($DailyCalCase1, 0);
+        echo "<br><b>Case 2:</b> To gain 5 kg/month - ";
+        echo number_format($DailyCalCase2, 0);
+        echo "<br><b>Case 3:</b> To gain 7 kg/month - ";
+        echo number_format($DailyCalCase3, 0);
+      }
+    
+      else if ($Activity_level = 3)
+      {
+        $DailKilocaloriesNeeded = $BMR * 1.55;
+        //case 1
+        $DailyCalCase1 = $DailKilocaloriesNeeded + 549.78;
+        //case 2
+        $DailyCalCase2 = $DailKilocaloriesNeeded + 1100.22;
+        //case 3
+        $DailyCalCase3 = $DailKilocaloriesNeeded + 1539.78;  
+
+        echo "<b><br>Your recommended daily calory intake: </b>";
+        echo "<br><b>Case 1:</b> To gain 2.5 kg/month - ";
+        echo number_format($DailyCalCase1, 0);
+        echo "<br><b>Case 2:</b> To gain 5 kg/month - ";
+        echo number_format($DailyCalCase2, 0);
+        echo "<br><b>Case 3:</b> To gain 7 kg/month - ";
+        echo number_format($DailyCalCase3, 0);
+      }
+    
+      else if ($Activity_level = 4)
+      {
+        $DailKilocaloriesNeeded = $BMR * 1.725;  
+        //case 1
+        $DailyCalCase1 = $DailKilocaloriesNeeded + 549.78;
+        //case 2
+        $DailyCalCase2 = $DailKilocaloriesNeeded + 1100.22;
+        //case 3
+        $DailyCalCase3 = $DailKilocaloriesNeeded + 1539.78;
+
+        echo "<b><br>Your recommended daily calory intake: </b>";
+        echo "<br><b>Case 1:</b> To gain 2.5 kg/month - ";
+        echo number_format($DailyCalCase1, 0);
+        echo "<br><b>Case 2:</b> To gain 5 kg/month - ";
+        echo number_format($DailyCalCase2, 0);
+        echo "<br><b>Case 3:</b> To gain 7 kg/month - ";
+        echo number_format($DailyCalCase3, 0);
+      }
+    
+      else if ( $Activity_level = 5)
+      {
+        $DailKilocaloriesNeeded = $BMR * 1.9;
+        //case 1
+        $DailyCalCase1 = $DailKilocaloriesNeeded + 549.78;
+        //case 2
+        $DailyCalCase2 = $DailKilocaloriesNeeded + 1100.22;
+        //case 3
+        $DailyCalCase3 = $DailKilocaloriesNeeded + 1539.78; 
+
+        echo "<b><br>Your recommended daily calory intake: </b>";
+        echo "<br><b>Case 1:</b> To gain 2.5 kg/month - ";
+        echo number_format($DailyCalCase1, 0);
+        echo "<br><b>Case 2:</b> To gain 5 kg/month - ";
+        echo number_format($DailyCalCase2, 0);
+        echo "<br><b>Case 3:</b> To gain 7 kg/month - ";
+        echo number_format($DailyCalCase3, 0);
+      }
+
+      else
+      {
+        echo "Error in value entered. Results will be incorrect. Please take the test again. Thanks!";
+        $DailKilocaloriesNeeded = 0; 
+      }
+
+  }
+
+
+  else
+  {
+    echo "<b>Error in values entered. Please take the test again.</b>";
+  }
+
+}
 
 
 ?>

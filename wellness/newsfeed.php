@@ -76,7 +76,7 @@
     <center>
     <div class="input-group">
         
-        <input type="text" placeholder="Search.." name="search">
+        <input type="text" placeholder="Search" name="search">
         
     </div>
 

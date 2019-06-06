@@ -53,3 +53,13 @@
 [29-May-2019 08:34:42 Europe/Berlin] SELECT ArticleTitle, urls FROM articles WHERE ArticleAuthors = 'fuck'
 [29-May-2019 08:34:46 Europe/Berlin] UPDATE followedExercises SET user_exercise1_name = 'fefe', num_exercises = '1' WHERE username = asdf
 [29-May-2019 08:35:46 Europe/Berlin] UPDATE followedExercises SET user_exercise1_name = 'grg', num_exercises = '1' WHERE username = 'asdf'
+[05-Jun-2019 05:39:37 Europe/Berlin] PHP Warning:  mysqli_connect(): (HY000/1049): Unknown database 'wellness' in C:\xampp\htdocs\wellness\server.php on line 14
+[05-Jun-2019 05:39:37 Europe/Berlin] PHP Warning:  mysqli_connect(): (HY000/1049): Unknown database 'wellness' in C:\xampp\htdocs\wellness\adminMonthlyChallengeControl.php on line 123
+[05-Jun-2019 05:39:37 Europe/Berlin] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, bool given in C:\xampp\htdocs\wellness\adminMonthlyChallengeControl.php on line 126
+[05-Jun-2019 08:39:47 Europe/Berlin] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, bool given in C:\xampp\htdocs\wellness\server.php on line 239
+[05-Jun-2019 09:36:31 Europe/Berlin] PHP Warning:  mail(): Failed to connect to mailserver at &quot;localhost&quot; port 25, verify your &quot;SMTP&quot; and &quot;smtp_port&quot; setting in php.ini or use ini_set() in C:\xampp\htdocs\wellness\server.php on line 128
+[05-Jun-2019 10:04:55 Europe/Berlin] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, bool given in C:\xampp\htdocs\wellness\server.php on line 190
+[06-Jun-2019 04:50:57 Europe/Berlin] PHP Warning:  A non-numeric value encountered in C:\xampp\htdocs\wellness\server.php on line 509
+[06-Jun-2019 04:50:57 Europe/Berlin] PHP Warning:  A non-numeric value encountered in C:\xampp\htdocs\wellness\server.php on line 509
+[06-Jun-2019 04:50:57 Europe/Berlin] PHP Warning:  Division by zero in C:\xampp\htdocs\wellness\server.php on line 509
+[06-Jun-2019 05:01:32 Europe/Berlin] PHP Warning:  Use of undefined constant BMI - assumed 'BMI' (this will throw an Error in a future version of PHP) in C:\xampp\htdocs\wellness\server.php on line 544
