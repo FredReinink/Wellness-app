@@ -7,7 +7,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="stylesheet.css">
-  
+ 
+
+
+
   
   
   <head>
@@ -20,7 +23,7 @@
 
     <body> 
     <!-- add a logo --> 
-    <div class = "logo"><img src = "logo.png" style="width:20%"></a>
+    <div class = "logo"><img src = "logo2.png" style="width:10%"></a>
     </div>
 
 
@@ -34,7 +37,10 @@
     </div>
 
     </body>
-  
+
+
+
+
 
 
 
@@ -59,7 +65,7 @@
    
     <br><div class="input-group">
          <label>Enter Article Title: </label>
-         <input type="text" name="ArticleTitle">
+         <input type="text" name="ArticleTitle" size="20"> 
     </div>
 
     <br><div class="input-group">
