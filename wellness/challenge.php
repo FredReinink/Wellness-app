@@ -19,7 +19,7 @@
 
   <body> 
   <!-- add a logo --> 
-  <div class = "logo"><a href = "homePageAfterUserLogIn.php"><img src = "logo.png" style="width:20%"></a>
+  <div class = "logo"><a href = "homePageAfterUserLogIn.php"><img src = "logo2.png" style="width:10%"></a>
   </div>
 
   
@@ -37,6 +37,17 @@
     </div>
   </div>
  
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -65,7 +76,7 @@
  
    {
       echo "<div style=\"text-align:center\">";
-      echo "Monthly challenges are listed below. ";
+      //echo "Monthly challenges are listed below. ";
    }
   
    echo "<br>";
@@ -81,13 +92,101 @@
    
    ?>
 
-  <!-- circle dots -->
-  <br>
-  <div style="text-align:center">
-    <span class="dot"></span>
-    <span class="dot"></span>
-    <span class="dot"></span>
-  </div>
+ 
+
+
+
+
+
+
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<style type="text/css">
+.form-style-8{
+	font-family: 'Open Sans Condensed', arial, sans;
+	width: 1000px;
+	padding: 25px;
+	background: #FFFFFF;
+	margin:  auto;
+	
+
+}
+.form-style-8 h2{
+	background: #4D4D4D;
+	text-transform: uppercase;
+	font-family: 'Open Sans Condensed', sans-serif;
+	color: #797979;
+	font-size: 22px;
+	font-weight: 100;
+	padding: 20px;
+	margin: -30px -30px 30px -30px;
+}
+.form-style-8 input[type="text"],
+.form-style-8 input[type="date"],
+.form-style-8 input[type="datetime"],
+.form-style-8 input[type="email"],
+.form-style-8 input[type="number"],
+.form-style-8 input[type="search"],
+.form-style-8 input[type="time"],
+.form-style-8 input[type="url"],
+.form-style-8 input[type="password"],
+.form-style-8 textarea,
+.form-style-8 select 
+{
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	outline: none;
+	display: block;
+	width: 100%;
+	padding: 7px;
+	border: none;
+	border-bottom: 1px solid #ddd;
+	background: transparent;
+	margin-bottom: 10px;
+	font: 22px Arial, Helvetica, sans-serif;
+	height: 45px;
+}
+.form-style-8 textarea{
+	resize:none;
+	overflow: hidden;
+}
+.form-style-8 input[type="button"], 
+.form-style-8 input[type="submit"]{
+	-moz-box-shadow: inset 0px 1px 0px 0px #45D6D6;
+	-webkit-box-shadow: inset 0px 1px 0px 0px #45D6D6;
+	box-shadow: inset 0px 1px 0px 0px #45D6D6;
+	background-color: #2CBBBB;
+	border: 1px solid #27A0A0;
+	display: inline-block;
+	cursor: pointer;
+	color: #FFFFFF;
+	font-family: 'Open Sans Condensed', sans-serif;
+	font-size: 14px;
+	padding: 8px 18px;
+	text-decoration: none;
+	text-transform: uppercase;
+}
+.form-style-8 input[type="button"]:hover, 
+.form-style-8 input[type="submit"]:hover {
+	background:linear-gradient(to bottom, #34CACA 5%, #30C9C9 100%);
+	background-color:#34CACA;
+}
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     <?php include('server.php') ?>
   
@@ -96,23 +195,23 @@
           <h2>Did you complete a challenge? </h2>
    </div>
    
-   <form method="post" action="challenge.php">
+   <form method="post" action="challenge.php" style=>
        <?php include('errors.php'); ?>
    <br>
    
     <br> 
-    <div class="input-group">
+    <div class="form-style-8">
          <label>Enter the name of the challenge you completed</label>
          <input type="text" name="challenge_name">
     </div>
 
-    <div class="input-group">
+    <div class="form-style-8">
          <label>Upload the supporting document</label>
-         <input type="text" name="submission">
+         <input type="text" name="submission" required>
     </div>
    
    <!-- points get cleared for all user each month-->
-   <div class="input-group">
+   <div class="form-style-8">
          <button type="submit" class="btn" name="challenge_submission">Submit</button>
        </div>
    

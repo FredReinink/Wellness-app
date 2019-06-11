@@ -7,6 +7,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="stylesheet.css">
+
   
   
   <head>
@@ -15,11 +16,11 @@
   
   </head> 
   
-  
+ 
 
   <body> 
   <!-- add a logo --> 
-  <div class = "logo"><a href = "homePageAfterUserLogIn.php"><img src = "logo.png" style="width:20%"></a>
+  <div class = "logo"><a href = "homePageAfterUserLogIn.php"><img src = "logo2.png" style="width:10%"></a>
   </div>
 
   
@@ -38,6 +39,98 @@
   </div>
  
   
+
+
+
+
+  <style> 
+    body {
+	width: 100wh;
+	height: 90vh;
+	color: #000000;
+	background: linear-gradient(-45deg, #EE7752, #E73C7E, #23A6D5, #23D5AB);
+	background-size: 400% 400%;
+	-webkit-animation: Gradient 15s ease infinite;
+	-moz-animation: Gradient 15s ease infinite;
+	animation: Gradient 15s ease infinite;
+}
+
+@-webkit-keyframes Gradient {
+	0% {
+		background-position: 0% 50%
+	}
+	50% {
+		background-position: 100% 50%
+	}
+	100% {
+		background-position: 0% 50%
+	}
+}
+
+@-moz-keyframes Gradient {
+	0% {
+		background-position: 0% 50%
+	}
+	50% {
+		background-position: 100% 50%
+	}
+	100% {
+		background-position: 0% 50%
+	}
+}
+
+@keyframes Gradient {
+	0% {
+		background-position: 0% 50%
+	}
+	50% {
+		background-position: 100% 50%
+	}
+	100% {
+		background-position: 0% 50%
+	}
+}
+
+h1,
+h6 {
+	font-family: 'Open Sans';
+	font-weight: 300;
+	text-align: center;
+	position: absolute;
+	top: 45%;
+	right: 0;
+	left: 0;
+}
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <!-- for ref 
 https://www.w3schools.com/howto/howto_js_form_steps.asp
@@ -61,8 +154,8 @@ https://www.webmd.com/diet/body-bmi-calculator
 
 #regForm 
 {
-  background-color: #ffffff;
-  margin: 100px auto;
+  background-color: #bfb7c9;
+  margin: 80px auto;
   font-family: Raleway;
   padding: 40px;
   width: 70%;
@@ -96,7 +189,7 @@ input.invalid
 }
 
 button {
-  background-color: #4CAF50;
+  background-color: #5e005b;
   color: #ffffff;
   border: none;
   padding: 10px 20px;
@@ -136,9 +229,27 @@ button:hover
 /* Mark the steps that are finished and valid: */
 .step.finish
  {
-  background-color: #4CAF50;
+  background-color: #5e005b;
 }
 </style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 <body>
@@ -148,9 +259,9 @@ button:hover
   
   <?php include('errors.php'); ?>
 
-  <h1>Wellness Test</h1>
+ 
   <!-- One "tab" for each step in the form: -->
-  <div class="tab"><b>General:</b>
+  <div class="tab"><b>WELLNESS TEST | General</b>
     <p><input placeholder="Weight (kg)..." oninput="this.className = ''" name="weight"></p>
     <p><input placeholder="Height (cm)..." oninput="this.className = ''" name="height"></p>
     <p><input placeholder="Sex (Enter F/M)..." oninput="this.className = ''" name="sex"></p>
@@ -158,13 +269,13 @@ button:hover
   </div>
 
 
-  <div class="tab"><b>Heart Rate</b>
+  <div class="tab"><b>WELLNESS TEST | Heart Rate</b>
     <p><input placeholder="Resting pulse..." oninput="this.className = ''" name="rest_pulse"></p>
     <p><input placeholder="Max heart rate..." oninput="this.className = ''" name="Max_heart_rate"></p>
   </div>
 
 
-  <div class="tab"><b>Activity </b>
+  <div class="tab"><b>WELLNESS TEST | Activity </b>
     <br><b>Choose from following activity level: </b>
     <br>1 - Not active: A desk job and little or no regular exercise
     <br>2 - Lightly active: 1-3 days/week of light exercise

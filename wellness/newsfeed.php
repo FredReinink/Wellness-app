@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="stylesheet.css">
   
   
+  
   <head>
   
     <title> Wellness </title> 
@@ -19,7 +20,7 @@
 
   <body> 
   <!-- add a logo --> 
-  <div class = "logo"><a href = "homePageAfterUserLogIn.php"><img src = "logo.png" style="width:20%"></a>
+  <div class = "logo"><a href = "homePageAfterUserLogIn.php"><img src = "logo2.png" style="width:10%"></a>
   </div>
 
   
@@ -37,28 +38,115 @@
     </div>
   </div>
  
+
+
+  <style> 
+    body {
+	width: 100wh;
+	height: 90vh;
+	color: #000000;
+	background: linear-gradient(-45deg, #EE7752, #E73C7E, #23A6D5, #23D5AB);
+	background-size: 400% 400%;
+	-webkit-animation: Gradient 15s ease infinite;
+	-moz-animation: Gradient 15s ease infinite;
+	animation: Gradient 15s ease infinite;
+}
+
+@-webkit-keyframes Gradient {
+	0% {
+		background-position: 0% 50%
+	}
+	50% {
+		background-position: 100% 50%
+	}
+	100% {
+		background-position: 0% 50%
+	}
+}
+
+@-moz-keyframes Gradient {
+	0% {
+		background-position: 0% 50%
+	}
+	50% {
+		background-position: 100% 50%
+	}
+	100% {
+		background-position: 0% 50%
+	}
+}
+
+@keyframes Gradient {
+	0% {
+		background-position: 0% 50%
+	}
+	50% {
+		background-position: 100% 50%
+	}
+	100% {
+		background-position: 0% 50%
+	}
+}
+
+h1,
+h6 {
+	font-family: 'Open Sans';
+	font-weight: 300;
+	text-align: center;
+	position: absolute;
+	top: 45%;
+	right: 0;
+	left: 0;
+}
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   <style>
+   
    <!-- add a search feature --> 
    <style> 
     input[type=text] 
     {
         width: 1000px;
-        box-sizing: border-box;
-        border: 4px solid #ccc;
-        border-radius: 4px;
-        font-size: 18px;
+        font-size: 20px;
         background-color: white;
         background-position: 10px 10px; 
-        padding: 12px 20px 12px 40px;
-        -webkit-transition: width 0.4s ease-in-out;
-        transition: width 0.4s ease-in-out;
+        
+  
     }
 
     input[type=text]:focus 
     {
+       border: none; 
         width: 100%;
     }
     </style>
-   
+   <!--
    <br>
    <br>
    <br>
@@ -76,7 +164,7 @@
     <center>
     <div class="input-group">
         
-        <input type="text" placeholder="Search" name="search">
+        <input type="text" placeholder="Search" name="search" size="100%">
         
     </div>
 
@@ -95,7 +183,7 @@
     <!--action on search bars--> 
 
     
-
+-->
 
 
        
@@ -223,7 +311,7 @@ input[type=submit]:hover
 
 
 
-
+<!--
 <form action="/action_page.php">
   <div class="container">
   <h2><center>Well Newsletter | Stay Connected</center></h2>
@@ -240,15 +328,16 @@ input[type=submit]:hover
   </div>
 </form>
 
-
+-->
 
   <p>
   <!-- circle dots -->
+  <!--
   <div style="text-align:center">
     <span class="dot"></span>
     <span class="dot"></span>
     <span class="dot"></span>
-  </div>
+  </div>-->
   </p>
   
   
