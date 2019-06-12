@@ -40,11 +40,7 @@
 	<?php 
 		include 'server.php';
 		include 'errors.php';
-	?>
-
-	
-	
-	<?php 
+		
 		ini_set("log_errors", 1);
 		ini_set("error_log", "dashboardError.log");
 
@@ -128,9 +124,88 @@
 			  }    
 			  ]
 			});
+			
+			
+			var weightTrainingChart = new CanvasJS.Chart("weightTrainingChart", {
+				title: {
+					text: "Weight Training Progression by Volume"
+				},
+				axisX: {
+				},
+				axisY: {
+					title: "weight * reps",
+				},
+				toolTip: {
+					shared: true
+				},
+				legend: {
+					cursor: "pointer",
+					verticalAlign: "top",
+					horizontalAlign: "center",
+					dockInsidePlotArea: true,
+					itemclick: toogleDataSeries
+				},';
+				
+				//Query to get the number of exercises the user currently tracks
+				$num_exercises_query = "SELECT num_exercises FROM followedExercises WHERE username = '$username'";
+				$num_exercises = mysqli_query($db, $num_exercises_query);
+				$num_exercises_as_array = mysqli_fetch_assoc($num_exercises);
+				
+					echo 'data: [';	
+				
+					for ($i = 1; $i <= (int)$num_exercises_as_array['num_exercises']; $i++){
+						$exerciseNameString = "user_exercise" . $i . "_name";
+						$exerciseStringWeight = "user_exercise" . $i . "_weight";
+						$exerciseStringReps = "user_exercise" . $i . "_reps";
+						
+						$exercise_name_query = "SELECT $exerciseNameString FROM followedExercises WHERE username = '$username'";
+						$exercise_name_result = mysqli_query($db, $exercise_name_query);
+						$exerciseName = mysqli_fetch_assoc($exercise_name_result)[$exerciseNameString];
 
-		cardioChart.render();
-		weightChart.render();
+						echo '{		
+						type:"line",
+						axisYType: "primary",
+						name: "' . $exerciseName . '",
+						showInLegend: true,
+						markerSize: 0,
+						dataPoints: [';
+							
+						$username = $_SESSION['username'];
+						$weightLiftingQuery = "SELECT * FROM weightLiftingTracker WHERE username = '$username' AND $exerciseNameString = '$exerciseName'";
+						$weightLiftingResult = mysqli_query($db, $weightLiftingQuery);
+						
+						while ($row = mysqli_fetch_assoc($weightLiftingResult)){
+							$dateArray = explode("-", $row['weights_date']);
+							$dateString = implode($dateArray);
+							
+							$exerciseWeight = (int) $row[$exerciseStringWeight];
+							$exerciseReps = (int) $row[$exerciseStringReps];
+							$exerciseVolume = $exerciseWeight * $exerciseReps;
+							
+							echo '{ x: new Date(' . substr($dateString,0,4). ',' . substr($dateString,4,2) . ',' . substr($dateString,6,2) . '), y: ' . $exerciseVolume . '},';	
+						}
+						if ($i != (int)$num_exercises_as_array['num_exercises']){
+							echo ']
+								},';
+						} else {
+							echo ']
+								}]';
+						}
+					}
+				
+		  echo '});
+			weightChart.render();
+			cardioChart.render();
+			weightTrainingChart.render();
+			function toogleDataSeries(e){
+				if (typeof(e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
+				e.dataSeries.visible = false;
+			} else{
+				e.dataSeries.visible = true;
+			}
+				chart.render();
+			}
+		
 		}
 		</script>
 		  <script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
@@ -138,23 +213,9 @@
 		<body>
 		  <div id="weightChart" style="height: 300px; width: 100%;"></div>
 		  <div id="cardioChart" style="height: 300px; width: 100%;"></div>
+		  <div id="weightTrainingChart" style="height: 300px; width: 100%;"></div>
 		</body>';
-	
 	?>
-
-
-
-
-
-
-
-
-
-
-
-   
-
-
 
   </body>
 </html>
