@@ -56,9 +56,6 @@
   
 
   <form method="post" action="fitnessTrack.php">
-
-  	<?php  ?>
-	
 		<center>
 		<br> 
 		<div class="input-group">

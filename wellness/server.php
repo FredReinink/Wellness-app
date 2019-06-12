@@ -389,20 +389,13 @@ if (isset($_POST['add_exercise']))
 //submit diet tracking information
 if (isset($_POST['submit_diet_info']))
 {
-	$date = $_POST['date'];
-	
-	$calories = $_POST['calories'];
-	$weight = $_POST['weight'];
-	
 	$username = $_SESSION['username'];
 	
-  	$query = "INSERT INTO dietTracker (username, diet_date, calories_consumed, weight) 
-  			  VALUES('$username', '$date', '$calories', '$weight')";
+	$date = $_POST['date'];
+	$weight = $_POST['weight'];
+
+  	$query = "INSERT INTO dietTracker (username, diet_date, weight) VALUES('$username', '$date', '$weight')";
   	$result = mysqli_query($db, $query);
-	
-	if (!$result){
-		var_dump(mysqli_error($db));
-	}
 }
 
 

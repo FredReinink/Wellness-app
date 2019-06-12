@@ -79,6 +79,25 @@ CREATE TABLE userPoints
     points int
 );
 
+DROP TABLE IF EXISTS foodItem;
+CREATE TABLE foodItem
+(
+	name varchar(225) NOT NULL,
+	quantity varchar(225) NOT NULL,
+	calories int NOT NULL,
+	gProtein int NOT NULL,
+	gFat int NOT NULL,
+	gCarbs int NOT NULL,
+	
+	PRIMARY KEY(name)
+);
+INSERT INTO foodItem (name, quantity, calories, gProtein, gFat, gCarbs) VALUES ("White bread", "Slice", "24", "0.8", "0.3", "4.4");
+INSERT INTO foodItem (name, quantity, calories, gProtein, gFat, gCarbs) VALUES ("Eggs", "One egg", "78", "6", "5", "0.6");
+INSERT INTO foodItem (name, quantity, calories, gProtein, gFat, gCarbs) VALUES ("Milk", "Cup", "103", "8", "2.4", "12");
+INSERT INTO foodItem (name, quantity, calories, gProtein, gFat, gCarbs) VALUES ("Bacon", "Slice", "43", "3", "3.3", "0.1");
+
+
+
 DROP TABLE IF EXISTS dietTracker;
 CREATE TABLE dietTracker
 (
@@ -86,6 +105,9 @@ CREATE TABLE dietTracker
 	diet_date date NOT NULL,
 	calories_consumed int,
 	weight int,
+	gProteinConsumed int,
+	gCarbsConsumed int,
+	gFatConsumed int,
 	
 	FOREIGN KEY (username) REFERENCES users(username),
 	PRIMARY KEY(username, diet_date)

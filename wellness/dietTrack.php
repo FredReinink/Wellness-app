@@ -45,11 +45,17 @@
     <span class="dot"></span>
   </div>
   
+     <?php 
+		include('server.php');
+		include('errors.php');   
+	?>
   
-  <?php include('server.php') ?>
+    <form method="post">
+		<button type="submit" formaction="addFood.php">Add Food</button>
+    </form>
+  
   <form method="post" action="dietTrack.php">
-
-  	<?php include('errors.php'); ?>
+	
 		<center>
 		<br> 
 		<div class="input-group">
@@ -58,14 +64,10 @@
 		</div>
 		<br> 
 		<div class="input-group">
-			 <label>How many calories did you eat on that day?</label>
-			 <input type="text" name="calories">
-		</div>
-		<br> 
-		<div class="input-group">
 			 <label>How much did you weigh on that day?</label>
 			 <input type="text" name="weight">
 		</div>
+		<br>
 		<br>
 		<div class="input-group">
 			<button type="submit" class="btn" name="submit_diet_info">Submit</button>
