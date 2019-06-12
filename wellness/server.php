@@ -3,7 +3,7 @@ session_start();
 
 //initialize error log
 ini_set("log_errors", 1);
-ini_set("error_log", "php-error.log");
+ini_set("error_log", "serverError.log");
 
 // initializing variables
 $username = "";
@@ -298,16 +298,10 @@ if(isset($_POST['delete_challenge']))
 }
 
 
-
-
 //submit fitness tracking information
 if (isset($_POST['submit_fitness_info']))
-{
+{	
 	$date = $_POST['date'];
-
-	$date_year = substr($date, 0, 4);
-	$date_month = substr($date, 5, 2);
-	$date_day = substr($date, 8, 2);
 	
 	$exercise_hours = $_POST['exercise'];
 	$sleep_hours = $_POST['sleep'];
@@ -316,20 +310,48 @@ if (isset($_POST['submit_fitness_info']))
 	
 	$username = $_SESSION['username'];
 	
-	$query = "INSERT INTO fitnessTracker (username, date_year, date_month, date_day, exercise_hours, sleep_hours) 
-  			  VALUES('$username', '$date_year', '$date_month', '$date_day', '$exercise_hours', '$sleep_hours')";
+	//update fitnessTracker
+	$query = "INSERT INTO fitnessTracker (username, fitness_date, exercise_hours, sleep_hours) 
+  			  VALUES('$username', '$date', '$exercise_hours', '$sleep_hours')";
   	$result = mysqli_query($db, $query);
 	
 	if (!$result){
-		var_dump(mysqli_error($db));
-	}
-	
-	$query = "INSERT INTO cardioTracker (username, date_year, date_month, date_day, cardio_minutes, cardio_heartrate) 
-  			  VALUES('$username', '$date_year', '$date_month', '$date_day', '$cardio_minutes', '$cardio_heartrate')";
-	$result = mysqli_query($db, $query);
-	
-	if (!$result){
-		var_dump(mysqli_error($db));
+		array_push($errors, "You have already added data for this date");
+	} else {
+		//update cardioTracker
+		$query = "INSERT INTO cardioTracker (username, cardio_date, cardio_minutes, cardio_heartrate) 
+				  VALUES('$username', '$date', '$cardio_minutes', '$cardio_heartrate')";
+		$result = mysqli_query($db, $query);
+		
+
+		//update weightLiftingTracker
+		$query = "INSERT INTO weightLiftingTracker (username, weights_date) 
+		VALUES('$username', '$date')";
+		$result = mysqli_query($db, $query);
+		
+		//Query to get the number of exercises the user currently tracks
+		$num_exercises_query = "SELECT num_exercises FROM followedExercises WHERE username = '$username'";
+		$num_exercises = mysqli_query($db, $num_exercises_query);
+		$num_exercises_as_array = mysqli_fetch_assoc($num_exercises);
+		
+		//updates individual exercise info
+		for ($i = 1; $i <= (int)$num_exercises_as_array['num_exercises']; $i++){
+			$exerciseNameString = "user_exercise" . $i . "_name";
+			$exerciseWeightString = "user_exercise" . $i . "_weight";
+			$exerciseRepsString = "user_exercise" . $i . "_reps";
+			
+			if (isset($_POST[$exerciseWeightString])){
+				$exercise_name_query = "SELECT $exerciseNameString FROM followedExercises WHERE username = '$username'";
+				$exercise_name_result = mysqli_query($db, $exercise_name_query);
+				$exerciseName = mysqli_fetch_assoc($exercise_name_result)[$exerciseNameString];
+			
+				$exerciseWeight = $_POST[$exerciseWeightString];
+				$exerciseReps = $_POST[$exerciseRepsString];
+				
+				$exerciseUpdateQuery = "UPDATE weightLiftingTracker SET $exerciseNameString = '$exerciseName', $exerciseWeightString = '$exerciseWeight', $exerciseRepsString = '$exerciseReps' WHERE username = '$username' AND weights_date = '$date'";
+				$exerciseUpdate = mysqli_query($db, $exerciseUpdateQuery);
+			}
+		}
 	}
 }
 
@@ -368,24 +390,21 @@ if (isset($_POST['add_exercise']))
 if (isset($_POST['submit_diet_info']))
 {
 	$date = $_POST['date'];
-
-	$date_year = substr($date, 0, 4);
-	$date_month = substr($date, 5, 2);
-	$date_day = substr($date, 8, 2);
 	
 	$calories = $_POST['calories'];
 	$weight = $_POST['weight'];
 	
 	$username = $_SESSION['username'];
 	
-  	$query = "INSERT INTO dietTracker (username, date_year, date_month, date_day, calories_consumed, weight) 
-  			  VALUES('$username', '$date_year', '$date_month', '$date_day', '$calories', '$weight')";
+  	$query = "INSERT INTO dietTracker (username, diet_date, calories_consumed, weight) 
+  			  VALUES('$username', '$date', '$calories', '$weight')";
   	$result = mysqli_query($db, $query);
 	
 	if (!$result){
 		var_dump(mysqli_error($db));
 	}
 }
+
 
 
 //add the challenge user has completed in the table

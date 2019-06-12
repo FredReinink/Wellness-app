@@ -45,19 +45,25 @@
     <span class="dot"></span>
   </div>
   
-  <?php include('server.php') ?>
+   <?php 
+		include('server.php');
+		include('errors.php');   
+	?>
+  
+  <form method="post">
+	<button type="submit" formaction="addExercise.php">Add Exercise</button>
+  </form>
+  
+
   <form method="post" action="fitnessTrack.php">
 
-  	<?php include('errors.php'); ?>
-	
-		<button type="submit" formaction="addExercise.php">Add Exercise</button>
-		<button type="submit" formaction="removeExercise.php">Remove Exercise</button>
+  	<?php  ?>
 	
 		<center>
 		<br> 
 		<div class="input-group">
 			 <label>Enter the date you want to track</label>
-			 <input type="date" name="date">
+			 <input type="date" name="date" required>
 		</div>
 		<br> 
 		<div class="input-group">
@@ -79,6 +85,11 @@
 			 <label>What was your heartrate during your cardio?</label>
 			 <input type="text" name="cardio_heartrate">
 		</div>
+		
+		<?php
+			include 'exerciseGenerator.php';
+		?>
+		
 		<div class="input-group">
 			<button type="submit" class="btn" name="submit_fitness_info">Submit</button>
 		</div>

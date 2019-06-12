@@ -83,43 +83,36 @@ DROP TABLE IF EXISTS dietTracker;
 CREATE TABLE dietTracker
 (
 	username varchar(255) NOT NULL,
-	date_year int NOT NULL,
-	date_month int NOT NULL,
-	date_day int NOT NULL,
+	diet_date date NOT NULL,
 	calories_consumed int,
 	weight int,
 	
 	FOREIGN KEY (username) REFERENCES users(username),
-	PRIMARY KEY(username, date_year, date_month, date_day)
+	PRIMARY KEY(username, diet_date)
 );
 
 DROP TABLE IF EXISTS fitnessTracker;
 CREATE TABLE fitnessTracker
 (
 	username varchar(255) NOT NULL,
-	date_year int NOT NULL,
-	date_month int NOT NULL,
-	date_day int NOT NULL,
+	fitness_date date NOT NULL,
 	exercise_hours int,
 	sleep_hours int,
 	
 	FOREIGN KEY (username) REFERENCES users(username),
-	PRIMARY KEY(username, date_year, date_month, date_day)
+	PRIMARY KEY(username, fitness_date)
 );
 
 DROP TABLE IF EXISTS cardioTracker;
 CREATE TABLE cardioTracker
 (
  	username varchar(255) NOT NULL,
-	date_year int NOT NULL,
-	date_month int NOT NULL,
-	date_day int NOT NULL,
-	
+	cardio_date date NOT NULL,
 	cardio_minutes int,
 	cardio_heartrate int,
 	
 	FOREIGN KEY (username) REFERENCES fitnessTracker(username),
-	PRIMARY KEY(username, date_year, date_month, date_day)
+	PRIMARY KEY(username, cardio_date)
 
 );
 
@@ -153,12 +146,7 @@ DROP TABLE IF EXISTS weightLiftingTracker;
 CREATE TABLE weightLiftingTracker
 (
 	username varchar(255) NOT NULL,
-	date_year int NOT NULL,
-	date_month int NOT NULL,
-	date_day int NOT NULL,
-	exercise_name varchar(255) NOT NULL,
-	
-	num_exercises int DEFAULT 0 NOT NULL,
+	weights_date date NOT NULL,
 	
 	user_exercise1_name varchar(255),
 	user_exercise1_weight int,
@@ -222,7 +210,7 @@ CREATE TABLE weightLiftingTracker
 	
 	
 	FOREIGN KEY (username) REFERENCES fitnessTracker(username),
-	PRIMARY KEY(username, date_year, date_month, date_day)
+	PRIMARY KEY(username, weights_date)
 
 	
 );
