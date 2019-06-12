@@ -1,8 +1,0 @@
-[12-Jun-2019 11:47:00 Europe/Berlin] UPDATE weightLiftingTracker SET user_exercise1_name = 'Squat', user_exercise1_weight = '12', 'user_exercise1_reps' = '12' WHERE username = 'asdf' AND weights_date = '2019-06-29'
-[12-Jun-2019 11:47:00 Europe/Berlin] You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''user_exercise1_reps' = '12' WHERE username = 'asdf' AND weights_date = '2019-06' at line 1
-[12-Jun-2019 11:47:49 Europe/Berlin] UPDATE weightLiftingTracker SET user_exercise1_name = 'Squat', user_exercise1_weight = '12', user_exercise1_reps = '12' WHERE username = 'asdf' AND weights_date = '2019-06-20'
-[12-Jun-2019 11:47:49 Europe/Berlin] 
-[12-Jun-2019 11:48:13 Europe/Berlin] UPDATE weightLiftingTracker SET user_exercise1_name = 'Squat', user_exercise1_weight = '1231322', user_exercise1_reps = '12312312' WHERE username = 'asdf' AND weights_date = '2019-06-15'
-[12-Jun-2019 11:48:13 Europe/Berlin] 
-[12-Jun-2019 11:48:13 Europe/Berlin] UPDATE weightLiftingTracker SET user_exercise2_name = 'Deadlift', user_exercise2_weight = '123123', user_exercise2_reps = '12312321' WHERE username = 'asdf' AND weights_date = '2019-06-15'
-[12-Jun-2019 11:48:13 Europe/Berlin] 
