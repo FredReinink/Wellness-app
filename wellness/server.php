@@ -303,16 +303,14 @@ if (isset($_POST['submit_fitness_info']))
 {	
 	$date = $_POST['date'];
 	
-	$exercise_hours = $_POST['exercise'];
-	$sleep_hours = $_POST['sleep'];
 	$cardio_minutes = $_POST['cardio_minutes'];
 	$cardio_heartrate = $_POST['cardio_heartrate'];
 	
 	$username = $_SESSION['username'];
 	
 	//update fitnessTracker
-	$query = "INSERT INTO fitnessTracker (username, fitness_date, exercise_hours, sleep_hours) 
-  			  VALUES('$username', '$date', '$exercise_hours', '$sleep_hours')";
+	$query = "INSERT INTO fitnessTracker (username, fitness_date) 
+  			  VALUES('$username', '$date')";
   	$result = mysqli_query($db, $query);
 	
 	if (!$result){

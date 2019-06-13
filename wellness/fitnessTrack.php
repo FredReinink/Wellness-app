@@ -51,7 +51,8 @@
 	?>
   
   <form method="post">
-	<button type="submit" formaction="addExercise.php">Add Exercise</button>
+	<cen>
+	<button type="submit" formaction="addExercise.php">Add Strength Training Exercise</button>
   </form>
   
 
@@ -62,25 +63,15 @@
 			 <label>Enter the date you want to track</label>
 			 <input type="date" name="date" required>
 		</div>
-		<br> 
-		<div class="input-group">
-			 <label>How many hours did you exercise that day?</label>
-			 <input type="text" name="exercise" max = 24>
-		</div>
-		<br> 
-		<div class="input-group">
-			 <label>How many hours did you sleep that day?</label>
-			 <input type="text" name="sleep" max = 24>
-		</div>
 		<br>
+		<b>Enter cardio information</b>
 		<div class="input-group">
 			 <label>How many minutes of cardio did you do?</label>
-			 <input type="text" name="cardio_minutes">
+			 <input type="text" name="cardio_minutes" maxlength = "3" style="width: 80px;">
 		</div>
-		<br>
 		<div class="input-group">
 			 <label>What was your heartrate during your cardio?</label>
-			 <input type="text" name="cardio_heartrate">
+			 <input type="text" name="cardio_heartrate" maxlength = "3" style="width: 80px;">
 		</div>
 		
 		<?php

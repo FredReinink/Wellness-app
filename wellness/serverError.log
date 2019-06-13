@@ -6,3 +6,6 @@
 [12-Jun-2019 11:48:13 Europe/Berlin] 
 [12-Jun-2019 11:48:13 Europe/Berlin] UPDATE weightLiftingTracker SET user_exercise2_name = 'Deadlift', user_exercise2_weight = '123123', user_exercise2_reps = '12312321' WHERE username = 'asdf' AND weights_date = '2019-06-15'
 [12-Jun-2019 11:48:13 Europe/Berlin] 
+[13-Jun-2019 08:53:41 Europe/Berlin] PHP Notice:  Undefined index: cardio_minutes in E:\xampp\htdocs\471-Final-Project-master\wellness\server.php on line 306
+[13-Jun-2019 08:54:28 Europe/Berlin] PHP Notice:  Undefined index: cardio_minutes in E:\xampp\htdocs\471-Final-Project-master\wellness\server.php on line 306
+[13-Jun-2019 08:55:12 Europe/Berlin] PHP Notice:  Undefined index: cardio_minutes in E:\xampp\htdocs\471-Final-Project-master\wellness\server.php on line 306

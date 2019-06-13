@@ -47,7 +47,7 @@
 		$db = mysqli_connect('localhost', 'root', '', 'wellness');
 		
 		
-		//Cardio and weight progression charts
+		//Charts
 		echo '	
 		  <script type="text/javascript">
 		  window.onload = function () {
@@ -61,8 +61,8 @@
 			  },
 
 			  axisY: {
-				  	title: "HeartRate * Minutes",
-					valueFormatString: "0.0#"
+					valueFormatString: " ",
+					title: "Volume",
 			  },
 			  
 			  data: [
@@ -128,12 +128,13 @@
 			
 			var weightTrainingChart = new CanvasJS.Chart("weightTrainingChart", {
 				title: {
-					text: "Weight Training Progression by Volume"
+					text: "Strength Training Progression by Volume"
 				},
 				axisX: {
 				},
 				axisY: {
-					title: "weight * reps",
+					valueFormatString: " ",
+					title: "Volume",
 				},
 				toolTip: {
 					shared: true
@@ -153,6 +154,7 @@
 				
 					echo 'data: [';	
 				
+					//add a line for each exercise
 					for ($i = 1; $i <= (int)$num_exercises_as_array['num_exercises']; $i++){
 						$exerciseNameString = "user_exercise" . $i . "_name";
 						$exerciseStringWeight = "user_exercise" . $i . "_weight";
@@ -174,6 +176,7 @@
 						$weightLiftingQuery = "SELECT * FROM weightLiftingTracker WHERE username = '$username' AND $exerciseNameString = '$exerciseName'";
 						$weightLiftingResult = mysqli_query($db, $weightLiftingQuery);
 						
+						//add data points for each line
 						while ($row = mysqli_fetch_assoc($weightLiftingResult)){
 							$dateArray = explode("-", $row['weights_date']);
 							$dateString = implode($dateArray);

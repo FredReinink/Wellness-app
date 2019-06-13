@@ -18,6 +18,10 @@ $exerciseQuery = "SELECT user_exercise1_name, user_exercise2_name,user_exercise3
 $exercises = mysqli_query($db, $exerciseQuery);
 $exercises_as_array = mysqli_fetch_assoc($exercises);
 
+if ((int)$num_exercises_as_array['num_exercises'] > 0){
+	echo '<br><b>Enter strength training information</b>';
+}
+
 for ($i = 1; $i <= (int)$num_exercises_as_array['num_exercises']; $i++){
 	$exerciseStringName = "user_exercise" . $i . "_name";
 	$exerciseStringWeight = "user_exercise" . $i . "_weight";
@@ -25,12 +29,12 @@ for ($i = 1; $i <= (int)$num_exercises_as_array['num_exercises']; $i++){
 	echo '
 	<div class="input-group">
 		 <label>'. $exercises_as_array[$exerciseStringName] .' Weight</label>
-		 <input type="text" name="' . $exerciseStringWeight . '">
+		 <input type="text" maxlength = "3" style="width: 80px;" name="' . $exerciseStringWeight . '">
 	</div>';
 	echo '
 	<div class="input-group">
 		 <label>'. $exercises_as_array[$exerciseStringName] .' Reps</label>
-		 <input type="text" name="' . $exerciseStringReps . '">
+		 <input type="text" maxlength = "3" style="width: 80px;" name="' . $exerciseStringReps . '">
 	</div>';
 }
 ?>

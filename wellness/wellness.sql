@@ -118,8 +118,6 @@ CREATE TABLE fitnessTracker
 (
 	username varchar(255) NOT NULL,
 	fitness_date date NOT NULL,
-	exercise_hours int,
-	sleep_hours int,
 	
 	FOREIGN KEY (username) REFERENCES users(username),
 	PRIMARY KEY(username, fitness_date)
