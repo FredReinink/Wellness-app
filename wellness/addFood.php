@@ -45,32 +45,6 @@
     <span class="dot"></span>
   </div>
   
-     <?php 
-		include('server.php');
-		include('errors.php');   
-	?>
   
-  <form method="post" action="addFood.php">
-	
-		<center>
-		<br> 
-		<div class="input-group">
-			 <label>Enter the date you want to track</label>
-			 <input type="date" name="date" required>
-		</div>
-		<br> 
-		<div class="input-group">
-			 <label>How much did you weigh on that day?</label>
-			 <input type="text" name="weight" required maxlength = 3 style="width: 80px;>
-		</div>
-		<br>
-		<br>
-		<div class="input-group">
-			<br>
-			<button type="submit" formaction = dietTrack.php class="btn" 3 style="width: 80px;" name="submit_diet_info">Submit</button>
-			<button type="submit" formaction = addFood.php class="btn" style="width: 220px;" name="submit_diet_info">Submit and track food items</button>
-		</div>
-  </form>
-  
-</body>
+ </body>
 </html>
