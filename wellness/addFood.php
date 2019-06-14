@@ -79,13 +79,12 @@
 	 <form method="post" action = 'addFood.php'>
 		<center>
 		<div class="input-group">
-			<input type="text" style="width: 260px" placeholder="Search.." name="search">
-		</div>
-		<div class="input-group">
-			<button type="submit" style="width: 80px" name="foodSearch">Search</button>
+			<input type="text" style="width: 360px" placeholder="Search.." name="search">
+			<button type="submit" style="width: 100px" name="foodSearch">Search</button>
 		</div>
 		</center>
     </form>
+	<br>
   
   <?php
 	if (isset($_POST['foodSearch'])){
@@ -97,7 +96,7 @@
 		$searchQuery = "SELECT * FROM foodItem WHERE name LIKE '%$searchValue%'";
 		$result = mysqli_query($db, $searchQuery);
 		
-		if (mysqli_num_rows($result) > 0){
+		if (mysqli_num_rows($result) > 0 && $searchValue != ""){
 			
 			//used to reload the last search
 			$_SESSION['persistentSearchValue'] = $searchValue;
