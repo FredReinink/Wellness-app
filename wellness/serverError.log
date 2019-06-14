@@ -1,11 +1,28 @@
-[12-Jun-2019 11:47:00 Europe/Berlin] UPDATE weightLiftingTracker SET user_exercise1_name = 'Squat', user_exercise1_weight = '12', 'user_exercise1_reps' = '12' WHERE username = 'asdf' AND weights_date = '2019-06-29'
-[12-Jun-2019 11:47:00 Europe/Berlin] You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''user_exercise1_reps' = '12' WHERE username = 'asdf' AND weights_date = '2019-06' at line 1
-[12-Jun-2019 11:47:49 Europe/Berlin] UPDATE weightLiftingTracker SET user_exercise1_name = 'Squat', user_exercise1_weight = '12', user_exercise1_reps = '12' WHERE username = 'asdf' AND weights_date = '2019-06-20'
-[12-Jun-2019 11:47:49 Europe/Berlin] 
-[12-Jun-2019 11:48:13 Europe/Berlin] UPDATE weightLiftingTracker SET user_exercise1_name = 'Squat', user_exercise1_weight = '1231322', user_exercise1_reps = '12312312' WHERE username = 'asdf' AND weights_date = '2019-06-15'
-[12-Jun-2019 11:48:13 Europe/Berlin] 
-[12-Jun-2019 11:48:13 Europe/Berlin] UPDATE weightLiftingTracker SET user_exercise2_name = 'Deadlift', user_exercise2_weight = '123123', user_exercise2_reps = '12312321' WHERE username = 'asdf' AND weights_date = '2019-06-15'
-[12-Jun-2019 11:48:13 Europe/Berlin] 
-[13-Jun-2019 08:53:41 Europe/Berlin] PHP Notice:  Undefined index: cardio_minutes in E:\xampp\htdocs\471-Final-Project-master\wellness\server.php on line 306
-[13-Jun-2019 08:54:28 Europe/Berlin] PHP Notice:  Undefined index: cardio_minutes in E:\xampp\htdocs\471-Final-Project-master\wellness\server.php on line 306
-[13-Jun-2019 08:55:12 Europe/Berlin] PHP Notice:  Undefined index: cardio_minutes in E:\xampp\htdocs\471-Final-Project-master\wellness\server.php on line 306
+[14-Jun-2019 02:35:12 Europe/Berlin] 
+[14-Jun-2019 02:35:12 Europe/Berlin] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, bool given in E:\xampp\htdocs\471-Final-Project-master\wellness\addFood.php on line 114
+[14-Jun-2019 02:36:20 Europe/Berlin] 
+[14-Jun-2019 02:36:20 Europe/Berlin] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, bool given in E:\xampp\htdocs\471-Final-Project-master\wellness\addFood.php on line 114
+[14-Jun-2019 02:37:02 Europe/Berlin] 
+[14-Jun-2019 02:37:02 Europe/Berlin] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, bool given in E:\xampp\htdocs\471-Final-Project-master\wellness\addFood.php on line 114
+[14-Jun-2019 02:37:55 Europe/Berlin] 
+[14-Jun-2019 02:37:55 Europe/Berlin] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, bool given in E:\xampp\htdocs\471-Final-Project-master\wellness\addFood.php on line 114
+[14-Jun-2019 02:37:56 Europe/Berlin] 
+[14-Jun-2019 02:37:56 Europe/Berlin] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, bool given in E:\xampp\htdocs\471-Final-Project-master\wellness\addFood.php on line 114
+[14-Jun-2019 02:38:01 Europe/Berlin] 
+[14-Jun-2019 02:38:01 Europe/Berlin] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, bool given in E:\xampp\htdocs\471-Final-Project-master\wellness\addFood.php on line 114
+[14-Jun-2019 02:38:01 Europe/Berlin] 
+[14-Jun-2019 02:38:01 Europe/Berlin] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, bool given in E:\xampp\htdocs\471-Final-Project-master\wellness\addFood.php on line 114
+[14-Jun-2019 02:38:44 Europe/Berlin] PHP Notice:  Undefined index: foodSearch in E:\xampp\htdocs\471-Final-Project-master\wellness\addFood.php on line 91
+[14-Jun-2019 02:38:44 Europe/Berlin] 
+[14-Jun-2019 02:39:05 Europe/Berlin] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, bool given in E:\xampp\htdocs\471-Final-Project-master\wellness\addFood.php on line 113
+[14-Jun-2019 02:39:27 Europe/Berlin] PHP Warning:  mysqli_error() expects parameter 1 to be mysqli, bool given in E:\xampp\htdocs\471-Final-Project-master\wellness\addFood.php on line 112
+[14-Jun-2019 02:39:27 Europe/Berlin] 
+[14-Jun-2019 02:39:27 Europe/Berlin] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, bool given in E:\xampp\htdocs\471-Final-Project-master\wellness\addFood.php on line 115
+[14-Jun-2019 02:39:33 Europe/Berlin] Table 'journal.fooditem' doesn't exist
+[14-Jun-2019 02:39:33 Europe/Berlin] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, bool given in E:\xampp\htdocs\471-Final-Project-master\wellness\addFood.php on line 115
+[14-Jun-2019 02:39:53 Europe/Berlin] Unknown column 'Bread' in 'where clause'
+[14-Jun-2019 02:39:53 Europe/Berlin] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, bool given in E:\xampp\htdocs\471-Final-Project-master\wellness\addFood.php on line 115
+[14-Jun-2019 02:39:57 Europe/Berlin] Unknown column 'Bread' in 'where clause'
+[14-Jun-2019 02:39:57 Europe/Berlin] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, bool given in E:\xampp\htdocs\471-Final-Project-master\wellness\addFood.php on line 115
+[14-Jun-2019 02:40:14 Europe/Berlin] 
+[14-Jun-2019 02:40:21 Europe/Berlin] 

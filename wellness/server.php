@@ -391,6 +391,13 @@ if (isset($_POST['submit_diet_info']))
 	
 	$date = $_POST['date'];
 	$weight = $_POST['weight'];
+	
+	//initialize variables for addFood.php
+	$_SESSION['enteredDate'] = $date;
+	$_SESSION['totalCalories'] = 0;
+	$_SESSION['gramsProtein'] = 0;
+	$_SESSION['gramsFat'] = 0;
+	$_SESSION['gramsCarbs'] = 0;
 
   	$query = "INSERT INTO dietTracker (username, diet_date, weight) VALUES('$username', '$date', '$weight')";
   	$result = mysqli_query($db, $query);

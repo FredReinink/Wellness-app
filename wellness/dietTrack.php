@@ -68,7 +68,7 @@
 		<div class="input-group">
 			<br>
 			<button type="submit" formaction = dietTrack.php class="btn" 3 style="width: 80px;" name="submit_diet_info">Submit</button>
-			<button type="submit" formaction = addFood.php class="btn" style="width: 220px;" name="submit_diet_info">Submit and track food items</button>
+			<button type="submit" formaction = addFood.php class="btn" style="width: 220px;" name="submit_diet_info">Submit and track nutrition</button>
 		</div>
   </form>
   
