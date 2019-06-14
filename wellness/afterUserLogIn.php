@@ -154,6 +154,19 @@
 				
 					echo 'data: [';	
 				
+					if ((int)$num_exercises_as_array['num_exercises'] == 0){
+						echo '{		
+						type:"line",
+						axisYType: "primary",
+						name: "null",
+						showInLegend: true,
+						markerSize: 0,
+						dataPoints: [';
+						
+						echo ']
+						}]';
+					}
+					
 					//add a line for each exercise
 					for ($i = 1; $i <= (int)$num_exercises_as_array['num_exercises']; $i++){
 						$exerciseNameString = "user_exercise" . $i . "_name";

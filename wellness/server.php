@@ -304,11 +304,14 @@ if (isset($_POST['submit_fitness_info']))
 	if (!$result){
 		array_push($errors, "You have already added data for this date");
 	} else {
-		//update cardioTracker
-		$query = "INSERT INTO cardioTracker (username, cardio_date, cardio_minutes, cardio_heartrate) 
-				  VALUES('$username', '$date', '$cardio_minutes', '$cardio_heartrate')";
-		$result = mysqli_query($db, $query);
 		
+		
+		if ($cardio_minutes != 0 && $cardio_heartrate != 0){
+			//update cardioTracker
+			$query = "INSERT INTO cardioTracker (username, cardio_date, cardio_minutes, cardio_heartrate) 
+					  VALUES('$username', '$date', '$cardio_minutes', '$cardio_heartrate')";
+			$result = mysqli_query($db, $query);
+		}
 
 		//update weightLiftingTracker
 		$query = "INSERT INTO weightLiftingTracker (username, weights_date) 
@@ -334,8 +337,10 @@ if (isset($_POST['submit_fitness_info']))
 				$exerciseWeight = $_POST[$exerciseWeightString];
 				$exerciseReps = $_POST[$exerciseRepsString];
 				
-				$exerciseUpdateQuery = "UPDATE weightLiftingTracker SET $exerciseNameString = '$exerciseName', $exerciseWeightString = '$exerciseWeight', $exerciseRepsString = '$exerciseReps' WHERE username = '$username' AND weights_date = '$date'";
-				$exerciseUpdate = mysqli_query($db, $exerciseUpdateQuery);
+				if ($exerciseWeight != 0 && $exerciseReps != 0){
+					$exerciseUpdateQuery = "UPDATE weightLiftingTracker SET $exerciseNameString = '$exerciseName', $exerciseWeightString = '$exerciseWeight', $exerciseRepsString = '$exerciseReps' WHERE username = '$username' AND weights_date = '$date'";
+					$exerciseUpdate = mysqli_query($db, $exerciseUpdateQuery);
+				}
 			}
 		}
 	}
