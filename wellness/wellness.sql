@@ -91,14 +91,13 @@ CREATE TABLE foodItem
 	
 	PRIMARY KEY(name)
 );
-INSERT INTO foodItem (name, quantity, calories, gProtein, gFat, gCarbs) VALUES ("White bread", "Slice", "24", "0.8", "0.3", "4.4");
+INSERT INTO foodItem (name, quantity, calories, gProtein, gFat, gCarbs) VALUES ("White bread", "Slice", "79", "2.7", "1", "15");
 INSERT INTO foodItem (name, quantity, calories, gProtein, gFat, gCarbs) VALUES ("Eggs", "One egg", "78", "6", "5", "0.6");
 INSERT INTO foodItem (name, quantity, calories, gProtein, gFat, gCarbs) VALUES ("Milk", "Cup", "103", "8", "2.4", "12");
 INSERT INTO foodItem (name, quantity, calories, gProtein, gFat, gCarbs) VALUES ("Bacon", "Slice", "43", "3", "3.3", "0.1");
 INSERT INTO foodItem (name, quantity, calories, gProtein, gFat, gCarbs) VALUES ("Whole wheat bread", "Slice", "69", "3.6", "0.9", "12");
 INSERT INTO foodItem (name, quantity, calories, gProtein, gFat, gCarbs) VALUES ("Tomato", "100g", "18", "0.9", "0.2", "3.9");
 INSERT INTO foodItem (name, quantity, calories, gProtein, gFat, gCarbs) VALUES ("Potato", "100g", "77", "2", "0.1", "17");
-INSERT INTO foodItem (name, quantity, calories, gProtein, gFat, gCarbs) VALUES ("Steak", "100g", "271", "25", "19", "0");
 INSERT INTO foodItem (name, quantity, calories, gProtein, gFat, gCarbs) VALUES ("Steak", "Whole steak (251g)", "679", "62", "48", "0");
 
 
@@ -107,11 +106,11 @@ CREATE TABLE dietTracker
 (
 	username varchar(255) NOT NULL,
 	diet_date date NOT NULL,
-	calories_consumed int,
+	calories_consumed int DEFAULT 0,
 	weight int,
-	gProteinConsumed int,
-	gCarbsConsumed int,
-	gFatConsumed int,
+	gProteinConsumed int DEFAULT 0,
+	gCarbsConsumed int DEFAULT 0,
+	gFatConsumed int DEFAULT 0,
 	
 	FOREIGN KEY (username) REFERENCES users(username),
 	PRIMARY KEY(username, diet_date)

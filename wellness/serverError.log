@@ -1,28 +1,64 @@
-[14-Jun-2019 02:35:12 Europe/Berlin] 
-[14-Jun-2019 02:35:12 Europe/Berlin] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, bool given in E:\xampp\htdocs\471-Final-Project-master\wellness\addFood.php on line 114
-[14-Jun-2019 02:36:20 Europe/Berlin] 
-[14-Jun-2019 02:36:20 Europe/Berlin] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, bool given in E:\xampp\htdocs\471-Final-Project-master\wellness\addFood.php on line 114
-[14-Jun-2019 02:37:02 Europe/Berlin] 
-[14-Jun-2019 02:37:02 Europe/Berlin] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, bool given in E:\xampp\htdocs\471-Final-Project-master\wellness\addFood.php on line 114
-[14-Jun-2019 02:37:55 Europe/Berlin] 
-[14-Jun-2019 02:37:55 Europe/Berlin] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, bool given in E:\xampp\htdocs\471-Final-Project-master\wellness\addFood.php on line 114
-[14-Jun-2019 02:37:56 Europe/Berlin] 
-[14-Jun-2019 02:37:56 Europe/Berlin] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, bool given in E:\xampp\htdocs\471-Final-Project-master\wellness\addFood.php on line 114
-[14-Jun-2019 02:38:01 Europe/Berlin] 
-[14-Jun-2019 02:38:01 Europe/Berlin] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, bool given in E:\xampp\htdocs\471-Final-Project-master\wellness\addFood.php on line 114
-[14-Jun-2019 02:38:01 Europe/Berlin] 
-[14-Jun-2019 02:38:01 Europe/Berlin] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, bool given in E:\xampp\htdocs\471-Final-Project-master\wellness\addFood.php on line 114
-[14-Jun-2019 02:38:44 Europe/Berlin] PHP Notice:  Undefined index: foodSearch in E:\xampp\htdocs\471-Final-Project-master\wellness\addFood.php on line 91
-[14-Jun-2019 02:38:44 Europe/Berlin] 
-[14-Jun-2019 02:39:05 Europe/Berlin] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, bool given in E:\xampp\htdocs\471-Final-Project-master\wellness\addFood.php on line 113
-[14-Jun-2019 02:39:27 Europe/Berlin] PHP Warning:  mysqli_error() expects parameter 1 to be mysqli, bool given in E:\xampp\htdocs\471-Final-Project-master\wellness\addFood.php on line 112
-[14-Jun-2019 02:39:27 Europe/Berlin] 
-[14-Jun-2019 02:39:27 Europe/Berlin] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, bool given in E:\xampp\htdocs\471-Final-Project-master\wellness\addFood.php on line 115
-[14-Jun-2019 02:39:33 Europe/Berlin] Table 'journal.fooditem' doesn't exist
-[14-Jun-2019 02:39:33 Europe/Berlin] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, bool given in E:\xampp\htdocs\471-Final-Project-master\wellness\addFood.php on line 115
-[14-Jun-2019 02:39:53 Europe/Berlin] Unknown column 'Bread' in 'where clause'
-[14-Jun-2019 02:39:53 Europe/Berlin] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, bool given in E:\xampp\htdocs\471-Final-Project-master\wellness\addFood.php on line 115
-[14-Jun-2019 02:39:57 Europe/Berlin] Unknown column 'Bread' in 'where clause'
-[14-Jun-2019 02:39:57 Europe/Berlin] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, bool given in E:\xampp\htdocs\471-Final-Project-master\wellness\addFood.php on line 115
-[14-Jun-2019 02:40:14 Europe/Berlin] 
-[14-Jun-2019 02:40:21 Europe/Berlin] 
+[14-Jun-2019 05:35:14 Europe/Berlin] inside addFood
+[14-Jun-2019 05:35:17 Europe/Berlin] inside addFood
+[14-Jun-2019 05:35:31 Europe/Berlin] inside addFood
+[14-Jun-2019 05:36:38 Europe/Berlin] inside addFood
+[14-Jun-2019 05:36:41 Europe/Berlin] inside addFood
+[14-Jun-2019 05:36:49 Europe/Berlin] inside addFood
+[14-Jun-2019 05:38:39 Europe/Berlin] inside addFood
+[14-Jun-2019 05:38:41 Europe/Berlin] inside addFood
+[14-Jun-2019 05:40:13 Europe/Berlin] inside addFood
+[14-Jun-2019 05:40:15 Europe/Berlin] inside addFood
+[14-Jun-2019 05:41:30 Europe/Berlin] inside addFood
+[14-Jun-2019 05:41:30 Europe/Berlin] White
+[14-Jun-2019 05:42:15 Europe/Berlin] inside addFood
+[14-Jun-2019 05:42:15 Europe/Berlin] Bacon"
+[14-Jun-2019 05:42:52 Europe/Berlin] inside addFood
+[14-Jun-2019 05:42:52 Europe/Berlin] Bacon
+[14-Jun-2019 05:42:52 Europe/Berlin] 43
+[14-Jun-2019 05:42:52 Europe/Berlin] 3
+[14-Jun-2019 05:42:52 Europe/Berlin] 3
+[14-Jun-2019 05:42:52 Europe/Berlin] 0
+[14-Jun-2019 05:42:52 Europe/Berlin] PHP Notice:  Undefined variable: enteredDate in E:\xampp\htdocs\471-Final-Project-master\wellness\server.php on line 416
+[14-Jun-2019 05:42:52 Europe/Berlin] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, bool given in E:\xampp\htdocs\471-Final-Project-master\wellness\server.php on line 399
+[14-Jun-2019 05:42:57 Europe/Berlin] inside addFood
+[14-Jun-2019 05:42:57 Europe/Berlin] Bacon
+[14-Jun-2019 05:42:57 Europe/Berlin] 86
+[14-Jun-2019 05:42:57 Europe/Berlin] 6
+[14-Jun-2019 05:42:57 Europe/Berlin] 6
+[14-Jun-2019 05:42:57 Europe/Berlin] 0
+[14-Jun-2019 05:42:57 Europe/Berlin] PHP Notice:  Undefined variable: enteredDate in E:\xampp\htdocs\471-Final-Project-master\wellness\server.php on line 416
+[14-Jun-2019 05:42:57 Europe/Berlin] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, bool given in E:\xampp\htdocs\471-Final-Project-master\wellness\server.php on line 399
+[14-Jun-2019 05:43:00 Europe/Berlin] inside addFood
+[14-Jun-2019 05:43:00 Europe/Berlin] White bread
+[14-Jun-2019 05:43:00 Europe/Berlin] 110
+[14-Jun-2019 05:43:00 Europe/Berlin] 7
+[14-Jun-2019 05:43:00 Europe/Berlin] 6
+[14-Jun-2019 05:43:00 Europe/Berlin] 4
+[14-Jun-2019 05:43:00 Europe/Berlin] PHP Notice:  Undefined variable: enteredDate in E:\xampp\htdocs\471-Final-Project-master\wellness\server.php on line 416
+[14-Jun-2019 05:43:00 Europe/Berlin] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, bool given in E:\xampp\htdocs\471-Final-Project-master\wellness\server.php on line 399
+[14-Jun-2019 05:43:03 Europe/Berlin] inside addFood
+[14-Jun-2019 05:43:03 Europe/Berlin] White bread
+[14-Jun-2019 05:43:03 Europe/Berlin] 134
+[14-Jun-2019 05:43:03 Europe/Berlin] 8
+[14-Jun-2019 05:43:03 Europe/Berlin] 6
+[14-Jun-2019 05:43:03 Europe/Berlin] 8
+[14-Jun-2019 05:43:03 Europe/Berlin] PHP Notice:  Undefined variable: enteredDate in E:\xampp\htdocs\471-Final-Project-master\wellness\server.php on line 416
+[14-Jun-2019 05:43:03 Europe/Berlin] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, bool given in E:\xampp\htdocs\471-Final-Project-master\wellness\server.php on line 399
+[14-Jun-2019 05:43:14 Europe/Berlin] inside addFood
+[14-Jun-2019 05:43:14 Europe/Berlin] Eggs
+[14-Jun-2019 05:43:14 Europe/Berlin] 212
+[14-Jun-2019 05:43:14 Europe/Berlin] 14
+[14-Jun-2019 05:43:14 Europe/Berlin] 11
+[14-Jun-2019 05:43:14 Europe/Berlin] 9
+[14-Jun-2019 05:43:14 Europe/Berlin] PHP Notice:  Undefined variable: enteredDate in E:\xampp\htdocs\471-Final-Project-master\wellness\server.php on line 416
+[14-Jun-2019 05:43:14 Europe/Berlin] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, bool given in E:\xampp\htdocs\471-Final-Project-master\wellness\server.php on line 399
+[14-Jun-2019 05:45:26 Europe/Berlin] PHP Notice:  Undefined variable: enteredDate in E:\xampp\htdocs\471-Final-Project-master\wellness\server.php on line 408
+[14-Jun-2019 05:46:18 Europe/Berlin] PHP Notice:  Undefined variable: dietDate in E:\xampp\htdocs\471-Final-Project-master\wellness\server.php on line 408
+[14-Jun-2019 05:50:02 Europe/Berlin] PHP Notice:  Undefined index:  in E:\xampp\htdocs\471-Final-Project-master\wellness\addFood.php on line 124
+[14-Jun-2019 05:50:02 Europe/Berlin] PHP Notice:  Undefined index:  in E:\xampp\htdocs\471-Final-Project-master\wellness\addFood.php on line 124
+[14-Jun-2019 05:50:26 Europe/Berlin] PHP Notice:  Undefined variable: dietDate in E:\xampp\htdocs\471-Final-Project-master\wellness\server.php on line 408
+[14-Jun-2019 05:50:33 Europe/Berlin] PHP Notice:  Undefined variable: dietDate in E:\xampp\htdocs\471-Final-Project-master\wellness\server.php on line 408
+[14-Jun-2019 05:51:36 Europe/Berlin] PHP Notice:  Undefined variable: dietDate in E:\xampp\htdocs\471-Final-Project-master\wellness\server.php on line 408
+[14-Jun-2019 05:57:26 Europe/Berlin] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, bool given in E:\xampp\htdocs\471-Final-Project-master\wellness\addFood.php on line 151
+[14-Jun-2019 05:57:26 Europe/Berlin] PHP Notice:  Undefined variable: result in E:\xampp\htdocs\471-Final-Project-master\wellness\addFood.php on line 151
+[14-Jun-2019 05:57:26 Europe/Berlin] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in E:\xampp\htdocs\471-Final-Project-master\wellness\addFood.php on line 151

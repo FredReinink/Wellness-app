@@ -138,14 +138,6 @@ if(isset($_POST['emailForm']))
 }
 
 
-
-
-
-
-
-
-
-
 //adding URLS/Articles 
 
 // for adding new bookmarks and expanding the table 
@@ -275,10 +267,6 @@ if (isset($_POST['add_challenge']))
       
 }
 
-
-
-
-
 //delete challenge
 if(isset($_POST['delete_challenge']))
 {
@@ -384,9 +372,40 @@ if (isset($_POST['add_exercise']))
 	}
 }
 
+//handles the "add" button for a food item in addFood.php
+if (isset($_POST['addFood'])){
+	$foodName = $_POST['addFood'];
+	$username = $_SESSION['username'];
+	$dietDate = $_SESSION['enteredDate'];
+	
+	$query = "SELECT * FROM foodItem WHERE name = '$foodName'";
+	$result = mysqli_query($db, $query);
+	
+	if ($row = mysqli_fetch_assoc($result)){
+		$_SESSION['totalCalories'] += $row['calories']; 
+		$_SESSION['gramsProtein'] += $row['gProtein']; 
+		$_SESSION['gramsFat'] += $row['gFat']; 
+		$_SESSION['gramsCarbs'] += $row['gCarbs'];
+		
+		$totalCalories = $_SESSION['totalCalories'];
+		$gramsProtein = $_SESSION['gramsProtein'];
+		$gramsFat = $_SESSION['gramsFat'];
+		$gramsCarbs = $_SESSION['gramsCarbs'];
+		
+		$query = "UPDATE dietTracker SET calories_consumed = '$totalCalories', gProteinConsumed = '$gramsProtein', gCarbsConsumed = '$gramsCarbs', gFatConsumed = '$gramsFat' WHERE username = '$username' AND diet_date = '$dietDate'";
+		$result = mysqli_query($db, $query);
+		
+		header('location: addFood.php');
+	}	
+}
+
 //submit diet tracking information
 if (isset($_POST['submit_diet_info']))
 {
+	if (isset($_SESSION['persistentSearchValue'])){
+		unset($_SESSION['persistentSearchValue']);
+	}
+	
 	$username = $_SESSION['username'];
 	
 	$date = $_POST['date'];
@@ -398,11 +417,16 @@ if (isset($_POST['submit_diet_info']))
 	$_SESSION['gramsProtein'] = 0;
 	$_SESSION['gramsFat'] = 0;
 	$_SESSION['gramsCarbs'] = 0;
-
+	
   	$query = "INSERT INTO dietTracker (username, diet_date, weight) VALUES('$username', '$date', '$weight')";
   	$result = mysqli_query($db, $query);
+	
+	//if the user has already tracked that date, update with new weight value
+	if (!$result){
+		$query = "UPDATE dietTracker SET weight = '$weight' WHERE username = '$username' AND diet_date = '$date'";
+		$result = mysqli_query($db, $query);
+	}
 }
-
 
 
 //add the challenge user has completed in the table

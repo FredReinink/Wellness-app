@@ -12,7 +12,7 @@
   <head>
   
     <title> Wellness </title> 
-  
+
   </head> 
   
   
@@ -35,6 +35,9 @@
       <a href="dietTrack.php">Diet Tracking</a>
       <a href="login.php">Sign-Out</a>
     </div>
+	<div class = "topnav-left">
+		 <a href="dietTrack.php">Back</a>
+	</div>
   </div>
   
     <form method="post" action="fitnessTrack.php">
@@ -43,10 +46,11 @@
 	<br> 
 	<div class="input-group">
 		 <label>Enter the name of the exercise you want to start tracking</label>
-		 <input type="text" name="addExercise">
+		 <br>
+		 <input type="text" style="width: 240px" name="addExercise">
 	</div>
 	<div class="input-group">
-		<button type="submit" class="btn" name="add_exercise">Add</button>
+		<button type="submit" class="btn" style="width: 70px" name="add_exercise">Add</button>
 	</div>
   
 </body>

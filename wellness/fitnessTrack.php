@@ -51,8 +51,8 @@
 	?>
   
   <form method="post">
-	<cen>
-	<button type="submit" formaction="addExercise.php">Add Strength Training Exercise</button>
+	<center>
+	<button type="submit" style="width: 240px" formaction="addExercise.php">Add Strength Training Exercise</button>
   </form>
   
 
@@ -79,7 +79,7 @@
 		?>
 		
 		<div class="input-group">
-			<button type="submit" class="btn" name="submit_fitness_info">Submit</button>
+			<button type="submit" class="btn" style="width: 80px" name="submit_fitness_info">Submit</button>
 		</div>
   </form>
   
