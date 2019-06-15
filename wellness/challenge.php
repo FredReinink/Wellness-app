@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="stylesheet.css">
   
   
+  
   <head>
   
     <title> Wellness </title> 
@@ -41,27 +42,85 @@
 
 
 
+   
+    
+  <style>
+
+html {
+    height:100%;
+  }
+  
+  body {
+    margin:0;
+  }
+  
+  .bg {
+    animation:slide 3s ease-in-out infinite alternate;
+    background-image: linear-gradient(-60deg, #6c3 50%, #09f 50%);
+    bottom:0;
+    left:-50%;
+    opacity:.5;
+    position:fixed;
+    right:-50%;
+    top:0;
+    z-index:-1;
+  }
+  
+  .bg2 {
+    animation-direction:alternate-reverse;
+    animation-duration:4s;
+  }
+  
+  .bg3 {
+    animation-duration:5s;
+  }
+  
+  .content {
+    background-color:rgba(255,255,255,.8);
+    border-radius:.25em;
+    box-shadow:0 0 .25em rgba(0,0,0,.25);
+    box-sizing:border-box;
+    left:50%;
+    padding:10vmin;
+    position:fixed;
+    text-align:center;
+    top:50%;
+    transform:translate(-50%, -50%);
+  }
+  
+  h1 {
+    font-family:monospace;
+  }
+  
+  @keyframes slide {
+    0% {
+      transform:translateX(-25%);
+    }
+    100% {
+      transform:translateX(25%);
+    }
+  }
 
 
+    </style> 
 
-
-
-
-
-
-
-
+    <div class="bg"></div>
+    <div class="bg bg2"></div>
+    <div class="bg bg3"></div>
 
 
 
   <!--View all the challenges-->
+    
+    <div class="header">
+    <h2><center> Monthly Challenges </center></h2><hr>
+   </div>
 
-  <br>
-    <b><h2><center> Monthly Challenges </center></h2></b>
-    <br>
+   <div class="header">
 
     <?php
 
+  
    $db = mysqli_connect('localhost', 'root', '', 'wellness');
 
    $user_check_query = "SELECT challenge_name, challenge_description, points_submission FROM listOfChallenges";
@@ -69,109 +128,25 @@
 
    if (!$result)
    {
-      echo "<div style=\"text-align:center\">";
+      echo "<div style=\"text-align:center\"></div>";
       echo "There are no monthly challenges this month. Come visit again.";
       return;
    }
- 
-   {
-      echo "<div style=\"text-align:center\">";
-      //echo "Monthly challenges are listed below. ";
-   }
-  
-   echo "<br>";
+   
    while ($row = $result -> fetch_assoc())
    {
-      echo "<div style=\"text-align:center\">";
+      echo "<div style=\"text-align:center\"></div>";
       echo "<br><b>{$row['challenge_name']}</b>";
       echo "<br>{$row['challenge_description']}";
-      echo "<br>{$row['points_submission']}";
+      echo "<br>Points Awarded: ";
+      echo "{$row['points_submission']}";
       echo "<br>";
    }
    
    
    ?>
 
- 
-
-
-
-
-
-
-  <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
-<style type="text/css">
-.form-style-8{
-	font-family: 'Open Sans Condensed', arial, sans;
-	width: 1000px;
-	padding: 25px;
-	background: #FFFFFF;
-	margin:  auto;
-	
-
-}
-.form-style-8 h2{
-	background: #4D4D4D;
-	text-transform: uppercase;
-	font-family: 'Open Sans Condensed', sans-serif;
-	color: #797979;
-	font-size: 22px;
-	font-weight: 100;
-	padding: 20px;
-	margin: -30px -30px 30px -30px;
-}
-.form-style-8 input[type="text"],
-.form-style-8 input[type="date"],
-.form-style-8 input[type="datetime"],
-.form-style-8 input[type="email"],
-.form-style-8 input[type="number"],
-.form-style-8 input[type="search"],
-.form-style-8 input[type="time"],
-.form-style-8 input[type="url"],
-.form-style-8 input[type="password"],
-.form-style-8 textarea,
-.form-style-8 select 
-{
-	box-sizing: border-box;
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	outline: none;
-	display: block;
-	width: 100%;
-	padding: 7px;
-	border: none;
-	border-bottom: 1px solid #ddd;
-	background: transparent;
-	margin-bottom: 10px;
-	font: 22px Arial, Helvetica, sans-serif;
-	height: 45px;
-}
-.form-style-8 textarea{
-	resize:none;
-	overflow: hidden;
-}
-.form-style-8 input[type="button"], 
-.form-style-8 input[type="submit"]{
-	-moz-box-shadow: inset 0px 1px 0px 0px #45D6D6;
-	-webkit-box-shadow: inset 0px 1px 0px 0px #45D6D6;
-	box-shadow: inset 0px 1px 0px 0px #45D6D6;
-	background-color: #2CBBBB;
-	border: 1px solid #27A0A0;
-	display: inline-block;
-	cursor: pointer;
-	color: #FFFFFF;
-	font-family: 'Open Sans Condensed', sans-serif;
-	font-size: 14px;
-	padding: 8px 18px;
-	text-decoration: none;
-	text-transform: uppercase;
-}
-.form-style-8 input[type="button"]:hover, 
-.form-style-8 input[type="submit"]:hover {
-	background:linear-gradient(to bottom, #34CACA 5%, #30C9C9 100%);
-	background-color:#34CACA;
-}
-</style>
+  </div>
 
 
 
@@ -189,29 +164,29 @@
 
 
     <?php include('server.php') ?>
+    <link rel="stylesheet" type="text/css" href="style.css">
   
   <center> 
-   <div class="header2">
-          <h2>Did you complete a challenge? </h2>
+   <div class="header">
+          <h2>Did you complete a challenge? </h2><hr>
    </div>
+
    
    <form method="post" action="challenge.php" style=>
        <?php include('errors.php'); ?>
-   <br>
-   
-    <br> 
-    <div class="form-style-8">
+  
+    <div class="input-group">
          <label>Enter the name of the challenge you completed</label>
          <input type="text" name="challenge_name">
     </div>
 
-    <div class="form-style-8">
+    <div class="input-group">
          <label>Upload the supporting document</label>
          <input type="text" name="submission" required>
     </div>
    
    <!-- points get cleared for all user each month-->
-   <div class="form-style-8">
+   <div class="input-group">
          <button type="submit" class="btn" name="challenge_submission">Submit</button>
        </div>
    
@@ -238,14 +213,19 @@
 
 
    <!--View points of leader users-->
-    <br>
-    <b><h2><center> Leading Users </center></h2></b>
+   <div class="header">
+    <h2><center> Leading Users (Top 5)</center><hr>
+   </div>
   
     <?php
 
    $db = mysqli_connect('localhost', 'root', '', 'wellness');
 
-   $user_check_query = "SELECT username, SUM(points) FROM userPoints GROUP BY username LIMIT 5";
+   $user_check_query = "SELECT username, SUM (points) AS TotalPoints FROM userPoints GROUP BY username ORDER BY COUNT(points) DESC LIMIT 5";
+
+   //"SELECT urls FROM bookmarks GROUP BY urls ORDER BY COUNT(*) DESC LIMIT 10";
+
+
    $result = mysqli_query($db, $user_check_query); 
 
    if (!$result)
@@ -255,11 +235,7 @@
       return;
    }
  
-   {
-      echo "<div style=\"text-align:center\">";
-      echo "<b>Top 5 users:</b> ";
-   }
-  
+    
    while ($row = $result -> fetch_assoc())
    {
       echo "<div style=\"text-align:center\">";

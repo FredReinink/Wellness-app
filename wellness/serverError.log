@@ -62,3 +62,23 @@
 [14-Jun-2019 05:57:26 Europe/Berlin] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, bool given in E:\xampp\htdocs\471-Final-Project-master\wellness\addFood.php on line 151
 [14-Jun-2019 05:57:26 Europe/Berlin] PHP Notice:  Undefined variable: result in E:\xampp\htdocs\471-Final-Project-master\wellness\addFood.php on line 151
 [14-Jun-2019 05:57:26 Europe/Berlin] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in E:\xampp\htdocs\471-Final-Project-master\wellness\addFood.php on line 151
+[15-Jun-2019 01:56:13 Europe/Berlin] PHP Notice:  Undefined variable: _SESSION in C:\xampp\htdocs\wellness\server.php on line 441
+[15-Jun-2019 01:56:29 Europe/Berlin] PHP Notice:  Undefined variable: _SESSION in C:\xampp\htdocs\wellness\server.php on line 441
+[15-Jun-2019 02:05:36 Europe/Berlin] PHP Notice:  Undefined variable: _SESSION in C:\xampp\htdocs\wellness\server.php on line 441
+[15-Jun-2019 02:57:50 Europe/Berlin] Diet Plans for Obese People
+[15-Jun-2019 02:57:50 Europe/Berlin] PHP Notice:  Undefined index: submissionId in C:\xampp\htdocs\wellness\newsfeed.php on line 211
+[15-Jun-2019 02:57:50 Europe/Berlin] PHP Notice:  Undefined index: paperTitle in C:\xampp\htdocs\wellness\newsfeed.php on line 212
+[15-Jun-2019 02:57:50 Europe/Berlin] PHP Notice:  Undefined index: email in C:\xampp\htdocs\wellness\newsfeed.php on line 213
+[15-Jun-2019 02:57:50 Europe/Berlin] PHP Notice:  Undefined index: topic in C:\xampp\htdocs\wellness\newsfeed.php on line 214
+[15-Jun-2019 02:57:50 Europe/Berlin] PHP Notice:  Undefined index: PaperStatus in C:\xampp\htdocs\wellness\newsfeed.php on line 215
+[15-Jun-2019 02:57:50 Europe/Berlin] PHP Notice:  Undefined index: dateOfSubmission in C:\xampp\htdocs\wellness\newsfeed.php on line 216
+[15-Jun-2019 02:57:50 Europe/Berlin] PHP Notice:  Undefined index: submissionId in C:\xampp\htdocs\wellness\newsfeed.php on line 217
+[15-Jun-2019 02:59:00 Europe/Berlin] Diet Plans for Obese People
+[15-Jun-2019 03:01:16 Europe/Berlin] Diet Plans for Obese People
+[15-Jun-2019 03:02:10 Europe/Berlin] Exercise for Obese People
+[15-Jun-2019 03:03:08 Europe/Berlin] Exercise for Obese People
+[15-Jun-2019 03:03:58 Europe/Berlin] Diet Plans for Obese People
+[15-Jun-2019 03:04:28 Europe/Berlin] Diet Plans for Obese People
+[15-Jun-2019 03:04:43 Europe/Berlin] 
+[15-Jun-2019 03:06:10 Europe/Berlin] Exercise for Obese People
+[15-Jun-2019 03:13:13 Europe/Berlin] nothing
