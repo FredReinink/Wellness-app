@@ -82,3 +82,4 @@
 [15-Jun-2019 03:04:43 Europe/Berlin] 
 [15-Jun-2019 03:06:10 Europe/Berlin] Exercise for Obese People
 [15-Jun-2019 03:13:13 Europe/Berlin] nothing
+[15-Jun-2019 05:39:44 Europe/Berlin] PHP Warning:  mysqli_connect(): (HY000/1049): Unknown database 'wellness' in E:\xampp\htdocs\wellness\server.php on line 15
