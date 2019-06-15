@@ -65,7 +65,7 @@ if (isset($_POST['reg_user']))
   	mysqli_query($db, $query);
 	
 	//initialize followedExercises
-	$query = "INSERT INTO followedExercises (username, num_exercises) VALUES ('$username', '0')";
+	$query = "INSERT INTO followedExercises (username) VALUES ('$username')";
 	mysqli_query($db, $query);
    
     // Enter user session 
@@ -310,13 +310,10 @@ if (isset($_POST['submit_fitness_info']))
 	VALUES('$username', '$date')";
 	$result = mysqli_query($db, $query);
 	
-	//Query to get the number of exercises the user currently tracks
-	$num_exercises_query = "SELECT num_exercises FROM followedExercises WHERE username = '$username'";
-	$num_exercises = mysqli_query($db, $num_exercises_query);
-	$num_exercises_as_array = mysqli_fetch_assoc($num_exercises);
+	$num_exercises = getNumExercises($username);
 	
 	//updates individual exercise info
-	for ($i = 1; $i <= (int)$num_exercises_as_array['num_exercises']; $i++){
+	for ($i = 1; $i <= $num_exercises; $i++){
 		$exerciseNameString = "user_exercise" . $i . "_name";
 		$exerciseWeightString = "user_exercise" . $i . "_weight";
 		$exerciseRepsString = "user_exercise" . $i . "_reps";
@@ -343,12 +340,7 @@ if (isset($_POST['add_exercise']))
 	$username = $_SESSION['username'];
 	$exercise_name = $_POST['addExercise'];
 	
-	$query = "SELECT num_exercises FROM followedExercises WHERE username = '$username'";
-	$result = mysqli_query($db, $query);
-
-	$fields = mysqli_fetch_assoc($result);
-	
-	$num_exercises = (int) $fields['num_exercises'];
+	$num_exercises = getNumExercises($username);
   
     if ($num_exercises > 15) {
       array_push($errors, "You are already tracking the maximum number of exercises");
@@ -358,9 +350,9 @@ if (isset($_POST['add_exercise']))
 	$num_ex_as_string = (string)($num_exercises_plus_one);
 	
 	//format a query string to correspond to the field names in the DB. Ex: "user_exercise7_name"
-	$queryString = "user_exercise".$num_ex_as_string."_name";
+	$queryString = "user_exercise" . $num_ex_as_string . "_name";
 	
-	$query = "UPDATE followedExercises SET $queryString = '$exercise_name', num_exercises = '$num_exercises_plus_one' WHERE username = '$username'";
+	$query = "UPDATE followedExercises SET $queryString = '$exercise_name' WHERE username = '$username'";
 	$result = mysqli_query($db, $query);
 
 	if (!$result){
@@ -1041,6 +1033,49 @@ function recommendDailyCaloryInput($BMR, $Activity_level, $Weight_goal)
 
 }
 
+function getNumExercises($user){
+	// connect to the database
+	$db = mysqli_connect('localhost', 'root', '', 'wellness');
+	
+  	$query = "SELECT * FROM followedExercises where username = '$user'";
+  	$result = mysqli_query($db, $query);
+	
+	while ($row = mysqli_fetch_assoc($result)){
+		error_log("here");
+		
+		if (!isset($row['user_exercise1_name'])){
+			return 0;
+		} if (!isset($row['user_exercise2_name'])){
+			return 1;
+		} if (!isset($row['user_exercise3_name'])){
+			return 2;
+		} if (!isset($row['user_exercise4_name'])){
+			return 3;
+		} if (!isset($row['user_exercise5_name'])){
+			return 4;
+		} if (!isset($row['user_exercise6_name'])){
+			return 5;
+		} if (!isset($row['user_exercise7_name'])){
+			return 6;
+		} if (!isset($row['user_exercise8_name'])){
+			return 7;
+		} if (!isset($row['user_exercise9_name'])){
+			return 8;
+		} if (!isset($row['user_exercise10_name'])){
+			return 9;
+		} if (!isset($row['user_exercise11_name'])){
+			return 10;
+		} if (!isset($row['user_exercise12_name'])){
+			return 11;
+		} if (!isset($row['user_exercise13_name'])){
+			return 12;
+		} if (!isset($row['user_exercise14_name'])){
+			return 13;
+		} if (!isset($row['user_exercise15_name'])){
+			return 14;
+		}
+	}
+}
 
 ?>
 

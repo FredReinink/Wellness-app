@@ -145,14 +145,11 @@
 					itemclick: toogleDataSeries
 				},';
 				
-				//Query to get the number of exercises the user currently tracks
-				$num_exercises_query = "SELECT num_exercises FROM followedExercises WHERE username = '$username'";
-				$num_exercises = mysqli_query($db, $num_exercises_query);
-				$num_exercises_as_array = mysqli_fetch_assoc($num_exercises);
+					$num_exercises = getNumExercises($username);
 				
 					echo 'data: [';	
 				
-					if ((int)$num_exercises_as_array['num_exercises'] == 0){
+					if ($num_exercises == 0){
 						echo '{		
 						type:"line",
 						axisYType: "primary",
@@ -166,7 +163,7 @@
 					}
 					
 					//add a line for each exercise
-					for ($i = 1; $i <= (int)$num_exercises_as_array['num_exercises']; $i++){
+					for ($i = 1; $i <= $num_exercises; $i++){
 						$exerciseNameString = "user_exercise" . $i . "_name";
 						$exerciseStringWeight = "user_exercise" . $i . "_weight";
 						$exerciseStringReps = "user_exercise" . $i . "_reps";
@@ -198,7 +195,7 @@
 							
 							echo '{ x: new Date(' . substr($dateString,0,4). ',' . substr($dateString,4,2) . ',' . substr($dateString,6,2) . '), y: ' . $exerciseVolume . '},';	
 						}
-						if ($i != (int)$num_exercises_as_array['num_exercises']){
+						if ($i != $num_exercises){
 							echo ']
 								},';
 						} else {

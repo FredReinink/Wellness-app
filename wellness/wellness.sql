@@ -155,7 +155,6 @@ DROP TABLE IF EXISTS followedExercises;
 CREATE TABLE followedExercises
 (
 	username varchar(255) NOT NULL,
-	num_exercises int DEFAULT 0 NOT NULL,
 
 	user_exercise1_name varchar(255),
 	user_exercise2_name varchar(255),
