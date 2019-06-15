@@ -61,7 +61,7 @@
 			  axisY: {
 				  	includeZero: false,
 					valueFormatString: " ",
-					title: "Volume",
+					title: "Volume (duration x bpm)",
 			  },
 			  
 			  data: [
@@ -100,7 +100,7 @@
 
 			  axisY: {
 				  includeZero: false,
-				  title: "weight (lbs)",
+				  title: "weight (kgs)",
 				  valueFormatString: "0.0#"
 			  },
 			  
@@ -135,7 +135,7 @@
 				axisY: {
 					includeZero: false,
 					valueFormatString: " ",
-					title: "Volume",
+					title: "Volume (weight x reps)",
 				},
 				toolTip: {
 					shared: true
@@ -208,16 +208,72 @@
 					}
 				
 		  echo '});
+		  
+		  
+		  
+		  	var dietChart = new CanvasJS.Chart("dietChart",
+			{
+			  animationEnabled: true,
+			  title:{
+				text: "Your Diet Breakdown"
+			  },
+			  data: [
+			  {        
+				type: "pie",
+				startAngle: 240,
+				yValueFormatString: "##0.00\"%\"",
+				indexLabel: "{label} {y}",
+				dataPoints: [';
+				
+					$username = $_SESSION['username'];
+					$dietQuery = "SELECT * FROM dietTracker WHERE username = '$username'";
+					$dietResult = mysqli_query($db, $dietQuery);
+					
+					$totalProtein = 0;
+					$totalCarbs = 0;
+					$totalFat = 0;
+					
+					while ($row = mysqli_fetch_assoc($dietResult)){
+						$totalProtein += (int)$row['gProteinConsumed'];
+						$totalCarbs += (int)$row['gCarbsConsumed'];
+						$totalFat += (int)$row['gFatConsumed'];
+					}
+					
+					if ($totalProtein == 0 && $totalFat == 0 && $totalCarbs ==0){
+						echo "\r\n{y: 0, label: \"Protein\"},";
+						echo "\r\n{y: 0, label: \"Carbs\"},";
+						echo "\r\n{y: 0, label: \"Fat\"}";
+					} else {
+						$percentProtein = ($totalProtein / ($totalProtein + $totalCarbs + $totalFat)) * 100;
+						$percentFat = ($totalFat / ($totalProtein + $totalCarbs + $totalFat)) * 100;
+						$percentCarbs = ($totalCarbs / ($totalProtein + $totalCarbs + $totalFat)) * 100;
+						
+						echo "\r\n{y: $percentProtein, label: \"Protein\"},";
+						echo "\r\n{y: $percentCarbs, label: \"Carbs\"},";
+						echo "\r\n{y: $percentFat, label: \"Fat\"}";
+					}
+			
+			echo ']
+			  }    
+			  ]
+			});
+					
 			weightChart.render();
 			cardioChart.render();
 			weightTrainingChart.render();
+			dietChart.render();
+			caloriesChart.render();
 			function toogleDataSeries(e){
 				if (typeof(e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
 				e.dataSeries.visible = false;
 			} else{
 				e.dataSeries.visible = true;
 			}
-				chart.render();
+				weightChart.render();
+				cardioChart.render();
+				weightTrainingChart.render();
+				dietChart.render();
+				caloriesChart.render();
 			}
 		
 		}
@@ -228,6 +284,7 @@
 		  <div id="weightChart" style="height: 300px; width: 100%;"></div>
 		  <div id="cardioChart" style="height: 300px; width: 100%;"></div>
 		  <div id="weightTrainingChart" style="height: 300px; width: 100%;"></div>
+		  <div id="dietChart" style="height: 300px; width: 100%;"></div>
 		</body>';
 	?>
 

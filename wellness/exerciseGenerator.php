@@ -23,7 +23,7 @@ for ($i = 1; $i <= $num_exercises; $i++){
 	$exerciseStringName = "user_exercise" . $i . "_name";
 	$exerciseStringWeight = "user_exercise" . $i . "_weight";
 	$exerciseStringReps = "user_exercise" . $i . "_reps";
-	echo '
+	echo '<br>
 	<div class="input-group">
 		 <label>'. $exercises_as_array[$exerciseStringName] .' Weight (kg)</label>
 		 <input type="text" maxlength = "3" style="width: 80px;" name="' . $exerciseStringWeight . '">

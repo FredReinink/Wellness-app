@@ -140,15 +140,15 @@ CREATE TABLE dietTracker
 	PRIMARY KEY(username, diet_date)
 );
 
-INSERT INTO dietTracker(username, diet_date, calories_consumed, weight, gProteinConsumed, gCarbsConsumed, gFatConsumed) VALUES ("Frank", "2019-06-02", "2000", "200", "92", "122", "36");
-INSERT INTO dietTracker(username, diet_date, calories_consumed, weight, gProteinConsumed, gCarbsConsumed, gFatConsumed) VALUES ("Frank", "2019-06-04", "2300", "197", "103", "107", "29");
-INSERT INTO dietTracker(username, diet_date, calories_consumed, weight, gProteinConsumed, gCarbsConsumed, gFatConsumed) VALUES ("Frank", "2019-06-06", "1977", "198", "77", "155", "27");
-INSERT INTO dietTracker(username, diet_date, calories_consumed, weight, gProteinConsumed, gCarbsConsumed, gFatConsumed) VALUES ("Frank", "2019-06-10", "1700", "195", "90", "122", "42");
-INSERT INTO dietTracker(username, diet_date, calories_consumed, weight, gProteinConsumed, gCarbsConsumed, gFatConsumed) VALUES ("Frank", "2019-06-12", "1888", "196", "66", "150", "39");
-INSERT INTO dietTracker(username, diet_date, calories_consumed, weight, gProteinConsumed, gCarbsConsumed, gFatConsumed) VALUES ("Frank", "2019-06-14", "2300", "195", "90", "88", "57");
-INSERT INTO dietTracker(username, diet_date, calories_consumed, weight, gProteinConsumed, gCarbsConsumed, gFatConsumed) VALUES ("Frank", "2019-06-18", "1987", "194", "99", "120", "40");
-INSERT INTO dietTracker(username, diet_date, calories_consumed, weight, gProteinConsumed, gCarbsConsumed, gFatConsumed) VALUES ("Frank", "2019-06-20", "1866", "193", "88", "120", "29");
-INSERT INTO dietTracker(username, diet_date, calories_consumed, weight, gProteinConsumed, gCarbsConsumed, gFatConsumed) VALUES ("Frank", "2019-06-24", "1923", "190", "103", "122", "29");
+INSERT INTO dietTracker(username, diet_date, calories_consumed, weight, gProteinConsumed, gCarbsConsumed, gFatConsumed) VALUES ("Frank", "2019-06-02", "2000", "96", "92", "122", "36");
+INSERT INTO dietTracker(username, diet_date, calories_consumed, weight, gProteinConsumed, gCarbsConsumed, gFatConsumed) VALUES ("Frank", "2019-06-04", "2300", "93", "103", "107", "29");
+INSERT INTO dietTracker(username, diet_date, calories_consumed, weight, gProteinConsumed, gCarbsConsumed, gFatConsumed) VALUES ("Frank", "2019-06-06", "1977", "95", "77", "155", "27");
+INSERT INTO dietTracker(username, diet_date, calories_consumed, weight, gProteinConsumed, gCarbsConsumed, gFatConsumed) VALUES ("Frank", "2019-06-10", "1700", "95", "90", "122", "42");
+INSERT INTO dietTracker(username, diet_date, calories_consumed, weight, gProteinConsumed, gCarbsConsumed, gFatConsumed) VALUES ("Frank", "2019-06-12", "1888", "94", "66", "150", "39");
+INSERT INTO dietTracker(username, diet_date, calories_consumed, weight, gProteinConsumed, gCarbsConsumed, gFatConsumed) VALUES ("Frank", "2019-06-14", "2300", "92", "90", "88", "57");
+INSERT INTO dietTracker(username, diet_date, calories_consumed, weight, gProteinConsumed, gCarbsConsumed, gFatConsumed) VALUES ("Frank", "2019-06-18", "1987", "94", "99", "120", "40");
+INSERT INTO dietTracker(username, diet_date, calories_consumed, weight, gProteinConsumed, gCarbsConsumed, gFatConsumed) VALUES ("Frank", "2019-06-20", "1866", "93", "88", "120", "29");
+INSERT INTO dietTracker(username, diet_date, calories_consumed, weight, gProteinConsumed, gCarbsConsumed, gFatConsumed) VALUES ("Frank", "2019-06-24", "1923", "91", "103", "122", "29");
 
 
 DROP TABLE IF EXISTS cardioTracker;
