@@ -40,66 +40,73 @@
  
 
 
-  <style> 
-    body {
-	width: 100wh;
-	height: 90vh;
-	color: #000000;
-	background: linear-gradient(-45deg, #EE7752, #E73C7E, #23A6D5, #23D5AB);
-	background-size: 400% 400%;
-	-webkit-animation: Gradient 15s ease infinite;
-	-moz-animation: Gradient 15s ease infinite;
-	animation: Gradient 15s ease infinite;
-}
+  
 
-@-webkit-keyframes Gradient {
-	0% {
-		background-position: 0% 50%
-	}
-	50% {
-		background-position: 100% 50%
-	}
-	100% {
-		background-position: 0% 50%
-	}
-}
+     
+    
+  <style>
 
-@-moz-keyframes Gradient {
-	0% {
-		background-position: 0% 50%
-	}
-	50% {
-		background-position: 100% 50%
-	}
-	100% {
-		background-position: 0% 50%
-	}
-}
+html {
+    height:100%;
+  }
+  
+  body {
+    margin:0;
+  }
+  
+  .bg {
+    animation:slide 3s ease-in-out infinite alternate;
+    background-image: linear-gradient(-60deg, #6c3 50%, #09f 50%);
+    bottom:0;
+    left:-50%;
+    opacity:.5;
+    position:fixed;
+    right:-50%;
+    top:0;
+    z-index:-1;
+  }
+  
+  .bg2 {
+    animation-direction:alternate-reverse;
+    animation-duration:4s;
+  }
+  
+  .bg3 {
+    animation-duration:5s;
+  }
+  
+  .content {
+    background-color:rgba(255,255,255,.8);
+    border-radius:.25em;
+    box-shadow:0 0 .25em rgba(0,0,0,.25);
+    box-sizing:border-box;
+    left:50%;
+    padding:10vmin;
+    position:fixed;
+    text-align:center;
+    top:50%;
+    transform:translate(-50%, -50%);
+  }
+  
+  h1 {
+    font-family:monospace;
+  }
+  
+  @keyframes slide {
+    0% {
+      transform:translateX(-25%);
+    }
+    100% {
+      transform:translateX(25%);
+    }
+  }
 
-@keyframes Gradient {
-	0% {
-		background-position: 0% 50%
-	}
-	50% {
-		background-position: 100% 50%
-	}
-	100% {
-		background-position: 0% 50%
-	}
-}
 
-h1,
-h6 {
-	font-family: 'Open Sans';
-	font-weight: 300;
-	text-align: center;
-	position: absolute;
-	top: 45%;
-	right: 0;
-	left: 0;
-}
-</style>
+    </style> 
 
+    <div class="bg"></div>
+    <div class="bg bg2"></div>
+    <div class="bg bg3"></div>
 
 
 
@@ -146,15 +153,19 @@ h6 {
         width: 100%;
     }
     </style>
-   <!--
-   <br>
-   <br>
-   <br>
-   <?php include('server.php') ?>
-    <br>
-    <p><b><h2><center>Search for Articles | Topics | Titles </center></h2></b></p>
+   
 
-    
+   <link rel="stylesheet" type="text/css" href="style.css">
+
+   
+   <?php include('server.php') ?>
+  
+
+    <center>
+   <div class="header">
+       <h2>Search for Articles | Topics | Titles </h2><hr>
+   </div>
+   </center>
 
     
 
@@ -169,7 +180,7 @@ h6 {
     </div>
 
     <div class="input-group">
-        <button type="submit" name="submit1"></button>
+        <button type="submit" name="searchButton"></button>
     </div>
     </center>
     </form>
@@ -181,9 +192,41 @@ h6 {
 
   
     <!--action on search bars--> 
+    <?php
+  //This class generates a the cells for the search results in editor.php
 
+  $db = mysqli_connect('localhost', 'root', '', 'wellness');
+
+  if (isset($_POST['searchButton'])){
+    $search_value = $_POST['search'];
     
--->
+    error_log($search_value);
+
+    $searchQuery = "SELECT * FROM articles WHERE ArticleTitle = '$search_value' OR ArticleAuthors = '$search_value' OR urls = '$search_value' OR ArticleTopic_1 = '$search_value' OR ArticleTopic_2 = '$search_value' OR ArticleTopic_3 = '$search_value' OR ArticleTag_1 = '$search_value' OR ArticleTag_2 = '$search_value' OR ArticleTag_3 = '$search_value' OR ArticleTag_4 = '$search_value'";
+    $result = mysqli_query($db, $searchQuery);
+
+    //generate cell information from DB
+    while ($row = mysqli_fetch_assoc($result)){
+      echo '<tr>';
+        echo '<br>';
+        echo "Article ID: ";
+        echo '<td>' . $row['article_ID'] . '</td>';
+        echo '<br>';
+        echo "Article Title: ";
+        echo '<td>' . $row['ArticleTitle'] . '</td>';
+        echo '<br>';
+        echo "Article Authors: ";
+        echo '<td>' . $row['ArticleAuthors'] . '</td>';
+        echo '<br>';
+        echo "URLS: ";
+        echo "<a href='{$row['urls']}' target='_new'> {$row['urls']} </a><br>";
+      echo '</tr>';
+    }
+	echo '<table>';
+}
+?>
+    
+
 
 
        
@@ -194,19 +237,18 @@ h6 {
 
 
    <!-- view all the article title | authors | topics | Tags | URL in a table --> 
-
-    <!-- some CSS libraries from internet-->
-   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
    
     <!--make a table -->
     <body>
-    <h2><b><center>Article Newsfeed</center></b></h2>
-
-    <div class="container">
     
-    <table class="table table-bordered">
+    <div class="container">
+
+   <div class="header">
+       <h2>Article Newsfeed</h2><hr>
+   </div>
+   
+    <center>
+    <table class="table table-bordered" border = "2" bgcolor = "#FFFFFF" >
     <thead>
     <tr>
     <th>ArticleID</th>
@@ -245,6 +287,7 @@ h6 {
             }
     ?>
     </table>
+    </center>
 
 
             <br><br>
@@ -307,38 +350,7 @@ input[type=submit]:hover
 <body>
 
 
-
-
-
-
-<!--
-<form action="/action_page.php">
-  <div class="container">
-  <h2><center>Well Newsletter | Stay Connected</center></h2>
-  </div>
-
-
-  <div class="container" style="background-color:white">
-    <input type="text" placeholder="Name" name="name" required>
-    <input type="text" placeholder="Email address" name="mail" required>
-  </div>
-
-  <div class="container">
-    <input type="submit" value="Subscribe">
-  </div>
-</form>
-
--->
-
-  <p>
-  <!-- circle dots -->
-  <!--
-  <div style="text-align:center">
-    <span class="dot"></span>
-    <span class="dot"></span>
-    <span class="dot"></span>
-  </div>-->
-  </p>
+  
   
   
 

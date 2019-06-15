@@ -20,7 +20,7 @@
 
     <body> 
     <!-- add a logo --> 
-    <div class = "logo"><img src = "logo.png" style="width:20%"></a>
+    <div class = "logo"><img src = "logo2.png" style="width:10%"></a>
     </div>
 
 
@@ -34,6 +34,74 @@
     </div>
 
     </body>
+
+
+     
+    
+    <style>
+
+html {
+    height:100%;
+  }
+  
+  body {
+    margin:0;
+  }
+  
+  .bg {
+    animation:slide 3s ease-in-out infinite alternate;
+    background-image: linear-gradient(-60deg, #6c3 50%, #09f 50%);
+    bottom:0;
+    left:-50%;
+    opacity:.5;
+    position:fixed;
+    right:-50%;
+    top:0;
+    z-index:-1;
+  }
+  
+  .bg2 {
+    animation-direction:alternate-reverse;
+    animation-duration:4s;
+  }
+  
+  .bg3 {
+    animation-duration:5s;
+  }
+  
+  .content {
+    background-color:rgba(255,255,255,.8);
+    border-radius:.25em;
+    box-shadow:0 0 .25em rgba(0,0,0,.25);
+    box-sizing:border-box;
+    left:50%;
+    padding:10vmin;
+    position:fixed;
+    text-align:center;
+    top:50%;
+    transform:translate(-50%, -50%);
+  }
+  
+  h1 {
+    font-family:monospace;
+  }
+  
+  @keyframes slide {
+    0% {
+      transform:translateX(-25%);
+    }
+    100% {
+      transform:translateX(25%);
+    }
+  }
+
+
+    </style> 
+
+    <div class="bg"></div>
+    <div class="bg bg2"></div>
+    <div class="bg bg3"></div>
+
   
 
     <?php include('server.php') ?>
@@ -48,27 +116,27 @@
     <!--need to add URL here --> 
    <form method="post" action="adminMonthlyChallengeControl.php">
         <?php include('errors.php'); ?>
+        <link rel="stylesheet" type="text/css" href="style.css">
     
        
-    <br>
-    <br> <!--enter info about challenge -->
+    <!--enter info about challenge -->
    
-    <br><div class="input-group">
-         <label>Enter Challenge Name: </label>
+    <div class="input-group">
+         <label>Enter Challenge Name: * </label>
          <input type="text" name="challenge_name">
     </div>
 
-    <br><div class="input-group">
-         <label>Enter Challenge Description: </label>
+    <div class="input-group">
+         <label>Enter Challenge Description: *</label>
          <input type="text" name="challenge_description">
     </div>
 
-    <br><div class="input-group">
-         <label> How many points will user get to complete the task? </label>
+    <div class="input-group">
+         <label> How many points will user get to complete the task? * </label>
          <input type="int" name="points_submission">
     </div>
 
-    <br><!--press add button to take action-->
+    <!--press add button to take action-->
        <div class="input-group">
          <button type="submit" class="btn" name="add_challenge">Add</button>
        </div>
@@ -80,6 +148,21 @@
        
 
 
+   <br>
+
+
+  <!-- circle dots -->
+  <br>
+  <div style="text-align:center">
+    <span class="dot"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+  </div>
+
+
+
+     <br>
+
 
 
 
@@ -88,17 +171,13 @@
     <!--Removing Content-->
    <!--Delete URL--> 
    <center> 
-   <div class="header2">
+   <div class="header">
           <h2>Delete Challenges </h2>
    </div>
-   <br>
-
 
    <form method="post" action="adminMonthlyChallengeControl.php">
        <?php include('errors.php'); ?>
-   <br>
-   
-    <br> 
+ 
     <div class="input-group">
          <label>Enter name of the challenge you want to delete. </label>
          <input type="text" name="challenge_name">
@@ -112,17 +191,48 @@
    </form> 
    
 
+
+
+  <!-- circle dots -->
+  <br>
+  <div style="text-align:center">
+    <span class="dot"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+  </div>
+
+
+
+
+
+
   <!--show all the challenges in the database -->
 
-  <br>
-    <b><h2>Challenges in the Database </h2></b>
-    <br>
+<div class="container">
+
+<br>
+<div class="header">
+      <h2>Challenges in the Database </h2><hr>
+</div>
+
+<table class="table table-bordered" border="1" bgcolor="#FFFFFF">
+<thead>
+<tr>
+<th><h3>Challenge Name</h3></th>
+<th><h3>Challenge Description</h3></th>
+<th><h3>Points Awarded</h3></th>
+
+</tr>
+</thead>
+<tbody>
+<tr>
+
 
     <?php
 
    $db = mysqli_connect('localhost', 'root', '', 'wellness');
 
-   $user_check_query = "SELECT challenge_name, points_submission FROM listOfChallenges";
+   $user_check_query = "SELECT * FROM listOfChallenges";
    $result = mysqli_query($db, $user_check_query);
 
    if (!$result)
@@ -132,40 +242,19 @@
       return;
    }
  
-   {
-      echo "<div style=\"text-align:center\">";
-      echo "Challenges are listed below (challenge name | points awarded) ";
-   }
-  
    while ($row = $result -> fetch_assoc())
    {
-      echo "<div style=\"text-align:center\">";
-      echo "<br>{$row['challenge_name']}   |   ";
-      echo "{$row['points_submission']}<br>";
+      echo"<td>".$row['challenge_name']."</td>";
+      echo"<td>".$row['challenge_description']."</td>";
+      echo"<td>".$row['points_submission']."</td>";
+      echo "</tr>";
+
    }
    
    
    ?>
 
 
-
-  
-  
-  <br>
-  <br>
-  <br>
-  <p>
-  <!-- circle dots -->
-  <div style="text-align:center">
-    <span class="dot"></span>
-    <span class="dot"></span>
-    <span class="dot"></span>
-    <span class="dot"></span>
-    <span class="dot"></span>
-  </div>
-  </p>
-  
-  
 
     </body>
 

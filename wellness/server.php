@@ -1,4 +1,5 @@
 <?php
+
 session_start();
 
 //initialize error log
@@ -441,8 +442,12 @@ if (isset($_POST['challenge_submission']))
         $username = $_SESSION['username'];
         $challenge_name = $_POST['challenge_name'];
         $submission = $_POST['submission'];
-        $points_granted = 5; 
-      
+
+
+        //check with 
+        $update = "SELECT points_granted FROM challenges WHERE challenge_name = '$challenge_name";
+			  $points_granted = mysqli_query($db,$update);
+				      
     
         //error handling for empty 
         if (empty($username) || empty($challenge_name) || empty($submission)) 
@@ -454,63 +459,21 @@ if (isset($_POST['challenge_submission']))
         //assume user can participate in the same challenge as many times as they wish 
 
 
-		
-            
         // add challenge submission info to the system
-		$query = "INSERT INTO challenges (username, challenge_name, submission, points_granted ) VALUES ('$username', '$challenge_name', '$submission' , '$points_granted')";
-		$result = mysqli_query($db, $query);
+        $query = "INSERT INTO challenges (username, challenge_name, submission, points_granted ) VALUES ('$username', '$challenge_name', '$submission' , '$points_granted')";
+        $result = mysqli_query($db, $query);
         
 
         // add challenge submission info to the system
-		$query = "INSERT INTO userPoints (username, points ) VALUES ('$username', '$points_granted')";
-		$result = mysqli_query($db, $query);
+        $query = "INSERT INTO userPoints (username, points ) VALUES ('$username', '$points_granted')";
+        $result = mysqli_query($db, $query);
       
 
-      echo "<div style=\"text-align:center\">";
-      echo "Added!";
-      return;
+        echo "<div style=\"text-align:center\">";
+        echo "Added!";
+        return;
       
 }
-
-
-
-
-if(isset($_POST['submit1']))
-{
-  
-
-      $search_value=$_POST['search'];
-     // $user_check_query = "SELECT * FROM articles WHERE article_ID OR ArticleTitle OR ArticleAuthors OR urls OR Article_Topic1 OR Article_Topic2 OR Article_Topic3 OR Article_Tag1 OR Article_Tag2 OR Article_Tag3OR Article_Tag4 LIKE '%$search_value%'";
-    $user_check_query = "SELECT ArticleTitle, urls FROM articles WHERE ArticleAuthors = '$search_value'";
- 
-     $result = mysqli_query($db, $user_check_query);
-
-	 
-          if ($result==null)
-          {
-            echo "No articles on this topic exists in our directory currently. Please visit again later.";
-          }
-
-          else
-          {
-            echo "Your search results are: <br>";
-            while (($row = $result -> fetch_assoc()))
-            {
-              echo "<div style=\"text-align:center\">";
-              echo "{$row['ArticleTitle']}   |   ";
-              echo "<a href='{$row['urls']}' target='_new'> {$row['urls']} </a><br>";
-
-            }
-
-          }
-            
-          return;
-
-}
-
-
-
-
 
 
 
@@ -543,8 +506,8 @@ if(isset($_POST['submitData']))
 
   //store info on the database Table userWellnessTest
 
-  $user_check_query = "INSERT INTO userWellnessTest (username, Age, Height_cm, Weight_kg, BMI_calculated, Sex, ActivityLevel, WeightGoal, restingPulse, MaxHeartRate)
-   VALUES ('$username', '$age' , '$height', '$weight', '$BMI', '$sex', '$Activity_level', '$Weight_goal', '$rest_pulse', '$Max_heart_rate') ";
+  $user_check_query = "INSERT INTO userWellnessTest (username, Age, Height_cm, Weight_kg, BMI_calculated, Test_Date, Sex, ActivityLevel, WeightGoal, restingPulse, MaxHeartRate)
+   VALUES ('$username', '$age' , '$height', '$weight', '$BMI', '$date', '$sex', '$Activity_level', '$Weight_goal', '$rest_pulse', '$Max_heart_rate') ";
  
   $result = mysqli_query($db, $user_check_query);
 
@@ -567,7 +530,7 @@ function calculateBMI($weight, $height)
 
 
  
- echo "<h1><center><b>ASSESSMENT RESULTS </b></center></h1>";
+ //echo "<h1><center><b>ASSESSMENT RESULTS </b></center></h1>";
 
  echo "<p>
  <div style=\"text-align:center\">
