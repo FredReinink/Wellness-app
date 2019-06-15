@@ -25,7 +25,7 @@ for ($i = 1; $i <= $num_exercises; $i++){
 	$exerciseStringReps = "user_exercise" . $i . "_reps";
 	echo '
 	<div class="input-group">
-		 <label>'. $exercises_as_array[$exerciseStringName] .' Weight</label>
+		 <label>'. $exercises_as_array[$exerciseStringName] .' Weight (kg)</label>
 		 <input type="text" maxlength = "3" style="width: 80px;" name="' . $exerciseStringWeight . '">
 	</div>';
 	echo '

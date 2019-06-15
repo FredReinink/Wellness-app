@@ -113,7 +113,7 @@ html {
 		</div>
 		<br> 
 		<div class="input-group">
-			 <label>How much did you weigh on that day?</label>
+			 <label>How much did you weigh on that day? (kg)</label>
 			 <input type="text" name="weight" required maxlength = 3 style="width: 80px;>
 		</div>
 		<br>

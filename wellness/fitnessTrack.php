@@ -124,7 +124,7 @@ html {
 			 <input type="text" name="cardio_minutes" maxlength = "3" style="width: 80px;">
 		</div>
 		<div class="input-group">
-			 <label>What was your heartrate during your cardio?</label>
+			 <label>What was your heartrate during your cardio? (bpm)</label>
 			 <input type="text" name="cardio_heartrate" maxlength = "3" style="width: 80px;">
 		</div>
 		

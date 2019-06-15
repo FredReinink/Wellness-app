@@ -17,6 +17,7 @@ INSERT INTO users (username, email, password, first_name, last_name) VALUES ("Na
 INSERT INTO users (username, email, password, first_name, last_name) VALUES ("Claire_Bear", "claire@gmail.com", "6F5393979D674DE36C433B47B7D8908E", "Claire","Delany");
 INSERT INTO users (username, email, password, first_name, last_name) VALUES ("Steven_Swag", "steven@gmail.com", "6F5393979D674DE36C433B47B7D8908E", "Steven","Taylor");
 INSERT INTO users (username, email, password, first_name, last_name) VALUES ("Pankti_coolBean", "pankti@gmail.com", "6F5393979D674DE36C433B47B7D8908E", "Pankti","Shah");
+INSERT INTO users (username, email, password, first_name, last_name) VALUES ("Frank", "frank@gmail.com", "912ec803b2ce49e4a541068d495ab570", "Frank","Guy");
 
 
 
@@ -120,7 +121,8 @@ INSERT INTO foodItem (name, quantity, calories, gProtein, gFat, gCarbs) VALUES (
 INSERT INTO foodItem (name, quantity, calories, gProtein, gFat, gCarbs) VALUES ("Whole wheat bread", "Slice", "69", "3.6", "0.9", "12");
 INSERT INTO foodItem (name, quantity, calories, gProtein, gFat, gCarbs) VALUES ("Tomato", "100g", "18", "0.9", "0.2", "3.9");
 INSERT INTO foodItem (name, quantity, calories, gProtein, gFat, gCarbs) VALUES ("Potato", "100g", "77", "2", "0.1", "17");
-INSERT INTO foodItem (name, quantity, calories, gProtein, gFat, gCarbs) VALUES ("Steak", "Whole steak (251g)", "679", "62", "48", "0");
+INSERT INTO foodItem (name, quantity, calories, gProtein, gFat, gCarbs) VALUES ("Apple", "One apple(95g)", "95", "0.5", "0.3", "25");
+INSERT INTO foodItem (name, quantity, calories, gProtein, gFat, gCarbs) VALUES ("Banana", "Banana (118g)", "105", "1.3", "0.4", "27");
 
 
 DROP TABLE IF EXISTS dietTracker;
@@ -138,6 +140,17 @@ CREATE TABLE dietTracker
 	PRIMARY KEY(username, diet_date)
 );
 
+INSERT INTO dietTracker(username, diet_date, calories_consumed, weight, gProteinConsumed, gCarbsConsumed, gFatConsumed) VALUES ("Frank", "2019-06-02", "2000", "200", "92", "122", "36");
+INSERT INTO dietTracker(username, diet_date, calories_consumed, weight, gProteinConsumed, gCarbsConsumed, gFatConsumed) VALUES ("Frank", "2019-06-04", "2300", "197", "103", "107", "29");
+INSERT INTO dietTracker(username, diet_date, calories_consumed, weight, gProteinConsumed, gCarbsConsumed, gFatConsumed) VALUES ("Frank", "2019-06-06", "1977", "198", "77", "155", "27");
+INSERT INTO dietTracker(username, diet_date, calories_consumed, weight, gProteinConsumed, gCarbsConsumed, gFatConsumed) VALUES ("Frank", "2019-06-10", "1700", "195", "90", "122", "42");
+INSERT INTO dietTracker(username, diet_date, calories_consumed, weight, gProteinConsumed, gCarbsConsumed, gFatConsumed) VALUES ("Frank", "2019-06-12", "1888", "196", "66", "150", "39");
+INSERT INTO dietTracker(username, diet_date, calories_consumed, weight, gProteinConsumed, gCarbsConsumed, gFatConsumed) VALUES ("Frank", "2019-06-14", "2300", "195", "90", "88", "57");
+INSERT INTO dietTracker(username, diet_date, calories_consumed, weight, gProteinConsumed, gCarbsConsumed, gFatConsumed) VALUES ("Frank", "2019-06-18", "1987", "194", "99", "120", "40");
+INSERT INTO dietTracker(username, diet_date, calories_consumed, weight, gProteinConsumed, gCarbsConsumed, gFatConsumed) VALUES ("Frank", "2019-06-20", "1866", "193", "88", "120", "29");
+INSERT INTO dietTracker(username, diet_date, calories_consumed, weight, gProteinConsumed, gCarbsConsumed, gFatConsumed) VALUES ("Frank", "2019-06-24", "1923", "190", "103", "122", "29");
+
+
 DROP TABLE IF EXISTS cardioTracker;
 CREATE TABLE cardioTracker
 (
@@ -148,8 +161,29 @@ CREATE TABLE cardioTracker
 	
 	FOREIGN KEY (username) REFERENCES users(username),
 	PRIMARY KEY(username, cardio_date)
-
 );
+
+INSERT INTO cardioTracker(username, cardio_date, cardio_minutes, cardio_heartrate) VALUES ("Frank", "2019-06-02", "30", "90");
+INSERT INTO cardioTracker(username, cardio_date, cardio_minutes, cardio_heartrate) VALUES ("Frank", "2019-06-04", "30", "92");
+INSERT INTO cardioTracker(username, cardio_date, cardio_minutes, cardio_heartrate) VALUES ("Frank", "2019-06-05", "35", "90");
+INSERT INTO cardioTracker(username, cardio_date, cardio_minutes, cardio_heartrate) VALUES ("Frank", "2019-06-06", "30", "90");
+INSERT INTO cardioTracker(username, cardio_date, cardio_minutes, cardio_heartrate) VALUES ("Frank", "2019-06-08", "35", "96");
+INSERT INTO cardioTracker(username, cardio_date, cardio_minutes, cardio_heartrate) VALUES ("Frank", "2019-06-09", "36", "96");
+INSERT INTO cardioTracker(username, cardio_date, cardio_minutes, cardio_heartrate) VALUES ("Frank", "2019-06-10", "37", "97");
+INSERT INTO cardioTracker(username, cardio_date, cardio_minutes, cardio_heartrate) VALUES ("Frank", "2019-06-12", "35", "95");
+INSERT INTO cardioTracker(username, cardio_date, cardio_minutes, cardio_heartrate) VALUES ("Frank", "2019-06-14", "33", "94");
+INSERT INTO cardioTracker(username, cardio_date, cardio_minutes, cardio_heartrate) VALUES ("Frank", "2019-06-16", "30", "100");
+INSERT INTO cardioTracker(username, cardio_date, cardio_minutes, cardio_heartrate) VALUES ("Frank", "2019-06-18", "29", "102");
+INSERT INTO cardioTracker(username, cardio_date, cardio_minutes, cardio_heartrate) VALUES ("Frank", "2019-06-20", "35", "99");
+INSERT INTO cardioTracker(username, cardio_date, cardio_minutes, cardio_heartrate) VALUES ("Frank", "2019-06-22", "37", "102");
+INSERT INTO cardioTracker(username, cardio_date, cardio_minutes, cardio_heartrate) VALUES ("Frank", "2019-06-24", "40", "105");
+INSERT INTO cardioTracker(username, cardio_date, cardio_minutes, cardio_heartrate) VALUES ("Frank", "2019-06-25", "44", "100");
+INSERT INTO cardioTracker(username, cardio_date, cardio_minutes, cardio_heartrate) VALUES ("Frank", "2019-06-26", "40", "102");
+INSERT INTO cardioTracker(username, cardio_date, cardio_minutes, cardio_heartrate) VALUES ("Frank", "2019-06-28", "38", "103");
+INSERT INTO cardioTracker(username, cardio_date, cardio_minutes, cardio_heartrate) VALUES ("Frank", "2019-06-30", "42", "105");
+
+
+
 
 DROP TABLE IF EXISTS followedExercises;
 CREATE TABLE followedExercises
@@ -175,6 +209,9 @@ CREATE TABLE followedExercises
 	FOREIGN KEY (username) REFERENCES users(username),
 	PRIMARY KEY (username)
 );
+
+INSERT INTO followedExercises(username, user_exercise1_name, user_exercise2_name, user_exercise3_name) VALUES ("Frank", "Standing Press", "Squat", "Bench Press");
+
 
 DROP TABLE IF EXISTS weightLiftingTracker;
 CREATE TABLE weightLiftingTracker
@@ -245,9 +282,17 @@ CREATE TABLE weightLiftingTracker
 	
 	FOREIGN KEY (username) REFERENCES users(username),
 	PRIMARY KEY(username, weights_date)
-
-	
 );
+
+INSERT INTO weightLiftingTracker(username, weights_date, user_exercise1_name, user_exercise1_weight, user_exercise1_reps, user_exercise2_name, user_exercise2_weight, user_exercise2_reps, user_exercise3_name, user_exercise3_weight, user_exercise3_reps) VALUES ("Frank", "2019-06-01", "Standing Press", "40", "25", "Squat", "95", "25", "Bench Press", "70", "25");
+INSERT INTO weightLiftingTracker(username, weights_date, user_exercise1_name, user_exercise1_weight, user_exercise1_reps, user_exercise2_name, user_exercise2_weight, user_exercise2_reps, user_exercise3_name, user_exercise3_weight, user_exercise3_reps) VALUES ("Frank", "2019-06-03", "Standing Press", "40", "25", "Squat", "100", "25", "Bench Press", "75", "25");
+INSERT INTO weightLiftingTracker(username, weights_date, user_exercise1_name, user_exercise1_weight, user_exercise1_reps, user_exercise2_name, user_exercise2_weight, user_exercise2_reps, user_exercise3_name, user_exercise3_weight, user_exercise3_reps) VALUES ("Frank", "2019-06-06", "Standing Press", "45", "25", "Squat", "105", "25", "Bench Press", "75", "25");
+INSERT INTO weightLiftingTracker(username, weights_date, user_exercise1_name, user_exercise1_weight, user_exercise1_reps, user_exercise2_name, user_exercise2_weight, user_exercise2_reps, user_exercise3_name, user_exercise3_weight, user_exercise3_reps) VALUES ("Frank", "2019-06-10", "Standing Press", "45", "25", "Squat", "110", "25", "Bench Press", "80", "25");
+INSERT INTO weightLiftingTracker(username, weights_date, user_exercise1_name, user_exercise1_weight, user_exercise1_reps, user_exercise2_name, user_exercise2_weight, user_exercise2_reps, user_exercise3_name, user_exercise3_weight, user_exercise3_reps) VALUES ("Frank", "2019-06-15", "Standing Press", "50", "25", "Squat", "115", "25", "Bench Press", "80", "25");
+INSERT INTO weightLiftingTracker(username, weights_date, user_exercise1_name, user_exercise1_weight, user_exercise1_reps, user_exercise2_name, user_exercise2_weight, user_exercise2_reps, user_exercise3_name, user_exercise3_weight, user_exercise3_reps) VALUES ("Frank", "2019-06-18", "Standing Press", "55", "25", "Squat", "115", "25", "Bench Press", "85", "25");
+INSERT INTO weightLiftingTracker(username, weights_date, user_exercise1_name, user_exercise1_weight, user_exercise1_reps, user_exercise2_name, user_exercise2_weight, user_exercise2_reps, user_exercise3_name, user_exercise3_weight, user_exercise3_reps) VALUES ("Frank", "2019-06-22", "Standing Press", "55", "25", "Squat", "120", "25", "Bench Press", "90", "25");
+INSERT INTO weightLiftingTracker(username, weights_date, user_exercise1_name, user_exercise1_weight, user_exercise1_reps, user_exercise2_name, user_exercise2_weight, user_exercise2_reps, user_exercise3_name, user_exercise3_weight, user_exercise3_reps) VALUES ("Frank", "2019-06-26", "Standing Press", "60", "25", "Squat", "125", "25", "Bench Press", "90", "25");
+INSERT INTO weightLiftingTracker(username, weights_date, user_exercise1_name, user_exercise1_weight, user_exercise1_reps, user_exercise2_name, user_exercise2_weight, user_exercise2_reps, user_exercise3_name, user_exercise3_weight, user_exercise3_reps) VALUES ("Frank", "2019-06-30", "Standing Press", "60", "25", "Squat", "130", "25", "Bench Press", "95", "25");
 
 
 DROP TABLE IF EXISTS feedBack;

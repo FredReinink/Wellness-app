@@ -59,6 +59,7 @@
 			  },
 
 			  axisY: {
+				  	includeZero: false,
 					valueFormatString: " ",
 					title: "Volume",
 			  },
@@ -98,6 +99,7 @@
 			  },
 
 			  axisY: {
+				  includeZero: false,
 				  title: "weight (lbs)",
 				  valueFormatString: "0.0#"
 			  },
@@ -131,6 +133,7 @@
 				axisX: {
 				},
 				axisY: {
+					includeZero: false,
 					valueFormatString: " ",
 					title: "Volume",
 				},
