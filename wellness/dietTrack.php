@@ -98,14 +98,6 @@ html {
     </div>
   </div>
   
-    <!-- circle dots -->
-  <br>
-  <div style="text-align:center">
-    <span class="dot"></span>
-    <span class="dot"></span>
-    <span class="dot"></span>
-  </div>
-  
      <?php 
 		include('server.php');
 		include('errors.php');   
@@ -134,4 +126,12 @@ html {
   </form>
   
 </body>
+
+      <!-- circle dots -->
+  <br>
+  <div style="text-align:center">
+    <span class="dot"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+  </div>
 </html>

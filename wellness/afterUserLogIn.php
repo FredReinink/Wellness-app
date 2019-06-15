@@ -15,12 +15,10 @@
     <title> Wellness </title> 
   
   </head> 
-  
-  
 
   <body> 
   <!-- add a logo --> 
-  <div class = "logo"><a href = "homePageAfterUserLogIn.php"><img src = "logo.png" style="width:20%"></a>
+  <div class = "logo"><a href = "homePageAfterUserLogIn.php"><img src = "logo2.png" style="width:10%"></a>
   </div>
   
   <!-- Navigation -->
@@ -128,7 +126,7 @@
 			
 			var weightTrainingChart = new CanvasJS.Chart("weightTrainingChart", {
 				title: {
-					text: "Strength Training Progression by Volume"
+					text: "Strength Training Progression"
 				},
 				axisX: {
 				},

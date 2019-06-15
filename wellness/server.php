@@ -297,51 +297,41 @@ if (isset($_POST['submit_fitness_info']))
 	
 	$username = $_SESSION['username'];
 	
-	//update fitnessTracker
-	$query = "INSERT INTO fitnessTracker (username, fitness_date) 
-  			  VALUES('$username', '$date')";
-  	$result = mysqli_query($db, $query);
-	
-	if (!$result){
-		array_push($errors, "You have already added data for this date");
-	} else {
+	if ($cardio_minutes != 0 && $cardio_heartrate != 0){
 		
-		
-		if ($cardio_minutes != 0 && $cardio_heartrate != 0){
-			//update cardioTracker
-			$query = "INSERT INTO cardioTracker (username, cardio_date, cardio_minutes, cardio_heartrate) 
-					  VALUES('$username', '$date', '$cardio_minutes', '$cardio_heartrate')";
-			$result = mysqli_query($db, $query);
-		}
-
-		//update weightLiftingTracker
-		$query = "INSERT INTO weightLiftingTracker (username, weights_date) 
-		VALUES('$username', '$date')";
+	//update cardioTracker
+		$query = "INSERT INTO cardioTracker (username, cardio_date, cardio_minutes, cardio_heartrate) 
+				  VALUES('$username', '$date', '$cardio_minutes', '$cardio_heartrate')";
 		$result = mysqli_query($db, $query);
+	}
+	
+	//update weightLiftingTracker
+	$query = "INSERT INTO weightLiftingTracker (username, weights_date) 
+	VALUES('$username', '$date')";
+	$result = mysqli_query($db, $query);
+	
+	//Query to get the number of exercises the user currently tracks
+	$num_exercises_query = "SELECT num_exercises FROM followedExercises WHERE username = '$username'";
+	$num_exercises = mysqli_query($db, $num_exercises_query);
+	$num_exercises_as_array = mysqli_fetch_assoc($num_exercises);
+	
+	//updates individual exercise info
+	for ($i = 1; $i <= (int)$num_exercises_as_array['num_exercises']; $i++){
+		$exerciseNameString = "user_exercise" . $i . "_name";
+		$exerciseWeightString = "user_exercise" . $i . "_weight";
+		$exerciseRepsString = "user_exercise" . $i . "_reps";
 		
-		//Query to get the number of exercises the user currently tracks
-		$num_exercises_query = "SELECT num_exercises FROM followedExercises WHERE username = '$username'";
-		$num_exercises = mysqli_query($db, $num_exercises_query);
-		$num_exercises_as_array = mysqli_fetch_assoc($num_exercises);
+		if (isset($_POST[$exerciseWeightString])){
+			$exercise_name_query = "SELECT $exerciseNameString FROM followedExercises WHERE username = '$username'";
+			$exercise_name_result = mysqli_query($db, $exercise_name_query);
+			$exerciseName = mysqli_fetch_assoc($exercise_name_result)[$exerciseNameString];
 		
-		//updates individual exercise info
-		for ($i = 1; $i <= (int)$num_exercises_as_array['num_exercises']; $i++){
-			$exerciseNameString = "user_exercise" . $i . "_name";
-			$exerciseWeightString = "user_exercise" . $i . "_weight";
-			$exerciseRepsString = "user_exercise" . $i . "_reps";
+			$exerciseWeight = $_POST[$exerciseWeightString];
+			$exerciseReps = $_POST[$exerciseRepsString];
 			
-			if (isset($_POST[$exerciseWeightString])){
-				$exercise_name_query = "SELECT $exerciseNameString FROM followedExercises WHERE username = '$username'";
-				$exercise_name_result = mysqli_query($db, $exercise_name_query);
-				$exerciseName = mysqli_fetch_assoc($exercise_name_result)[$exerciseNameString];
-			
-				$exerciseWeight = $_POST[$exerciseWeightString];
-				$exerciseReps = $_POST[$exerciseRepsString];
-				
-				if ($exerciseWeight != 0 && $exerciseReps != 0){
-					$exerciseUpdateQuery = "UPDATE weightLiftingTracker SET $exerciseNameString = '$exerciseName', $exerciseWeightString = '$exerciseWeight', $exerciseRepsString = '$exerciseReps' WHERE username = '$username' AND weights_date = '$date'";
-					$exerciseUpdate = mysqli_query($db, $exerciseUpdateQuery);
-				}
+			if ($exerciseWeight != 0 && $exerciseReps != 0){
+				$exerciseUpdateQuery = "UPDATE weightLiftingTracker SET $exerciseNameString = '$exerciseName', $exerciseWeightString = '$exerciseWeight', $exerciseRepsString = '$exerciseReps' WHERE username = '$username' AND weights_date = '$date'";
+				$exerciseUpdate = mysqli_query($db, $exerciseUpdateQuery);
 			}
 		}
 	}

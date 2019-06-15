@@ -138,16 +138,6 @@ CREATE TABLE dietTracker
 	PRIMARY KEY(username, diet_date)
 );
 
-DROP TABLE IF EXISTS fitnessTracker;
-CREATE TABLE fitnessTracker
-(
-	username varchar(255) NOT NULL,
-	fitness_date date NOT NULL,
-	
-	FOREIGN KEY (username) REFERENCES users(username),
-	PRIMARY KEY(username, fitness_date)
-);
-
 DROP TABLE IF EXISTS cardioTracker;
 CREATE TABLE cardioTracker
 (
@@ -156,7 +146,7 @@ CREATE TABLE cardioTracker
 	cardio_minutes int,
 	cardio_heartrate int,
 	
-	FOREIGN KEY (username) REFERENCES fitnessTracker(username),
+	FOREIGN KEY (username) REFERENCES users(username),
 	PRIMARY KEY(username, cardio_date)
 
 );
@@ -254,7 +244,7 @@ CREATE TABLE weightLiftingTracker
 	user_exercise15_reps int,
 	
 	
-	FOREIGN KEY (username) REFERENCES fitnessTracker(username),
+	FOREIGN KEY (username) REFERENCES users(username),
 	PRIMARY KEY(username, weights_date)
 
 	

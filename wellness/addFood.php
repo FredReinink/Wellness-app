@@ -106,14 +106,6 @@ html {
 	</div>
   </div>
   
-    <!-- circle dots -->
-  <br>
-  <div style="text-align:center">
-    <span class="dot"></span>
-    <span class="dot"></span>
-    <span class="dot"></span>
-  </div>
-  
     <br>
 	<b><h2><center> Your nutritional information for <?php echo $_SESSION['enteredDate']?> </center></h2></b>
 	
@@ -235,4 +227,12 @@ html {
   
   
  </body>
+ 
+       <!-- circle dots -->
+  <br>
+  <div style="text-align:center">
+    <span class="dot"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+  </div>
 </html>
