@@ -1,0 +1,115 @@
+
+
+/*Style for navigatin*/
+body 
+{
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+
+}
+
+/*top menu bar*/
+.topnav 
+{
+  overflow: hidden;
+  background-color: #17202A;
+}
+
+.topnav a 
+{
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover 
+{
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active 
+{
+  background-color: #17202A;
+  color: white;
+}
+
+.topnav-right 
+{
+  float: right;
+}
+
+
+/*Style for cicle dots for design*/
+.dot 
+{
+  height: 25px;
+  width: 25px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+/*Sign-in button*/
+.block 
+{
+  display: block;
+  width: 100%;
+  border: none;
+  background-color: #17202A;
+  color: white;
+  padding: 14px 28px;
+  font-size: 16px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.block:hover 
+{
+  background-color: #ddd;
+  color: black;
+}
+
+form {border: 3px solid #f1f1f1;}
+
+input[type=text], input[type=password] 
+{
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+button 
+{
+  background-color: #17202A;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+
+button:hover 
+{
+  opacity: 0.6;
+}
+
+
+.container 
+{
+  padding: 16px;
+}
+
+span.psw 
+{
+  float: right;
+  padding-top: 16px;
+}
