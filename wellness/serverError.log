@@ -20,3 +20,9 @@
 [15-Jun-2019 12:00:39 Europe/Berlin] Diet Plans for Obese People
 [15-Jun-2019 12:10:57 Europe/Berlin] asdf
 [15-Jun-2019 12:11:00 Europe/Berlin] asdf
+[16-Jun-2019 15:25:08 Europe/Berlin] PHP Notice:  Undefined index: enteredDate in E:\xampp\htdocs\wellnessFinal\addFood.php on line 110
+[16-Jun-2019 15:25:08 Europe/Berlin] PHP Notice:  Undefined index: totalCalories in E:\xampp\htdocs\wellnessFinal\addFood.php on line 124
+[16-Jun-2019 15:25:08 Europe/Berlin] PHP Notice:  Undefined index: gramsProtein in E:\xampp\htdocs\wellnessFinal\addFood.php on line 125
+[16-Jun-2019 15:25:08 Europe/Berlin] PHP Notice:  Undefined index: gramsFat in E:\xampp\htdocs\wellnessFinal\addFood.php on line 126
+[16-Jun-2019 15:25:08 Europe/Berlin] PHP Notice:  Undefined index: gramsCarbs in E:\xampp\htdocs\wellnessFinal\addFood.php on line 127
+[16-Jun-2019 15:27:41 Europe/Berlin] here

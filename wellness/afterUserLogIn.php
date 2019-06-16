@@ -49,6 +49,7 @@
 		echo '	
 		  <script type="text/javascript">
 		  window.onload = function () {
+
 			var cardioChart = new CanvasJS.Chart("cardioChart",
 			{
 

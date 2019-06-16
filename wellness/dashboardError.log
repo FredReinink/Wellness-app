@@ -92,3 +92,15 @@
 [15-Jun-2019 13:48:17 Europe/Berlin] here
 [15-Jun-2019 13:49:54 Europe/Berlin] here
 [15-Jun-2019 13:50:06 Europe/Berlin] here
+[16-Jun-2019 02:20:40 Europe/Berlin] here
+[16-Jun-2019 15:25:12 Europe/Berlin] PHP Notice:  Undefined index: username in E:\xampp\htdocs\wellnessFinal\afterUserLogIn.php on line 73
+[16-Jun-2019 15:25:13 Europe/Berlin] PHP Notice:  Undefined index: username in E:\xampp\htdocs\wellnessFinal\afterUserLogIn.php on line 113
+[16-Jun-2019 15:25:13 Europe/Berlin] PHP Notice:  Undefined index: username in E:\xampp\htdocs\wellnessFinal\afterUserLogIn.php on line 228
+[16-Jun-2019 15:25:14 Europe/Berlin] PHP Notice:  Undefined index: username in E:\xampp\htdocs\wellnessFinal\afterUserLogIn.php on line 73
+[16-Jun-2019 15:25:14 Europe/Berlin] PHP Notice:  Undefined index: username in E:\xampp\htdocs\wellnessFinal\afterUserLogIn.php on line 113
+[16-Jun-2019 15:25:14 Europe/Berlin] PHP Notice:  Undefined index: username in E:\xampp\htdocs\wellnessFinal\afterUserLogIn.php on line 228
+[16-Jun-2019 15:25:29 Europe/Berlin] PHP Notice:  Undefined index: username in E:\xampp\htdocs\wellnessFinal\afterUserLogIn.php on line 73
+[16-Jun-2019 15:25:29 Europe/Berlin] PHP Notice:  Undefined index: username in E:\xampp\htdocs\wellnessFinal\afterUserLogIn.php on line 113
+[16-Jun-2019 15:25:29 Europe/Berlin] PHP Notice:  Undefined index: username in E:\xampp\htdocs\wellnessFinal\afterUserLogIn.php on line 228
+[16-Jun-2019 15:26:05 Europe/Berlin] here
+[16-Jun-2019 15:27:42 Europe/Berlin] here
