@@ -192,7 +192,7 @@ if (isset($_POST['add_bookmark']))
 //deleting URLS/articles from the list 
 if(isset($_POST['delete_url']))
 {
-   $url_to_delete = $_POST['url_to_delete'];
+   $url_to_delete = mysqli_real_escape_string($db, $_POST['url_to_delete']);
    $user_check_query = "DELETE FROM articles WHERE urls='$url_to_delete'";
    $result = mysqli_query($db, $user_check_query);
 
@@ -244,9 +244,9 @@ function url_already_exists( $url, $db)
 if (isset($_POST['add_challenge'])) 
 {
 
-        $challenge_name = $_POST['challenge_name'];
-        $challenge_description = $_POST['challenge_description'];
-        $points_submission = $_POST['points_submission'];
+        $challenge_name = mysqli_real_escape_string($db, $_POST['challenge_name']);
+        $challenge_description = mysqli_real_escape_string($db, $_POST['challenge_description']);
+        $points_submission = mysqli_real_escape_string($db, $_POST['points_submission']);
       
     
         //error handling for empty 
@@ -271,7 +271,7 @@ if (isset($_POST['add_challenge']))
 //delete challenge
 if(isset($_POST['delete_challenge']))
 {
-   $challenge_name = $_POST['challenge_name'];
+   $challenge_name = mysqli_real_escape_string($db, $_POST['challenge_name']);
    $user_check_query = "DELETE FROM listOfChallenges WHERE challenge_name='$challenge_name'";
    $result = mysqli_query($db, $user_check_query);
 
@@ -290,10 +290,10 @@ if(isset($_POST['delete_challenge']))
 //submit fitness tracking information
 if (isset($_POST['submit_fitness_info']))
 {	
-	$date = $_POST['date'];
+	$date = mysqli_real_escape_string($db, $_POST['date']);
 	
-	$cardio_minutes = $_POST['cardio_minutes'];
-	$cardio_heartrate = $_POST['cardio_heartrate'];
+	$cardio_minutes = mysqli_real_escape_string($db, $_POST['cardio_minutes']);
+	$cardio_heartrate = mysqli_real_escape_string($db, $_POST['cardio_heartrate']);
 	
 	$username = $_SESSION['username'];
 	
@@ -338,7 +338,7 @@ if (isset($_POST['submit_fitness_info']))
 if (isset($_POST['add_exercise']))
 {
 	$username = $_SESSION['username'];
-	$exercise_name = $_POST['addExercise'];
+	$exercise_name = mysqli_real_escape_string($db, $_POST['addExercise']);
 	
 	$num_exercises = getNumExercises($username);
   
@@ -362,7 +362,7 @@ if (isset($_POST['add_exercise']))
 
 //handles the "add" button for a food item in addFood.php
 if (isset($_POST['addFood'])){
-	$foodName = $_POST['addFood'];
+	$foodName = mysqli_real_escape_string($db, $_POST['addFood']);
 	$username = $_SESSION['username'];
 	$dietDate = $_SESSION['enteredDate'];
 	
@@ -396,8 +396,8 @@ if (isset($_POST['submit_diet_info']))
 	
 	$username = $_SESSION['username'];
 	
-	$date = $_POST['date'];
-	$weight = $_POST['weight'];
+	$date = mysqli_real_escape_string($db, $_POST['date']);
+	$weight = mysqli_real_escape_string($db, $_POST['weight']);
 	
 	//initialize variables for addFood.php
 	$_SESSION['enteredDate'] = $date;
@@ -422,8 +422,8 @@ if (isset($_POST['challenge_submission']))
 {
 
         $username = $_SESSION['username'];
-        $challenge_name = $_POST['challenge_name'];
-        $submission = $_POST['submission'];
+        $challenge_name = mysqli_real_escape_string($db, $_POST['challenge_name']);
+        $submission = mysqli_real_escape_string($db, $_POST['submission']);
 
 
         //check with 
@@ -463,17 +463,17 @@ if (isset($_POST['challenge_submission']))
 // wellnessTest
 if(isset($_POST['submitData']))
 {
-  $username = $_SESSION['username'];
-  $weight = $_POST['weight'];
-  $height = $_POST['height'];
+  $username = mysqli_real_escape_string($db, $_SESSION['username']);
+  $weight = mysqli_real_escape_string($db, $_POST['weight']);
+  $height = mysqli_real_escape_string($db, $_POST['height']);
   $height = $height / 100; 
-  $sex = $_POST['sex'];
-  $age = $_POST['age'];
-  $rest_pulse = $_POST['rest_pulse'];
-  $Max_heart_rate = $_POST['Max_heart_rate'];
-  $Activity_level = $_POST['Activity_level'];
-  $Weight_goal = $_POST['Weight_goal'];
-  $date = $_POST['date'];
+  $sex = mysqli_real_escape_string($db, $_POST['sex']);
+  $age = mysqli_real_escape_string($db, $_POST['age']);
+  $rest_pulse = mysqli_real_escape_string($db, $_POST['rest_pulse']);
+  $Max_heart_rate = mysqli_real_escape_string($db, $_POST['Max_heart_rate']);
+  $Activity_level = mysqli_real_escape_string($db, $_POST['Activity_level']);
+  $Weight_goal = mysqli_real_escape_string($db, $_POST['Weight_goal']);
+  $date = mysqli_real_escape_string($db, $_POST['date']);
 
   $BMI = calculateBMI($weight, $height); 
 
