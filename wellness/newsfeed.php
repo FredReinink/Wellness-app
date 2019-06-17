@@ -202,7 +202,7 @@ html {
     
     error_log($search_value);
 
-    $searchQuery = "SELECT * FROM articles WHERE ArticleTitle = '$search_value' OR ArticleAuthors = '$search_value' OR urls = '$search_value' OR ArticleTopic_1 = '$search_value' OR ArticleTopic_2 = '$search_value' OR ArticleTopic_3 = '$search_value' OR ArticleTag_1 = '$search_value' OR ArticleTag_2 = '$search_value' OR ArticleTag_3 = '$search_value' OR ArticleTag_4 = '$search_value'";
+    $searchQuery = "SELECT * FROM articles WHERE ArticleTitle LIKE '%$search_value%' OR ArticleAuthors LIKE '%$search_value%' OR urls LIKE '%$search_value%' OR ArticleTopic_1 LIKE '%$search_value%' OR ArticleTopic_2 LIKE '%$search_value%' OR ArticleTopic_3 LIKE '%$search_value%' OR ArticleTag_1 LIKE '%$search_value%' OR ArticleTag_2 LIKE '%$search_value%' OR ArticleTag_3 LIKE '%$search_value%' OR ArticleTag_4 LIKE '%$search_value%'";
     $result = mysqli_query($db, $searchQuery);
 
     //generate cell information from DB
@@ -261,6 +261,7 @@ html {
     <tbody>
     <tr>
 
+    <!-- great works now -->
     <!-- populate information in the table --> 
     <?php
             $db = mysqli_connect('localhost', 'root', '', 'wellness');
