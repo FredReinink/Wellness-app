@@ -220,11 +220,9 @@ html {
     <?php
 
    $db = mysqli_connect('localhost', 'root', '', 'wellness');
+   $username = $_SESSION['username'];
 
-   $user_check_query = "SELECT username, SUM (points) AS TotalPoints FROM userPoints GROUP BY username ORDER BY COUNT(points) DESC LIMIT 5";
-
-   //"SELECT urls FROM bookmarks GROUP BY urls ORDER BY COUNT(*) DESC LIMIT 10";
-
+   $user_check_query = "SELECT username, SUM(points) AS total FROM userPoints GROUP BY username ORDER BY SUM(points) DESC LIMIT 5";
 
    $result = mysqli_query($db, $user_check_query); 
 
@@ -240,6 +238,7 @@ html {
    {
       echo "<div style=\"text-align:center\">";
       echo "<br>{$row['username']}";
+      echo "<br>{$row['total']}";
    }
 
     ?>

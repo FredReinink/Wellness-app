@@ -427,14 +427,17 @@ if (isset($_POST['challenge_submission']))
 
 
         //check with 
-        $update = "SELECT points_granted FROM challenges WHERE challenge_name = '$challenge_name";
-			  $points_granted = mysqli_query($db,$update);
-				      
-    
+        $update = "SELECT points_submission FROM listofchallenges WHERE challenge_name = '$challenge_name'";
+			  $result = mysqli_query($db,$update);
+        while ($row = mysqli_fetch_assoc($result))
+        {
+            $points_granted = $row['points_submission'];
+        }
+
         //error handling for empty 
         if (empty($username) || empty($challenge_name) || empty($submission)) 
         {
-            array_push($errors, "Please ensure all the contents are filled out");
+            array_push($errors, "Please ensure all the contents are filled out or you have entered incorrect challenge name ");
         }
 
 
@@ -443,12 +446,13 @@ if (isset($_POST['challenge_submission']))
 
         // add challenge submission info to the system
         $query = "INSERT INTO challenges (username, challenge_name, submission, points_granted ) VALUES ('$username', '$challenge_name', '$submission' , '$points_granted')";
-        $result = mysqli_query($db, $query);
-        
+        mysqli_query($db, $query);
+       
+
 
         // add challenge submission info to the system
         $query = "INSERT INTO userPoints (username, points ) VALUES ('$username', '$points_granted')";
-        $result = mysqli_query($db, $query);
+        mysqli_query($db, $query);
       
 
         echo "<div style=\"text-align:center\">";

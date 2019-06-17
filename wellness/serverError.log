@@ -26,3 +26,37 @@
 [16-Jun-2019 15:25:08 Europe/Berlin] PHP Notice:  Undefined index: gramsFat in E:\xampp\htdocs\wellnessFinal\addFood.php on line 126
 [16-Jun-2019 15:25:08 Europe/Berlin] PHP Notice:  Undefined index: gramsCarbs in E:\xampp\htdocs\wellnessFinal\addFood.php on line 127
 [16-Jun-2019 15:27:41 Europe/Berlin] here
+[17-Jun-2019 14:30:13 Europe/Berlin] diet
+[17-Jun-2019 14:30:30 Europe/Berlin] KELSEY CASSELBURY
+[17-Jun-2019 14:31:00 Europe/Berlin] wellness
+[17-Jun-2019 14:31:16 Europe/Berlin] health
+[17-Jun-2019 14:31:20 Europe/Berlin] fit
+[17-Jun-2019 14:31:42 Europe/Berlin] here
+[17-Jun-2019 14:32:12 Europe/Berlin] here
+[17-Jun-2019 14:32:23 Europe/Berlin] here
+[17-Jun-2019 14:32:53 Europe/Berlin] here
+[17-Jun-2019 14:47:37 Europe/Berlin] PHP Recoverable fatal error:  Object of class mysqli_result could not be converted to string in C:\xampp\htdocs\wellness\wellness\server.php on line 445
+[17-Jun-2019 14:48:39 Europe/Berlin] PHP Recoverable fatal error:  Object of class mysqli_result could not be converted to string in C:\xampp\htdocs\wellness\wellness\server.php on line 445
+[17-Jun-2019 14:52:23 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on string in C:\xampp\htdocs\wellness\wellness\server.php:432
+Stack trace:
+#0 C:\xampp\htdocs\wellness\wellness\challenge.php(166): include()
+#1 {main}
+  thrown in C:\xampp\htdocs\wellness\wellness\server.php on line 432
+[17-Jun-2019 14:54:26 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on string in C:\xampp\htdocs\wellness\wellness\server.php:432
+Stack trace:
+#0 C:\xampp\htdocs\wellness\wellness\challenge.php(166): include()
+#1 {main}
+  thrown in C:\xampp\htdocs\wellness\wellness\server.php on line 432
+[17-Jun-2019 14:58:35 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on string in C:\xampp\htdocs\wellness\wellness\server.php:432
+Stack trace:
+#0 C:\xampp\htdocs\wellness\wellness\challenge.php(166): include()
+#1 {main}
+  thrown in C:\xampp\htdocs\wellness\wellness\server.php on line 432
+[17-Jun-2019 14:58:47 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on string in C:\xampp\htdocs\wellness\wellness\server.php:432
+Stack trace:
+#0 C:\xampp\htdocs\wellness\wellness\challenge.php(166): include()
+#1 {main}
+  thrown in C:\xampp\htdocs\wellness\wellness\server.php on line 432
+[17-Jun-2019 15:19:13 Europe/Berlin] PHP Notice:  Undefined index: points in C:\xampp\htdocs\wellness\wellness\challenge.php on line 244
+[17-Jun-2019 15:19:46 Europe/Berlin] PHP Notice:  Undefined index: points in C:\xampp\htdocs\wellness\wellness\challenge.php on line 244
+[17-Jun-2019 15:22:34 Europe/Berlin] PHP Notice:  Undefined index: points in C:\xampp\htdocs\wellness\wellness\challenge.php on line 249
