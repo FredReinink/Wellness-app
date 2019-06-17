@@ -67,7 +67,7 @@ CREATE TABLE listOfChallenges
 (
     challenge_name varchar(225) NOT NULL PRIMARY KEY,
     challenge_description varchar(225) NOT NULL, 
-    points_submission int NOT NULL
+    points_submission varchar(225) NOT NULL
 );
 INSERT INTO listOfChallenges (challenge_name, challenge_description, points_submission) VALUES ("Running 10 km", "Run 10 km five times a month", "15");
 INSERT INTO listOfChallenges (challenge_name, challenge_description, points_submission) VALUES ("Swimming 15 km", "Swim 15 km twice this month", "15");
@@ -84,7 +84,7 @@ CREATE TABLE challenges
     challenge_name varchar(255) NOT NULL,
     FOREIGN KEY (challenge_name) REFERENCES listOfChallenges(challenge_name), 
     submission text NOT NULL,
-    points_granted int NOT NULL
+    points_granted varchar(225) NOT NULL
 );
 
 
@@ -93,7 +93,7 @@ CREATE TABLE userPoints
 (
     username varchar(225) NOT NULL,
     FOREIGN KEY (username) REFERENCES users(username),
-    points int
+    points varchar(225)
 );
 INSERT INTO userPoints (username, points) VALUES ("Natasha_BornToTrumpet", 250);
 INSERT INTO userPoints (username, points) VALUES ("Claire_Bear", 50);
