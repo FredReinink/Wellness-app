@@ -243,6 +243,39 @@ html {
 
     ?>
 
+
+
+     <!--User's Total Points -->
+   <div class="header">
+    <h2><center> Your Total Points</center><hr>
+   </div>
+  
+    <?php
+
+   $db = mysqli_connect('localhost', 'root', '', 'wellness');
+   $username = $_SESSION['username'];
+
+   $user_check_query = "SELECT username, SUM(points) AS total FROM userPoints WHERE username = '$username'";
+
+   $result = mysqli_query($db, $user_check_query); 
+
+   if (!$result)
+   {
+      echo "<div style=\"text-align:center\">";
+      echo "There are no monthly challenges this month. Come visit again.";
+      return;
+   }
+ 
+    
+   while ($row = $result -> fetch_assoc())
+   {
+      echo "<div style=\"text-align:center\">";
+      echo "<br>{$row['username']}";
+      echo "<br>{$row['total']}";
+   }
+
+    ?>
+
 </body>
 </html>
 
