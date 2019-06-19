@@ -41,8 +41,10 @@ if (isset($_POST['reg_user']))
 
   // first check the database to make sure 
   // a user does not already exist with the same username and/or email
-  $user_check_query = "SELECT * FROM users WHERE username='$username' OR email='$email' LIMIT 1";
-  $result = mysqli_query($db, $user_check_query);
+  $userExistsQuery = mysqli_prepare($db, "SELECT * FROM users WHERE username = ? OR email = ? LIMIT 1");
+  mysqli_stmt_bind_param($userExistsQuery,"ss", $username, $email);
+  mysqli_stmt_execute($userExistsQuery);
+  $result = $userExistsQuery->get_result();
   $user = mysqli_fetch_assoc($result);
   
   if ($user) { // if user exists
@@ -60,13 +62,14 @@ if (isset($_POST['reg_user']))
   {
   	$password = md5($password_1);//encrypt (hashing) the password before saving in the database
 
-  	$query = "INSERT INTO users (username, email, password, first_name, last_name) 
-  			  VALUES('$username', '$email', '$password', '$firstName', '$lastName')";
-  	mysqli_query($db, $query);
+	$newUserQuery = mysqli_prepare($db, "INSERT INTO users (username, email, password, first_name, last_name) VALUES (?,?,?,?,?)");
+	mysqli_stmt_bind_param($newUserQuery,"sssss", $username, $email, $password, $firstName, $lastName);
+	mysqli_stmt_execute($newUserQuery);
 	
 	//initialize followedExercises
-	$query = "INSERT INTO followedExercises (username) VALUES ('$username')";
-	mysqli_query($db, $query);
+	$initFollowedExercisesQuery = mysqli_prepare($db,"INSERT INTO followedExercises (username) VALUES (?)");
+	mysqli_stmt_bind_param($initFollowedExercisesQuery,"s", $username);
+	mysqli_stmt_execute($initFollowedExercisesQuery);
    
     // Enter user session 
   	$_SESSION['username'] = $username;
@@ -96,46 +99,42 @@ if (isset($_POST['login_user']))
   if (count($errors) == 0) 
   {
   	$password = md5($password);
-  	$query = "SELECT * FROM users WHERE username='$username' AND password='$password'";
-  	$results = mysqli_query($db, $query);
+  	$loginQuery = mysqli_prepare($db, "SELECT * FROM users WHERE username= ? AND password= ?");
+	mysqli_stmt_bind_param($loginQuery,"ss", $username, $password);
+	$success = mysqli_stmt_execute($loginQuery);
+
    
-  	if (mysqli_num_rows($results) == 1) 
+  	if ($success) 
    {
   	  $_SESSION['username'] = $username;
   	  $_SESSION['success'] = "You are now logged in";
   	  header('location: afterUserLogIn.php');
   	}
-     
-   else 
-   {
+    else 
+    {
   		array_push($errors, "Wrong username/password combination");
   	}
   }
 }
 
 
-
-
 //emailForm
 
 if(isset($_POST['emailForm']))
 {
-
-
     $fromEmail = mysqli_real_escape_string($db, $_POST['Email']);
     $name = mysqli_real_escape_string($db, $_POST['Name']);
     $subject = mysqli_real_escape_string($db, $_POST['Subject']);
-    $message = $_POST['Message'];
+    $message = mysqli_real_escape_string($db, $_POST['Message']);
 
     // send query
-    $message = mysqli_real_escape_string($db, $_POST['Message']);
-    $query = "INSERT INTO feedBack(name, fromEmail, subject, message) VALUES ('$name', '$fromEmail', '$subject', '$message')";
-    $result = mysqli_query($db, $query);
+    $feedbackQuery = mysqli_prepare($db, "INSERT INTO feedBack(name, fromEmail, subject, message) VALUES (?, ?, ?, ?)");
+	mysqli_stmt_bind_param($feedbackQuery,"ssss", $name, $fromEmail, $subject, $message);
+	$success = mysqli_stmt_execute($feedBackQuery);
     
-  
-    echo "Thank you! We'll contact you soon.";
-  
-    
+	if ($success){
+		echo "Thank you! We'll contact you soon.";
+	}
 }
 
 
@@ -178,9 +177,9 @@ if (isset($_POST['add_bookmark']))
 		
             
       // add url to the system
-        $query = "INSERT INTO articles(ArticleTitle, ArticleAuthors, urls, ArticleTopic_1, ArticleTopic_2, ArticleTopic_3, ArticleTag_1, ArticleTag_2, ArticleTag_3, ArticleTag_4  ) VALUES ('$ArticleTitle', '$ArticleAuthors', '$url', '$ArticleTopic_1', '$ArticleTopic_2', '$ArticleTopic_3', '$ArticleTag_1', '$ArticleTag_2', '$ArticleTag_3', '$ArticleTag_4')";
-        $result = mysqli_query($db, $query);
-        //mysqli_num_rows($result);
+        $addArticleQuery = mysqli_prepare($db, "INSERT INTO articles(ArticleTitle, ArticleAuthors, urls, ArticleTopic_1, ArticleTopic_2, ArticleTopic_3, ArticleTag_1, ArticleTag_2, ArticleTag_3, ArticleTag_4  ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+		mysqli_stmt_bind_param($addArticleQuery,"ssssssssss", $ArticleTitle, $ArticleAuthors, $url ,$ArticleTopic_1, $ArticleTopic_2, $ArticleTopic_3, $ArticleTag_1, $ArticleTag_2, $ArticleTag_3, $ArticleTag_4);
+		mysqli_stmt_execute($addArticleQuery);
       
       echo "<div style=\"text-align:center\">";
       echo "Added!";
@@ -192,19 +191,18 @@ if (isset($_POST['add_bookmark']))
 //deleting URLS/articles from the list 
 if(isset($_POST['delete_url']))
 {
-   $url_to_delete = mysqli_real_escape_string($db, $_POST['url_to_delete']);
-   $user_check_query = "DELETE FROM articles WHERE urls='$url_to_delete'";
-   $result = mysqli_query($db, $user_check_query);
+    $url = mysqli_real_escape_string($db, $_POST['url_to_delete']);
+   
+    $deleteArticleQuery = mysqli_prepare($db, "DELETE FROM articles WHERE urls= ?");
+  	mysqli_stmt_bind_param($deleteArticleQuery,"s", $url);
+    $success = mysqli_stmt_execute($deleteArticleQuery);
 
-   if (!$result)
-   {
-      echo "<div style=\"text-align:center\">";
-      echo "URL you enter does not exist in your database. Please ensure you've entered the correct URL.";
-      return;
-   }
- 
-   echo "<div style=\"text-align:center\">";  
-   echo "Deleted !";
+	echo "<div style=\"text-align:center\">";  
+    if ($success) {
+		echo "Deleted !";
+    } else {
+       echo "URL you entered does not exist in the database. Please ensure you've entered the correct URL.";
+	}
 }
 
 //validating URLS
@@ -243,47 +241,47 @@ function url_already_exists( $url, $db)
 // for adding new bookmarks and expanding the table 
 if (isset($_POST['add_challenge'])) 
 {
-
-        $challenge_name = mysqli_real_escape_string($db, $_POST['challenge_name']);
-        $challenge_description = mysqli_real_escape_string($db, $_POST['challenge_description']);
-        $points_submission = mysqli_real_escape_string($db, $_POST['points_submission']);
+	
+    $challenge_name = mysqli_real_escape_string($db, $_POST['challenge_name']);
+    $challenge_description = mysqli_real_escape_string($db, $_POST['challenge_description']);
+    $points_submission = mysqli_real_escape_string($db, $_POST['points_submission']);
       
     
-        //error handling for empty 
-        if (empty($challenge_name) || empty($challenge_description) || empty($points_submission)) 
-        {
-            array_push($errors, "Please ensure all the contents are filled out");
-        }
+    //error handling for empty 
+    if (empty($challenge_name) || empty($challenge_description) || empty($points_submission)) 
+    {
+        array_push($errors, "Please ensure all the contents are filled out");
+    }
 
-		
-            
-      // add url to the system
-		$query = "INSERT INTO listOfChallenges (challenge_name, challenge_description, points_submission ) VALUES ('$challenge_name', '$challenge_description' , '$points_submission')";
-		$result = mysqli_query($db, $query);
-		//mysqli_num_rows($result);
-      
-      echo "<div style=\"text-align:center\">";
-      echo "Added!";
-      return;
-      
+    // add url to the system
+	$addChallengeQuery = mysqli_prepare($db, "INSERT INTO listOfChallenges (challenge_name, challenge_description, points_submission ) VALUES (?,?,?)");
+	mysqli_stmt_bind_param($addChallengeQuery,"sss", $challenge_name, $challenge_description , $points_submission);
+	$success = mysqli_stmt_execute($addChallengeQuery);
+    
+	echo "<div style=\"text-align:center\">";
+	if ($success){
+		echo "Added!";
+	} else {
+		echo "SQL Error. Your challenge was not added.";
+	}
 }
 
 //delete challenge
 if(isset($_POST['delete_challenge']))
 {
+	
    $challenge_name = mysqli_real_escape_string($db, $_POST['challenge_name']);
-   $user_check_query = "DELETE FROM listOfChallenges WHERE challenge_name='$challenge_name'";
-   $result = mysqli_query($db, $user_check_query);
+   
+   $deleteChallengeQuery = mysqli_prepare($db, "DELETE FROM listOfChallenges WHERE challenge_name = ?");
+   mysqli_stmt_bind_param($deleteChallengeQuery, "s", $challenge_name);
+   $success = mysqli_stmt_execute($deleteChallengeQuery);
 
-   if (!$result)
-   {
-      echo "<div style=\"text-align:center\">";
-      echo "This challenge does not exist in your database. Please ensure you've entered the correct challenge.";
-      return;
+   echo "<div style=\"text-align:center\">";
+   if ($success){
+    echo "Deleted !";
+   } else {
+      echo "This challenge does not exist in the database. Please ensure you've entered the correct challenge.";
    }
- 
-   echo "<div style=\"text-align:center\">";  
-   echo "Deleted !";
 }
 
 
@@ -300,15 +298,21 @@ if (isset($_POST['submit_fitness_info']))
 	if ($cardio_minutes != 0 && $cardio_heartrate != 0){
 		
 	//update cardioTracker
-		$query = "INSERT INTO cardioTracker (username, cardio_date, cardio_minutes, cardio_heartrate) 
-				  VALUES('$username', '$date', '$cardio_minutes', '$cardio_heartrate')";
-		$result = mysqli_query($db, $query);
+		$updateCardioQuery = mysqli_prepare($db, "INSERT INTO cardioTracker (username, cardio_date, cardio_minutes, cardio_heartrate) 
+				  VALUES(?,?,?,?)");
+		mysqli_stmt_bind_param($updateCardioQuery, "ssii", $username, $date, $cardio_minutes, $cardio_heartrate);
+		$success = mysqli_stmt_execute($updateCardioQuery);
 	}
 	
 	//update weightLiftingTracker
-	$query = "INSERT INTO weightLiftingTracker (username, weights_date) 
-	VALUES('$username', '$date')";
-	$result = mysqli_query($db, $query);
+	$updateWeightLiftingQuery = mysqli_prepare($db,"INSERT INTO weightLiftingTracker (username, weights_date) VALUES(?,?)");
+	mysqli_stmt_bind_param($updateWeightLiftingQuery, "ss", $username, $date);
+	$success = mysqli_stmt_execute($updateWeightLiftingQuery);
+	
+	if ($success) {
+		echo "<div style=\"text-align:center\">";
+		echo 'Added!';
+	}
 	
 	$num_exercises = getNumExercises($username);
 	
@@ -319,16 +323,19 @@ if (isset($_POST['submit_fitness_info']))
 		$exerciseRepsString = "user_exercise" . $i . "_reps";
 		
 		if (isset($_POST[$exerciseWeightString])){
-			$exercise_name_query = "SELECT $exerciseNameString FROM followedExercises WHERE username = '$username'";
-			$exercise_name_result = mysqli_query($db, $exercise_name_query);
-			$exerciseName = mysqli_fetch_assoc($exercise_name_result)[$exerciseNameString];
+			$exerciseNameQuery = mysqli_prepare($db, "SELECT $exerciseNameString FROM followedExercises WHERE username = ?");
+			mysqli_stmt_bind_param($exerciseNameQuery, "s", $username);
+			mysqli_stmt_execute($exerciseNameQuery);
+			$exerciseNameResult = $exerciseNameQuery->get_result();
+			$exerciseName = mysqli_fetch_assoc($exerciseNameResult)[$exerciseNameString];
 		
 			$exerciseWeight = $_POST[$exerciseWeightString];
 			$exerciseReps = $_POST[$exerciseRepsString];
 			
 			if ($exerciseWeight != 0 && $exerciseReps != 0){
-				$exerciseUpdateQuery = "UPDATE weightLiftingTracker SET $exerciseNameString = '$exerciseName', $exerciseWeightString = '$exerciseWeight', $exerciseRepsString = '$exerciseReps' WHERE username = '$username' AND weights_date = '$date'";
-				$exerciseUpdate = mysqli_query($db, $exerciseUpdateQuery);
+				$exerciseUpdateQuery = mysqli_prepare($db, "UPDATE weightLiftingTracker SET $exerciseNameString = ?, $exerciseWeightString = ?, $exerciseRepsString = ? WHERE username = ? AND weights_date = ?");
+				mysqli_stmt_bind_param($exerciseUpdateQuery, "siiss", $exerciseName, $exerciseWeight, $exerciseReps, $username, $date);
+				mysqli_stmt_execute($exerciseUpdateQuery);
 			}
 		}
 	}
@@ -338,7 +345,7 @@ if (isset($_POST['submit_fitness_info']))
 if (isset($_POST['add_exercise']))
 {
 	$username = $_SESSION['username'];
-	$exercise_name = mysqli_real_escape_string($db, $_POST['addExercise']);
+	$exerciseName = mysqli_real_escape_string($db, $_POST['addExercise']);
 	
 	$num_exercises = getNumExercises($username);
   
@@ -352,11 +359,13 @@ if (isset($_POST['add_exercise']))
 	//format a query string to correspond to the field names in the DB. Ex: "user_exercise7_name"
 	$queryString = "user_exercise" . $num_ex_as_string . "_name";
 	
-	$query = "UPDATE followedExercises SET $queryString = '$exercise_name' WHERE username = '$username'";
-	$result = mysqli_query($db, $query);
+	$addExerciseQuery = mysqli_prepare($db, "UPDATE followedExercises SET $queryString = ? WHERE username = ?");
+	mysqli_stmt_bind_param($addExerciseQuery, "ss", $exerciseName, $username);
+	$success = mysqli_stmt_execute($addExerciseQuery);
 
-	if (!$result){
-		var_dump(mysqli_error($db));
+	if ($success){
+		echo "<div style=\"text-align:center\">";
+		echo 'Added!';
 	}
 }
 
@@ -366,25 +375,28 @@ if (isset($_POST['addFood'])){
 	$username = $_SESSION['username'];
 	$dietDate = $_SESSION['enteredDate'];
 	
-	$query = "SELECT * FROM foodItem WHERE name = '$foodName'";
-	$result = mysqli_query($db, $query);
+	$selectFoodQuery = mysqli_prepare($db, "SELECT * FROM foodItem WHERE name = ?");
+	mysqli_stmt_bind_param($selectFoodQuery, "s", $foodName);
+    mysqli_stmt_execute($selectFoodQuery);
+	$foodResult = $selectFoodQuery->get_result();
+	$food = mysqli_fetch_assoc($foodResult);
 	
-	if ($row = mysqli_fetch_assoc($result)){
-		$_SESSION['totalCalories'] += $row['calories']; 
-		$_SESSION['gramsProtein'] += $row['gProtein']; 
-		$_SESSION['gramsFat'] += $row['gFat']; 
-		$_SESSION['gramsCarbs'] += $row['gCarbs'];
-		
-		$totalCalories = $_SESSION['totalCalories'];
-		$gramsProtein = $_SESSION['gramsProtein'];
-		$gramsFat = $_SESSION['gramsFat'];
-		$gramsCarbs = $_SESSION['gramsCarbs'];
-		
-		$query = "UPDATE dietTracker SET calories_consumed = '$totalCalories', gProteinConsumed = '$gramsProtein', gCarbsConsumed = '$gramsCarbs', gFatConsumed = '$gramsFat' WHERE username = '$username' AND diet_date = '$dietDate'";
-		$result = mysqli_query($db, $query);
-		
-		header('location: addFood.php');
-	}	
+
+	$_SESSION['totalCalories'] += $food['calories']; 
+	$_SESSION['gramsProtein'] += $food['gProtein']; 
+	$_SESSION['gramsFat'] += $food['gFat']; 
+	$_SESSION['gramsCarbs'] += $food['gCarbs'];
+	
+	$totalCalories = $_SESSION['totalCalories'];
+	$gramsProtein = $_SESSION['gramsProtein'];
+	$gramsFat = $_SESSION['gramsFat'];
+	$gramsCarbs = $_SESSION['gramsCarbs'];
+	
+	$updateDietQuery = mysqli_prepare($db, "UPDATE dietTracker SET calories_consumed = ?, gProteinConsumed = ?, gCarbsConsumed = ?, gFatConsumed = ? WHERE username = ? AND diet_date = ?");
+	mysqli_stmt_bind_param($updateDietQuery, "iiiiss", $totalCalories, $gramsProtein, $gramsCarbs, $gramsFat, $username, $dietDate);
+	mysqli_stmt_execute($updateDietQuery);
+	
+	header('location: addFood.php');	
 }
 
 //submit diet tracking information
@@ -406,6 +418,7 @@ if (isset($_POST['submit_diet_info']))
 	$_SESSION['gramsFat'] = 0;
 	$_SESSION['gramsCarbs'] = 0;
 	
+	//Prepared statements are not necessary here as the weight field is restricted to integers by HTML
   	$query = "INSERT INTO dietTracker (username, diet_date, weight) VALUES('$username', '$date', '$weight')";
   	$result = mysqli_query($db, $query);
 	
@@ -420,7 +433,6 @@ if (isset($_POST['submit_diet_info']))
 //add the challenge user has completed in the table
 if (isset($_POST['challenge_submission'])) 
 {
-
         $username = $_SESSION['username'];
         $challenge_name = mysqli_real_escape_string($db, $_POST['challenge_name']);
         $submission = mysqli_real_escape_string($db, $_POST['submission']);
@@ -485,24 +497,13 @@ if(isset($_POST['submitData']))
   $BMR = calcBMR($sex, $weight, $height, $age);
   recommendDailyCaloryInput($BMR, $Activity_level, $Weight_goal);
 
-
-
-
-
-
   //store info on the database Table userWellnessTest
+  $storeWellnessTestQuery = mysqli_prepare($db, "INSERT INTO userWellnessTest (username, Age, Height_cm, Weight_kg, BMI_calculated, Test_Date, Sex, ActivityLevel, WeightGoal, restingPulse, MaxHeartRate) VALUES (?, ? , ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+  mysqli_stmt_bind_param($storeWellnessTestQuery, "sisssssssss", $username, $age , $height, $weight, $BMI, $date, $sex, $Activity_level, $Weight_goal, $rest_pulse, $Max_heart_rate);
+  mysqli_execute($storeWellnessTestQuery);
 
-  $user_check_query = "INSERT INTO userWellnessTest (username, Age, Height_cm, Weight_kg, BMI_calculated, Test_Date, Sex, ActivityLevel, WeightGoal, restingPulse, MaxHeartRate)
-   VALUES ('$username', '$age' , '$height', '$weight', '$BMI', '$date', '$sex', '$Activity_level', '$Weight_goal', '$rest_pulse', '$Max_heart_rate') ";
- 
-  $result = mysqli_query($db, $user_check_query);
-
-      echo "<div style=\"text-align:center\">";
-      echo "Thanks!"; 
-  
-      return;
-      
-
+  echo "<div style=\"text-align:center\">";
+  echo "Thanks!"; 
 }
 
 
@@ -1045,7 +1046,6 @@ function getNumExercises($user){
   	$result = mysqli_query($db, $query);
 	
 	while ($row = mysqli_fetch_assoc($result)){
-		error_log("here");
 		
 		if (!isset($row['user_exercise1_name'])){
 			return 0;

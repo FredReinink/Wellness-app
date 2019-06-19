@@ -1,4 +1,0 @@
-[12-Jun-2019 13:30:05 Europe/Berlin] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, bool given in E:\xampp\htdocs\471-Final-Project-master\wellness\afterUserLogIn.php on line 80
-[12-Jun-2019 13:30:18 Europe/Berlin] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, bool given in E:\xampp\htdocs\471-Final-Project-master\wellness\afterUserLogIn.php on line 80
-[12-Jun-2019 13:31:06 Europe/Berlin] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, bool given in E:\xampp\htdocs\471-Final-Project-master\wellness\afterUserLogIn.php on line 80
-[12-Jun-2019 13:33:24 Europe/Berlin] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, bool given in E:\xampp\htdocs\471-Final-Project-master\wellness\afterUserLogIn.php on line 80
