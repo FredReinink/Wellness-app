@@ -1,64 +1,134 @@
-[15-Jun-2019 10:51:39 Europe/Berlin] here
-[15-Jun-2019 10:51:39 Europe/Berlin] The user is tracking 2exercises
-[15-Jun-2019 10:51:39 Europe/Berlin] Going to add to exercise number: 2
-[15-Jun-2019 10:51:59 Europe/Berlin] here
-[15-Jun-2019 10:51:59 Europe/Berlin] The user is tracking 3exercises
-[15-Jun-2019 10:51:59 Europe/Berlin] Going to add to exercise number: 3
-[15-Jun-2019 11:28:43 Europe/Berlin] here
-[15-Jun-2019 11:50:30 Europe/Berlin] here
-[15-Jun-2019 11:50:45 Europe/Berlin] here
-[15-Jun-2019 11:50:53 Europe/Berlin] here
-[15-Jun-2019 11:57:02 Europe/Berlin] here
-[15-Jun-2019 11:57:44 Europe/Berlin] fat
-[15-Jun-2019 11:57:47 Europe/Berlin] 
-[15-Jun-2019 11:57:48 Europe/Berlin] 
-[15-Jun-2019 11:57:51 Europe/Berlin] yeet
-[15-Jun-2019 11:57:51 Europe/Berlin] 
-[15-Jun-2019 11:57:54 Europe/Berlin] yeet
-[15-Jun-2019 11:58:05 Europe/Berlin] Diet
-[15-Jun-2019 12:00:14 Europe/Berlin] Tom MacMurry
-[15-Jun-2019 12:00:39 Europe/Berlin] Diet Plans for Obese People
-[15-Jun-2019 12:10:57 Europe/Berlin] asdf
-[15-Jun-2019 12:11:00 Europe/Berlin] asdf
-[16-Jun-2019 15:25:08 Europe/Berlin] PHP Notice:  Undefined index: enteredDate in E:\xampp\htdocs\wellnessFinal\addFood.php on line 110
-[16-Jun-2019 15:25:08 Europe/Berlin] PHP Notice:  Undefined index: totalCalories in E:\xampp\htdocs\wellnessFinal\addFood.php on line 124
-[16-Jun-2019 15:25:08 Europe/Berlin] PHP Notice:  Undefined index: gramsProtein in E:\xampp\htdocs\wellnessFinal\addFood.php on line 125
-[16-Jun-2019 15:25:08 Europe/Berlin] PHP Notice:  Undefined index: gramsFat in E:\xampp\htdocs\wellnessFinal\addFood.php on line 126
-[16-Jun-2019 15:25:08 Europe/Berlin] PHP Notice:  Undefined index: gramsCarbs in E:\xampp\htdocs\wellnessFinal\addFood.php on line 127
-[16-Jun-2019 15:27:41 Europe/Berlin] here
-[17-Jun-2019 14:30:13 Europe/Berlin] diet
-[17-Jun-2019 14:30:30 Europe/Berlin] KELSEY CASSELBURY
-[17-Jun-2019 14:31:00 Europe/Berlin] wellness
-[17-Jun-2019 14:31:16 Europe/Berlin] health
-[17-Jun-2019 14:31:20 Europe/Berlin] fit
-[17-Jun-2019 14:31:42 Europe/Berlin] here
-[17-Jun-2019 14:32:12 Europe/Berlin] here
-[17-Jun-2019 14:32:23 Europe/Berlin] here
-[17-Jun-2019 14:32:53 Europe/Berlin] here
-[17-Jun-2019 14:47:37 Europe/Berlin] PHP Recoverable fatal error:  Object of class mysqli_result could not be converted to string in C:\xampp\htdocs\wellness\wellness\server.php on line 445
-[17-Jun-2019 14:48:39 Europe/Berlin] PHP Recoverable fatal error:  Object of class mysqli_result could not be converted to string in C:\xampp\htdocs\wellness\wellness\server.php on line 445
-[17-Jun-2019 14:52:23 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on string in C:\xampp\htdocs\wellness\wellness\server.php:432
-Stack trace:
-#0 C:\xampp\htdocs\wellness\wellness\challenge.php(166): include()
-#1 {main}
-  thrown in C:\xampp\htdocs\wellness\wellness\server.php on line 432
-[17-Jun-2019 14:54:26 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on string in C:\xampp\htdocs\wellness\wellness\server.php:432
-Stack trace:
-#0 C:\xampp\htdocs\wellness\wellness\challenge.php(166): include()
-#1 {main}
-  thrown in C:\xampp\htdocs\wellness\wellness\server.php on line 432
-[17-Jun-2019 14:58:35 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on string in C:\xampp\htdocs\wellness\wellness\server.php:432
-Stack trace:
-#0 C:\xampp\htdocs\wellness\wellness\challenge.php(166): include()
-#1 {main}
-  thrown in C:\xampp\htdocs\wellness\wellness\server.php on line 432
-[17-Jun-2019 14:58:47 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on string in C:\xampp\htdocs\wellness\wellness\server.php:432
-Stack trace:
-#0 C:\xampp\htdocs\wellness\wellness\challenge.php(166): include()
-#1 {main}
-  thrown in C:\xampp\htdocs\wellness\wellness\server.php on line 432
-[17-Jun-2019 15:19:13 Europe/Berlin] PHP Notice:  Undefined index: points in C:\xampp\htdocs\wellness\wellness\challenge.php on line 244
-[17-Jun-2019 15:19:46 Europe/Berlin] PHP Notice:  Undefined index: points in C:\xampp\htdocs\wellness\wellness\challenge.php on line 244
-[17-Jun-2019 15:22:34 Europe/Berlin] PHP Notice:  Undefined index: points in C:\xampp\htdocs\wellness\wellness\challenge.php on line 249
-[17-Jun-2019 15:40:14 Europe/Berlin] PLANS
-[17-Jun-2019 15:40:20 Europe/Berlin] shir
+[19-Jun-2019 07:46:28 Europe/Berlin] PHP Notice:  Undefined index: enteredDate in E:\xampp\htdocs\471-Final-Project-master\wellness\addFood.php on line 110
+[19-Jun-2019 07:46:28 Europe/Berlin] PHP Notice:  Undefined index: totalCalories in E:\xampp\htdocs\471-Final-Project-master\wellness\addFood.php on line 124
+[19-Jun-2019 07:46:28 Europe/Berlin] PHP Notice:  Undefined index: gramsProtein in E:\xampp\htdocs\471-Final-Project-master\wellness\addFood.php on line 125
+[19-Jun-2019 07:46:28 Europe/Berlin] PHP Notice:  Undefined index: gramsFat in E:\xampp\htdocs\471-Final-Project-master\wellness\addFood.php on line 126
+[19-Jun-2019 07:46:28 Europe/Berlin] PHP Notice:  Undefined index: gramsCarbs in E:\xampp\htdocs\471-Final-Project-master\wellness\addFood.php on line 127
+[19-Jun-2019 07:54:06 Europe/Berlin] PHP Warning:  mysqli_prepare() expects exactly 2 parameters, 1 given in E:\xampp\htdocs\471-Final-Project-master\wellness\server.php on line 102
+[19-Jun-2019 07:54:06 Europe/Berlin] PHP Warning:  mysqli_stmt_bind_param() expects parameter 1 to be mysqli_stmt, null given in E:\xampp\htdocs\471-Final-Project-master\wellness\server.php on line 103
+[19-Jun-2019 07:54:06 Europe/Berlin] PHP Warning:  mysqli_stmt_execute() expects parameter 1 to be mysqli_stmt, null given in E:\xampp\htdocs\471-Final-Project-master\wellness\server.php on line 104
+[19-Jun-2019 08:02:41 Europe/Berlin] PHP Warning:  mysqli_stmt_bind_param() expects parameter 1 to be mysqli_stmt, bool given in E:\xampp\htdocs\471-Final-Project-master\wellness\server.php on line 182
+[19-Jun-2019 08:02:41 Europe/Berlin] PHP Warning:  mysqli_stmt_execute() expects parameter 1 to be mysqli_stmt, bool given in E:\xampp\htdocs\471-Final-Project-master\wellness\server.php on line 183
+[19-Jun-2019 08:13:06 Europe/Berlin] PHP Notice:  Undefined variable: addArticleQuery in E:\xampp\htdocs\471-Final-Project-master\wellness\server.php on line 198
+[19-Jun-2019 08:13:06 Europe/Berlin] PHP Warning:  mysqli_stmt_bind_param() expects parameter 1 to be mysqli_stmt, null given in E:\xampp\htdocs\471-Final-Project-master\wellness\server.php on line 198
+[19-Jun-2019 08:13:06 Europe/Berlin] PHP Warning:  mysqli_query() expects parameter 2 to be string, object given in E:\xampp\htdocs\471-Final-Project-master\wellness\server.php on line 199
+[19-Jun-2019 08:13:18 Europe/Berlin] PHP Warning:  mysqli_query() expects parameter 2 to be string, object given in E:\xampp\htdocs\471-Final-Project-master\wellness\server.php on line 199
+[19-Jun-2019 08:13:32 Europe/Berlin] PHP Warning:  mysqli_stmt_execute() expects exactly 1 parameter, 2 given in E:\xampp\htdocs\471-Final-Project-master\wellness\server.php on line 199
+[19-Jun-2019 08:31:46 Europe/Berlin] PHP Warning:  mysqli_stmt_bind_param(): Number of elements in type definition string doesn't match number of bind variables in E:\xampp\htdocs\471-Final-Project-master\wellness\server.php on line 258
+[19-Jun-2019 08:33:41 Europe/Berlin] PHP Notice:  Undefined variable: challenge_name in E:\xampp\htdocs\471-Final-Project-master\wellness\server.php on line 276
+[19-Jun-2019 08:33:41 Europe/Berlin] PHP Warning:  mysqli_stmt_bind_param(): Invalid type or no types specified in E:\xampp\htdocs\471-Final-Project-master\wellness\server.php on line 276
+[19-Jun-2019 08:33:41 Europe/Berlin] PHP Notice:  Undefined variable: user_check_query in E:\xampp\htdocs\471-Final-Project-master\wellness\server.php on line 277
+[19-Jun-2019 08:33:41 Europe/Berlin] PHP Warning:  mysqli_query(): Empty query in E:\xampp\htdocs\471-Final-Project-master\wellness\server.php on line 277
+[19-Jun-2019 08:33:51 Europe/Berlin] PHP Warning:  mysqli_stmt_bind_param(): Number of elements in type definition string doesn't match number of bind variables in E:\xampp\htdocs\471-Final-Project-master\wellness\server.php on line 276
+[19-Jun-2019 08:33:51 Europe/Berlin] PHP Notice:  Undefined variable: user_check_query in E:\xampp\htdocs\471-Final-Project-master\wellness\server.php on line 277
+[19-Jun-2019 08:33:51 Europe/Berlin] PHP Warning:  mysqli_query(): Empty query in E:\xampp\htdocs\471-Final-Project-master\wellness\server.php on line 277
+[19-Jun-2019 08:34:03 Europe/Berlin] PHP Notice:  Undefined variable: user_check_query in E:\xampp\htdocs\471-Final-Project-master\wellness\server.php on line 277
+[19-Jun-2019 08:34:03 Europe/Berlin] PHP Warning:  mysqli_query(): Empty query in E:\xampp\htdocs\471-Final-Project-master\wellness\server.php on line 277
+[19-Jun-2019 08:34:12 Europe/Berlin] PHP Warning:  mysqli_query() expects parameter 2 to be string, object given in E:\xampp\htdocs\471-Final-Project-master\wellness\server.php on line 277
+[19-Jun-2019 08:38:53 Europe/Berlin] PHP Warning:  mysqli_stmt_bind_param() expects parameter 1 to be mysqli_stmt, object given in E:\xampp\htdocs\471-Final-Project-master\wellness\server.php on line 303
+[19-Jun-2019 08:38:53 Europe/Berlin] PHP Warning:  mysqli_stmt_execute() expects exactly 1 parameter, 2 given in E:\xampp\htdocs\471-Final-Project-master\wellness\server.php on line 304
+[19-Jun-2019 08:38:53 Europe/Berlin] here
+[19-Jun-2019 08:39:35 Europe/Berlin] PHP Notice:  Undefined variable: updatecardioQuery in E:\xampp\htdocs\471-Final-Project-master\wellness\server.php on line 303
+[19-Jun-2019 08:39:35 Europe/Berlin] PHP Warning:  mysqli_stmt_bind_param() expects parameter 1 to be mysqli_stmt, null given in E:\xampp\htdocs\471-Final-Project-master\wellness\server.php on line 303
+[19-Jun-2019 08:39:35 Europe/Berlin] PHP Warning:  mysqli_stmt_execute() expects exactly 1 parameter, 2 given in E:\xampp\htdocs\471-Final-Project-master\wellness\server.php on line 304
+[19-Jun-2019 08:39:35 Europe/Berlin] here
+[19-Jun-2019 08:39:41 Europe/Berlin] PHP Warning:  mysqli_stmt_execute() expects exactly 1 parameter, 2 given in E:\xampp\htdocs\471-Final-Project-master\wellness\server.php on line 304
+[19-Jun-2019 08:39:41 Europe/Berlin] here
+[19-Jun-2019 08:39:54 Europe/Berlin] here
+[19-Jun-2019 08:42:11 Europe/Berlin] here
+[19-Jun-2019 08:42:14 Europe/Berlin] here
+[19-Jun-2019 08:42:21 Europe/Berlin] here
+[19-Jun-2019 08:43:30 Europe/Berlin] PHP Notice:  Undefined variable: success in E:\xampp\htdocs\471-Final-Project-master\wellness\server.php on line 307
+[19-Jun-2019 08:43:30 Europe/Berlin] here
+[19-Jun-2019 08:43:59 Europe/Berlin] here
+[19-Jun-2019 08:44:02 Europe/Berlin] here
+[19-Jun-2019 08:44:28 Europe/Berlin] here
+[19-Jun-2019 08:44:34 Europe/Berlin] here
+[19-Jun-2019 08:44:53 Europe/Berlin] here
+[19-Jun-2019 08:44:59 Europe/Berlin] here
+[19-Jun-2019 08:49:01 Europe/Berlin] here
+[19-Jun-2019 09:30:57 Europe/Berlin] here
+[19-Jun-2019 09:31:06 Europe/Berlin] here
+[19-Jun-2019 09:34:35 Europe/Berlin] here
+[19-Jun-2019 09:34:35 Europe/Berlin] PHP Notice:  Undefined variable: exerciseUpdatequery in E:\xampp\htdocs\471-Final-Project-master\wellness\server.php on line 340
+[19-Jun-2019 09:34:35 Europe/Berlin] PHP Warning:  mysqli_stmt_bind_param() expects parameter 1 to be mysqli_stmt, null given in E:\xampp\htdocs\471-Final-Project-master\wellness\server.php on line 340
+[19-Jun-2019 09:34:35 Europe/Berlin] PHP Notice:  Undefined variable: exerciseUpdatequery in E:\xampp\htdocs\471-Final-Project-master\wellness\server.php on line 340
+[19-Jun-2019 09:34:35 Europe/Berlin] PHP Warning:  mysqli_stmt_bind_param() expects parameter 1 to be mysqli_stmt, null given in E:\xampp\htdocs\471-Final-Project-master\wellness\server.php on line 340
+[19-Jun-2019 09:34:43 Europe/Berlin] here
+[19-Jun-2019 09:34:48 Europe/Berlin] here
+[19-Jun-2019 09:34:59 Europe/Berlin] here
+[19-Jun-2019 09:35:53 Europe/Berlin] here
+[19-Jun-2019 09:36:04 Europe/Berlin] here
+[19-Jun-2019 09:39:01 Europe/Berlin] here
+[19-Jun-2019 09:39:15 Europe/Berlin] here
+[19-Jun-2019 13:28:18 Europe/Berlin] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, bool given in E:\xampp\htdocs\471-Final-Project-master\wellness\server.php on line 381
+[19-Jun-2019 13:28:18 Europe/Berlin] PHP Notice:  Undefined variable: query in E:\xampp\htdocs\471-Final-Project-master\wellness\server.php on line 383
+[19-Jun-2019 13:28:18 Europe/Berlin] PHP Warning:  mysqli_query(): Empty query in E:\xampp\htdocs\471-Final-Project-master\wellness\server.php on line 383
+[19-Jun-2019 13:28:41 Europe/Berlin] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, bool given in E:\xampp\htdocs\471-Final-Project-master\wellness\server.php on line 381
+[19-Jun-2019 13:29:57 Europe/Berlin] PHP Notice:  Undefined variable: row in E:\xampp\htdocs\471-Final-Project-master\wellness\server.php on line 385
+[19-Jun-2019 13:29:57 Europe/Berlin] PHP Notice:  Undefined variable: row in E:\xampp\htdocs\471-Final-Project-master\wellness\server.php on line 386
+[19-Jun-2019 13:29:57 Europe/Berlin] PHP Notice:  Undefined variable: row in E:\xampp\htdocs\471-Final-Project-master\wellness\server.php on line 387
+[19-Jun-2019 13:29:57 Europe/Berlin] PHP Notice:  Undefined variable: row in E:\xampp\htdocs\471-Final-Project-master\wellness\server.php on line 388
+[19-Jun-2019 13:29:59 Europe/Berlin] PHP Notice:  Undefined variable: row in E:\xampp\htdocs\471-Final-Project-master\wellness\server.php on line 385
+[19-Jun-2019 13:29:59 Europe/Berlin] PHP Notice:  Undefined variable: row in E:\xampp\htdocs\471-Final-Project-master\wellness\server.php on line 386
+[19-Jun-2019 13:29:59 Europe/Berlin] PHP Notice:  Undefined variable: row in E:\xampp\htdocs\471-Final-Project-master\wellness\server.php on line 387
+[19-Jun-2019 13:29:59 Europe/Berlin] PHP Notice:  Undefined variable: row in E:\xampp\htdocs\471-Final-Project-master\wellness\server.php on line 388
+[19-Jun-2019 13:29:59 Europe/Berlin] PHP Notice:  Undefined variable: row in E:\xampp\htdocs\471-Final-Project-master\wellness\server.php on line 385
+[19-Jun-2019 13:29:59 Europe/Berlin] PHP Notice:  Undefined variable: row in E:\xampp\htdocs\471-Final-Project-master\wellness\server.php on line 386
+[19-Jun-2019 13:29:59 Europe/Berlin] PHP Notice:  Undefined variable: row in E:\xampp\htdocs\471-Final-Project-master\wellness\server.php on line 387
+[19-Jun-2019 13:29:59 Europe/Berlin] PHP Notice:  Undefined variable: row in E:\xampp\htdocs\471-Final-Project-master\wellness\server.php on line 388
+[19-Jun-2019 13:29:59 Europe/Berlin] PHP Notice:  Undefined variable: row in E:\xampp\htdocs\471-Final-Project-master\wellness\server.php on line 385
+[19-Jun-2019 13:29:59 Europe/Berlin] PHP Notice:  Undefined variable: row in E:\xampp\htdocs\471-Final-Project-master\wellness\server.php on line 386
+[19-Jun-2019 13:29:59 Europe/Berlin] PHP Notice:  Undefined variable: row in E:\xampp\htdocs\471-Final-Project-master\wellness\server.php on line 387
+[19-Jun-2019 13:29:59 Europe/Berlin] PHP Notice:  Undefined variable: row in E:\xampp\htdocs\471-Final-Project-master\wellness\server.php on line 388
+[19-Jun-2019 13:29:59 Europe/Berlin] PHP Notice:  Undefined variable: row in E:\xampp\htdocs\471-Final-Project-master\wellness\server.php on line 385
+[19-Jun-2019 13:29:59 Europe/Berlin] PHP Notice:  Undefined variable: row in E:\xampp\htdocs\471-Final-Project-master\wellness\server.php on line 386
+[19-Jun-2019 13:29:59 Europe/Berlin] PHP Notice:  Undefined variable: row in E:\xampp\htdocs\471-Final-Project-master\wellness\server.php on line 387
+[19-Jun-2019 13:29:59 Europe/Berlin] PHP Notice:  Undefined variable: row in E:\xampp\htdocs\471-Final-Project-master\wellness\server.php on line 388
+[19-Jun-2019 13:29:59 Europe/Berlin] PHP Notice:  Undefined variable: row in E:\xampp\htdocs\471-Final-Project-master\wellness\server.php on line 385
+[19-Jun-2019 13:29:59 Europe/Berlin] PHP Notice:  Undefined variable: row in E:\xampp\htdocs\471-Final-Project-master\wellness\server.php on line 386
+[19-Jun-2019 13:29:59 Europe/Berlin] PHP Notice:  Undefined variable: row in E:\xampp\htdocs\471-Final-Project-master\wellness\server.php on line 387
+[19-Jun-2019 13:29:59 Europe/Berlin] PHP Notice:  Undefined variable: row in E:\xampp\htdocs\471-Final-Project-master\wellness\server.php on line 388
+[19-Jun-2019 13:30:00 Europe/Berlin] PHP Notice:  Undefined variable: row in E:\xampp\htdocs\471-Final-Project-master\wellness\server.php on line 385
+[19-Jun-2019 13:30:00 Europe/Berlin] PHP Notice:  Undefined variable: row in E:\xampp\htdocs\471-Final-Project-master\wellness\server.php on line 386
+[19-Jun-2019 13:30:00 Europe/Berlin] PHP Notice:  Undefined variable: row in E:\xampp\htdocs\471-Final-Project-master\wellness\server.php on line 387
+[19-Jun-2019 13:30:00 Europe/Berlin] PHP Notice:  Undefined variable: row in E:\xampp\htdocs\471-Final-Project-master\wellness\server.php on line 388
+[19-Jun-2019 13:30:00 Europe/Berlin] PHP Notice:  Undefined variable: row in E:\xampp\htdocs\471-Final-Project-master\wellness\server.php on line 385
+[19-Jun-2019 13:30:00 Europe/Berlin] PHP Notice:  Undefined variable: row in E:\xampp\htdocs\471-Final-Project-master\wellness\server.php on line 386
+[19-Jun-2019 13:30:00 Europe/Berlin] PHP Notice:  Undefined variable: row in E:\xampp\htdocs\471-Final-Project-master\wellness\server.php on line 387
+[19-Jun-2019 13:30:00 Europe/Berlin] PHP Notice:  Undefined variable: row in E:\xampp\htdocs\471-Final-Project-master\wellness\server.php on line 388
+[19-Jun-2019 13:30:00 Europe/Berlin] PHP Notice:  Undefined variable: row in E:\xampp\htdocs\471-Final-Project-master\wellness\server.php on line 385
+[19-Jun-2019 13:30:00 Europe/Berlin] PHP Notice:  Undefined variable: row in E:\xampp\htdocs\471-Final-Project-master\wellness\server.php on line 386
+[19-Jun-2019 13:30:00 Europe/Berlin] PHP Notice:  Undefined variable: row in E:\xampp\htdocs\471-Final-Project-master\wellness\server.php on line 387
+[19-Jun-2019 13:30:00 Europe/Berlin] PHP Notice:  Undefined variable: row in E:\xampp\htdocs\471-Final-Project-master\wellness\server.php on line 388
+[19-Jun-2019 13:30:37 Europe/Berlin] PHP Notice:  Undefined variable: row in E:\xampp\htdocs\471-Final-Project-master\wellness\server.php on line 385
+[19-Jun-2019 13:30:37 Europe/Berlin] PHP Notice:  Undefined variable: row in E:\xampp\htdocs\471-Final-Project-master\wellness\server.php on line 386
+[19-Jun-2019 13:30:37 Europe/Berlin] PHP Notice:  Undefined variable: row in E:\xampp\htdocs\471-Final-Project-master\wellness\server.php on line 387
+[19-Jun-2019 13:30:37 Europe/Berlin] PHP Notice:  Undefined variable: row in E:\xampp\htdocs\471-Final-Project-master\wellness\server.php on line 388
+[19-Jun-2019 13:30:37 Europe/Berlin] PHP Notice:  Undefined variable: row in E:\xampp\htdocs\471-Final-Project-master\wellness\server.php on line 385
+[19-Jun-2019 13:30:37 Europe/Berlin] PHP Notice:  Undefined variable: row in E:\xampp\htdocs\471-Final-Project-master\wellness\server.php on line 386
+[19-Jun-2019 13:30:37 Europe/Berlin] PHP Notice:  Undefined variable: row in E:\xampp\htdocs\471-Final-Project-master\wellness\server.php on line 387
+[19-Jun-2019 13:30:37 Europe/Berlin] PHP Notice:  Undefined variable: row in E:\xampp\htdocs\471-Final-Project-master\wellness\server.php on line 388
+[19-Jun-2019 13:30:38 Europe/Berlin] PHP Notice:  Undefined variable: row in E:\xampp\htdocs\471-Final-Project-master\wellness\server.php on line 385
+[19-Jun-2019 13:30:38 Europe/Berlin] PHP Notice:  Undefined variable: row in E:\xampp\htdocs\471-Final-Project-master\wellness\server.php on line 386
+[19-Jun-2019 13:30:38 Europe/Berlin] PHP Notice:  Undefined variable: row in E:\xampp\htdocs\471-Final-Project-master\wellness\server.php on line 387
+[19-Jun-2019 13:30:38 Europe/Berlin] PHP Notice:  Undefined variable: row in E:\xampp\htdocs\471-Final-Project-master\wellness\server.php on line 388
+[19-Jun-2019 13:30:38 Europe/Berlin] PHP Notice:  Undefined variable: row in E:\xampp\htdocs\471-Final-Project-master\wellness\server.php on line 385
+[19-Jun-2019 13:30:38 Europe/Berlin] PHP Notice:  Undefined variable: row in E:\xampp\htdocs\471-Final-Project-master\wellness\server.php on line 386
+[19-Jun-2019 13:30:38 Europe/Berlin] PHP Notice:  Undefined variable: row in E:\xampp\htdocs\471-Final-Project-master\wellness\server.php on line 387
+[19-Jun-2019 13:30:38 Europe/Berlin] PHP Notice:  Undefined variable: row in E:\xampp\htdocs\471-Final-Project-master\wellness\server.php on line 388
+[19-Jun-2019 13:30:38 Europe/Berlin] PHP Notice:  Undefined variable: row in E:\xampp\htdocs\471-Final-Project-master\wellness\server.php on line 385
+[19-Jun-2019 13:30:38 Europe/Berlin] PHP Notice:  Undefined variable: row in E:\xampp\htdocs\471-Final-Project-master\wellness\server.php on line 386
+[19-Jun-2019 13:30:38 Europe/Berlin] PHP Notice:  Undefined variable: row in E:\xampp\htdocs\471-Final-Project-master\wellness\server.php on line 387
+[19-Jun-2019 13:30:38 Europe/Berlin] PHP Notice:  Undefined variable: row in E:\xampp\htdocs\471-Final-Project-master\wellness\server.php on line 388
+[19-Jun-2019 13:30:38 Europe/Berlin] PHP Notice:  Undefined variable: row in E:\xampp\htdocs\471-Final-Project-master\wellness\server.php on line 385
+[19-Jun-2019 13:30:38 Europe/Berlin] PHP Notice:  Undefined variable: row in E:\xampp\htdocs\471-Final-Project-master\wellness\server.php on line 386
+[19-Jun-2019 13:30:38 Europe/Berlin] PHP Notice:  Undefined variable: row in E:\xampp\htdocs\471-Final-Project-master\wellness\server.php on line 387
+[19-Jun-2019 13:30:38 Europe/Berlin] PHP Notice:  Undefined variable: row in E:\xampp\htdocs\471-Final-Project-master\wellness\server.php on line 388
+[19-Jun-2019 13:30:38 Europe/Berlin] PHP Notice:  Undefined variable: row in E:\xampp\htdocs\471-Final-Project-master\wellness\server.php on line 385
+[19-Jun-2019 13:30:38 Europe/Berlin] PHP Notice:  Undefined variable: row in E:\xampp\htdocs\471-Final-Project-master\wellness\server.php on line 386
+[19-Jun-2019 13:30:38 Europe/Berlin] PHP Notice:  Undefined variable: row in E:\xampp\htdocs\471-Final-Project-master\wellness\server.php on line 387
+[19-Jun-2019 13:30:38 Europe/Berlin] PHP Notice:  Undefined variable: row in E:\xampp\htdocs\471-Final-Project-master\wellness\server.php on line 388
+[19-Jun-2019 13:30:39 Europe/Berlin] PHP Notice:  Undefined variable: row in E:\xampp\htdocs\471-Final-Project-master\wellness\server.php on line 385
+[19-Jun-2019 13:30:39 Europe/Berlin] PHP Notice:  Undefined variable: row in E:\xampp\htdocs\471-Final-Project-master\wellness\server.php on line 386
+[19-Jun-2019 13:30:39 Europe/Berlin] PHP Notice:  Undefined variable: row in E:\xampp\htdocs\471-Final-Project-master\wellness\server.php on line 387
+[19-Jun-2019 13:30:39 Europe/Berlin] PHP Notice:  Undefined variable: row in E:\xampp\htdocs\471-Final-Project-master\wellness\server.php on line 388
