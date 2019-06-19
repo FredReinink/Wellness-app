@@ -1046,7 +1046,6 @@ function getNumExercises($user){
   	$result = mysqli_query($db, $query);
 	
 	while ($row = mysqli_fetch_assoc($result)){
-		error_log("here");
 		
 		if (!isset($row['user_exercise1_name'])){
 			return 0;
