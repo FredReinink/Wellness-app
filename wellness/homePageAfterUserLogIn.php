@@ -124,19 +124,11 @@ h6 {
         </div>
 
         <div class="mySlides">
-          <img id="source" src="img2.jpg" width="60%" height="50%">
-        </div>
-
-        <div class="mySlides">
           <img id="source" src="img3.jpg" width="60%" height="50%">
         </div>
 
         <div class="mySlides">
           <img id="source" src="img4.jpg" width="60%" height="50%">
-        </div>
-
-        <div class="mySlides">
-          <img id="source" src="img5.jpg" width="60%" height="50%">
         </div>
 
         <div class="mySlides">
