@@ -148,7 +148,6 @@ html {
        
 
 
-   <br>
 
 
   <!-- circle dots -->
@@ -161,48 +160,7 @@ html {
 
 
 
-     <br>
-
-
-
-
-
-    
-    <!--Removing Content-->
-   <!--Delete URL--> 
-   <center> 
-   <div class="header">
-          <h2>Delete Challenges </h2>
-   </div>
-
-   <form method="post" action="adminMonthlyChallengeControl.php">
-       <?php include('errors.php'); ?>
- 
-    <div class="input-group">
-         <label>Enter name of the challenge you want to delete. </label>
-         <input type="text" name="challenge_name">
-       </div>
-   
-   <div class="input-group">
-         <button type="submit" class="btn" name="delete_challenge">Delete</button>
-       </div>
-   
-   </center>
-   </form> 
-   
-
-
-
-  <!-- circle dots -->
-  <br>
-  <div style="text-align:center">
-    <span class="dot"></span>
-    <span class="dot"></span>
-    <span class="dot"></span>
-  </div>
-
-
-
+  
 
 
 
@@ -221,6 +179,8 @@ html {
 <th><h3>Challenge Name</h3></th>
 <th><h3>Challenge Description</h3></th>
 <th><h3>Points Awarded</h3></th>
+<th><h3>Delete</h3></th>
+
 
 </tr>
 </thead>
@@ -244,10 +204,17 @@ html {
  
    while ($row = $result -> fetch_assoc())
    {
-      echo"<td>".$row['challenge_name']."</td>";
-      echo"<td>".$row['challenge_description']."</td>";
-      echo"<td>".$row['points_submission']."</td>";
-      echo "</tr>";
+     
+      echo '<tr>';
+      echo '<td>' . $row['challenge_name'] . '</td>';
+      echo '<td>' . $row['challenge_description'] . '</td>';
+      echo '<td>' . $row['points_submission'] . '</td>';
+           
+      //The value of the button is set to be the same as the submission ID
+      echo "<form action='server.php' method='post'>";
+      echo '<td><button type="submit" formaction="server.php" name = "delete_challenge" value =' . $row['challenge_name'] . '>Delete</button></td>';
+      echo "</form>";
+      echo '</tr>';
 
    }
    

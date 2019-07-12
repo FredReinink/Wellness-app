@@ -174,7 +174,7 @@ html {
     </div>
 
     <br><div class="input-group">
-         <label>Enter URL: </label>
+         <label>Enter URL: * </label>
          <input type="text" name="urls">
     </div>
 
@@ -213,46 +213,6 @@ html {
 
 
 
-    <!--Removing Content-->
-   <!--Delete URL--> 
-   <center> 
-   <div class="header">
-          <h2>Enter URL You Want to Delete </h2><hr>
-   </div>
- 
-   <form method="post" action="adminArticleControl.php">
-       <?php include('errors.php'); ?>
-   
-    <div class="input-group">
-         <label>Enter URL your want to delete. Recommend to view the URL list and copy and paste the link below. </label>
-         <input type="text" name="url_to_delete">
-       </div>
-   
-   <div class="input-group">
-         <button type="submit" class="btn" name="delete_url">Delete</button>
-       </div>
-   
-   </center>
-   </form> 
-   
-    
-
-    <br>
-
-  <!-- circle dots -->
-  <br>
-  <div style="text-align:center">
-    <span class="dot"></span>
-    <span class="dot"></span>
-    <span class="dot"></span>
-  </div>
-
-
-
-     <br>
-     <br>
-     
-
 
 
    <!--show all the article titles + their in the database -->
@@ -275,6 +235,7 @@ html {
     <th>URL</th>
     <th>Author</th>
     <th>URL</th>
+    <th>Delete</th>
  
      </tr>
     </thead>
@@ -300,24 +261,29 @@ html {
    while ($row = $result -> fetch_assoc())
    {
     
+    echo '<tr>';
+    echo '<td>' . $row['article_ID'] . '</td>';
+    echo '<td>' . $row['ArticleTitle'] . '</td>';
+    echo '<td>' . $row['ArticleAuthors'] . '</td>';
+    // getting clickable links yeyy got ittt
+    echo "<td>";
+    echo "<a href='{$row['urls']}' target='_new'> {$row['urls']} </a>";
+    echo "</td>";
+   
 
+    
+    //The value of the button is set to be the same as the submission ID
+    echo "<form action='server.php' method='post'>";
+    echo '<td><button type="submit" formaction="server.php" name = "delete_url" value =' . $row['urls'] . '>Delete</button></td>';
+    echo "</form>";
+    echo '</tr>';
 
-              echo"<td>".$row['article_ID']."</td>";
-              echo"<td>".$row['ArticleTitle']."</td>";
-              echo"<td>".$row['ArticleAuthors']."</td>";
-              // getting clickable links yeyy got ittt
-              echo "<td>";
-              echo "<a href='{$row['urls']}' target='_new'> {$row['urls']} </a>";
-              echo "</td>";
-              echo "</tr>";
    }
    
    
    ?>
     </table>
 
-
-  
   
   <br>
   <br>

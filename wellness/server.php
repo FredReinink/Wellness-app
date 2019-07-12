@@ -191,7 +191,9 @@ if (isset($_POST['add_bookmark']))
 //deleting URLS/articles from the list 
 if(isset($_POST['delete_url']))
 {
-    $url = mysqli_real_escape_string($db, $_POST['url_to_delete']);
+    //$url = mysqli_real_escape_string($db, $_POST['url_to_delete']);
+    $url = $_POST['delete_url'];
+
    
     $deleteArticleQuery = mysqli_prepare($db, "DELETE FROM articles WHERE urls= ?");
   	mysqli_stmt_bind_param($deleteArticleQuery,"s", $url);
@@ -199,9 +201,15 @@ if(isset($_POST['delete_url']))
 
 	echo "<div style=\"text-align:center\">";  
     if ($success) {
-		echo "Deleted !";
+    echo "Deleted !";
+    //redirect
+    header("Location: adminArticleControl.php");
+
     } else {
        echo "URL you entered does not exist in the database. Please ensure you've entered the correct URL.";
+       //redirect
+       header("Location: adminArticleControl.php");
+
 	}
 }
 
@@ -270,7 +278,7 @@ if (isset($_POST['add_challenge']))
 if(isset($_POST['delete_challenge']))
 {
 	
-   $challenge_name = mysqli_real_escape_string($db, $_POST['challenge_name']);
+   $challenge_name = $_POST['delete_challenge'];
    
    $deleteChallengeQuery = mysqli_prepare($db, "DELETE FROM listOfChallenges WHERE challenge_name = ?");
    mysqli_stmt_bind_param($deleteChallengeQuery, "s", $challenge_name);
@@ -279,8 +287,12 @@ if(isset($_POST['delete_challenge']))
    echo "<div style=\"text-align:center\">";
    if ($success){
     echo "Deleted !";
+    //redirect
+    header("Location: adminMonthlyChallengeControl.php");
+
    } else {
       echo "This challenge does not exist in the database. Please ensure you've entered the correct challenge.";
+      header("Location: adminMonthlyChallengeControl.php");
    }
 }
 
