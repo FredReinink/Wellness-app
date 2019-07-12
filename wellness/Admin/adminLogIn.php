@@ -22,7 +22,7 @@
 
     <body> 
     <!-- add a logo --> 
-    <div class = "logo"><a href = "homePage.php"><img src = "images/logo2.png" style="width:10%"></a>
+    <div class = "logo"><a href = "homePage.php"><img src = "../images/logo2.png" style="width:10%"></a>
     </div>
 
 
