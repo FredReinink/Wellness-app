@@ -203,12 +203,12 @@ if(isset($_POST['delete_url']))
     if ($success) {
     echo "Deleted !";
     //redirect
-    header("Location: adminArticleControl.php");
+    header("Location: Admin/adminArticleControl.php");
 
     } else {
        echo "URL you entered does not exist in the database. Please ensure you've entered the correct URL.";
        //redirect
-       header("Location: adminArticleControl.php");
+       header("Location: Admin/adminArticleControl.php");
 
 	}
 }
@@ -288,11 +288,11 @@ if(isset($_POST['delete_challenge']))
    if ($success){
     echo "Deleted !";
     //redirect
-    header("Location: adminMonthlyChallengeControl.php");
+    header("Location: Admin/adminMonthlyChallengeControl.php");
 
    } else {
       echo "This challenge does not exist in the database. Please ensure you've entered the correct challenge.";
-      header("Location: adminMonthlyChallengeControl.php");
+      header("Location: Admin/adminMonthlyChallengeControl.php");
    }
 }
 

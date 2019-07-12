@@ -32,7 +32,7 @@
     <div class="topnav-right">
         <a href="homePage.php">Home</a>
         <a href="login.php">User Sign-In</a>
-        <a href="adminLogIn.php">Admin Sign-In</a>
+        <a href="Admin/adminLogIn.php">Admin Sign-In</a>
     </div>
     </div>
 
