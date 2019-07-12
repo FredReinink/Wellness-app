@@ -23,7 +23,7 @@
 
     <body> 
     <!-- add a logo --> 
-    <div class = "logo"><img src = "images/logo2.png" style="width:10%"></a>
+    <div class = "logo"><img src = "../images/logo2.png" style="width:10%"></a>
     </div>
 
 
