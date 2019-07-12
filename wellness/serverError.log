@@ -1,3 +1,5 @@
 [12-Jul-2019 01:54:08 Europe/Berlin] PHP Notice:  Undefined index: url_to_delete in C:\xampp\htdocs\wellness\server.php on line 194
 [12-Jul-2019 02:00:17 Europe/Berlin] PHP Notice:  Undefined index: urls in C:\xampp\htdocs\wellness\server.php on line 195
 [12-Jul-2019 02:00:39 Europe/Berlin] PHP Notice:  Undefined index: urls in C:\xampp\htdocs\wellness\server.php on line 195
+[12-Jul-2019 03:06:36 Europe/Berlin] PHP Notice:  Undefined index: username in C:\xampp\htdocs\wellness\challenge.php on line 223
+[12-Jul-2019 03:06:36 Europe/Berlin] PHP Notice:  Undefined index: username in C:\xampp\htdocs\wellness\challenge.php on line 256

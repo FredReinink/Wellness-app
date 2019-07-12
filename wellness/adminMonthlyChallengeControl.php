@@ -6,7 +6,7 @@
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="stylesheet.css">
+  <link rel="stylesheet" href="stylesheets/stylesheet.css">
   
   
   
@@ -20,7 +20,7 @@
 
     <body> 
     <!-- add a logo --> 
-    <div class = "logo"><img src = "logo2.png" style="width:10%"></a>
+    <div class = "logo"><img src = "images/logo2.png" style="width:10%"></a>
     </div>
 
 
@@ -116,7 +116,7 @@ html {
     <!--need to add URL here --> 
    <form method="post" action="adminMonthlyChallengeControl.php">
         <?php include('errors.php'); ?>
-        <link rel="stylesheet" type="text/css" href="style.css">
+        <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
     
        
     <!--enter info about challenge -->

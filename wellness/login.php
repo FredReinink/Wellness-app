@@ -6,8 +6,8 @@
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="stylesheet.css">
-  <link rel="stylesheet2" href="loginstylesheet.css">
+  <link rel="stylesheet" href="stylesheets/stylesheet.css">
+  <link rel="stylesheet2" href="stylesheets/loginstylesheet.css">
   
   
   
@@ -22,7 +22,7 @@
 
     <body> 
     <!-- add a logo --> 
-    <div class = "logo"><a href = "homePage.php"><img src = "logo2.png" style="width:10%" ></a>
+    <div class = "logo"><a href = "homePage.php"><img src = "images/logo2.png" style="width:10%" ></a>
     </div>
 
 
@@ -116,7 +116,7 @@ html {
 
     <head>
     <title>Registration system PHP and MySQL</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
     </head>
 
     <!--Form for users to login -->

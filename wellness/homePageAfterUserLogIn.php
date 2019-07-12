@@ -6,7 +6,7 @@
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="stylesheet.css">
+  <link rel="stylesheet" href="stylesheets/stylesheet.css">
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -32,7 +32,7 @@
 
   <body> 
   <!-- add a logo --> 
-  <div class = "logo"><a href = "homePageAfterUserLogIn.php"><img src = "logo2.png" style="width:10%"></a>
+  <div class = "logo"><a href = "homePageAfterUserLogIn.php"><img src = "images/logo2.png" style="width:10%"></a>
   </div>
 
   
@@ -120,59 +120,59 @@ h6 {
   <br>
   <center>
         <div class="mySlides">
-          <img id="source" src="img1.jpg" width="60%" height="50%">
+          <img id="source" src="images/img1.jpg" width="60%" height="50%">
         </div>
 
         <div class="mySlides">
-          <img id="source" src="img3.jpg" width="60%" height="50%">
+          <img id="source" src="images/img3.jpg" width="60%" height="50%">
         </div>
 
         <div class="mySlides">
-          <img id="source" src="img4.jpg" width="60%" height="50%">
+          <img id="source" src="images/img4.jpg" width="60%" height="50%">
         </div>
 
         <div class="mySlides">
-          <img id="source" src="img6.jpg" width="60%" height="50%">
+          <img id="source" src="images/img6.jpg" width="60%" height="50%">
         </div>
 
         <div class="mySlides">
-          <img id="source" src="img7.jpg" width="60%" height="50%">
+          <img id="source" src="images/img7.jpg" width="60%" height="50%">
         </div>
 
         <div class="mySlides">
-          <img id="source" src="img8.jpg" width="60%" height="50%">
+          <img id="source" src="images/img8.jpg" width="60%" height="50%">
         </div>
 
         <div class="mySlides">
-          <img id="source" src="img9.jpg" width="60%" height="50%">
+          <img id="source" src="images/img9.jpg" width="60%" height="50%">
         </div>
 
         <div class="mySlides">
-          <img id="source" src="img10.jpg" width="60%" height="30%">
+          <img id="source" src="images/img10.jpg" width="60%" height="30%">
         </div>
 
         <div class="mySlides">
-          <img id="source" src="img11.jpg" width="60%" height="50%">
+          <img id="source" src="images/img11.jpg" width="60%" height="50%">
         </div>
 
         <div class="mySlides">
-          <img id="source" src="img12.jpg" width="60%" height="50%">
+          <img id="source" src="images/img12.jpg" width="60%" height="50%">
         </div>
 
         <div class="mySlides">
-          <img id="source" src="img13.jpg" width="60%" height="50%">
+          <img id="source" src="images/img13.jpg" width="60%" height="50%">
         </div>
 
         <div class="mySlides">
-          <img id="source" src="img14.jpg" width="60%" height="50%">
+          <img id="source" src="images/img14.jpg" width="60%" height="50%">
         </div>
 
         <div class="mySlides">
-          <img id="source" src="img15.jpg" width="60%" height="50%">
+          <img id="source" src="images/img15.jpg" width="60%" height="50%">
         </div>
 
         <div class="mySlides">
-          <img id="source" src="img16.jpg" width="60%" height="50%">
+          <img id="source" src="images/img16.jpg" width="60%" height="50%">
         </div>
 
   </center>

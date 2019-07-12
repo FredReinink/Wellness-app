@@ -69,7 +69,7 @@ html {
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="stylesheet.css">
+  <link rel="stylesheet" href="stylesheets/stylesheet.css">
   
   
   <head>
@@ -82,7 +82,7 @@ html {
 
   <body> 
   <!-- add a logo --> 
-  <div class = "logo"><a href = "homePageAfterUserLogIn.php"><img src = "logo2.png" style="width:10%"></a>
+  <div class = "logo"><a href = "homePageAfterUserLogIn.php"><img src = "images/logo2.png" style="width:10%"></a>
   </div>
 
   
