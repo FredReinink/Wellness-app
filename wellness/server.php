@@ -130,7 +130,7 @@ if(isset($_POST['emailForm']))
     // send query
     $feedbackQuery = mysqli_prepare($db, "INSERT INTO feedBack(name, fromEmail, subject, message) VALUES (?, ?, ?, ?)");
 	mysqli_stmt_bind_param($feedbackQuery,"ssss", $name, $fromEmail, $subject, $message);
-	$success = mysqli_stmt_execute($feedBackQuery);
+	$success = mysqli_stmt_execute($feedbackQuery);
     
 	if ($success){
 		echo "Thank you! We'll contact you soon.";
