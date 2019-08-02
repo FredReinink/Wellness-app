@@ -1,2 +1,0 @@
-[12-Jul-2019 03:19:49 Europe/Berlin] PHP Warning:  include(errors.php): failed to open stream: No such file or directory in C:\xampp\htdocs\wellness\Admin\adminMonthlyChallengeControl.php on line 119
-[12-Jul-2019 03:19:49 Europe/Berlin] PHP Warning:  include(): Failed opening 'errors.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\wellness\Admin\adminMonthlyChallengeControl.php on line 119

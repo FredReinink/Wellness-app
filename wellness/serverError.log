@@ -1,6 +1,0 @@
-[02-Aug-2019 15:35:24 Europe/Berlin] PHP Notice:  Undefined variable: feedBackQuery in E:\xampp\htdocs\wellness\server.php on line 133
-[02-Aug-2019 15:35:24 Europe/Berlin] PHP Warning:  mysqli_stmt_execute() expects parameter 1 to be mysqli_stmt, null given in E:\xampp\htdocs\wellness\server.php on line 133
-[02-Aug-2019 15:36:14 Europe/Berlin] PHP Notice:  Undefined variable: feedBackQuery in E:\xampp\htdocs\wellness\server.php on line 133
-[02-Aug-2019 15:36:14 Europe/Berlin] PHP Warning:  mysqli_stmt_execute() expects parameter 1 to be mysqli_stmt, null given in E:\xampp\htdocs\wellness\server.php on line 133
-[02-Aug-2019 15:36:49 Europe/Berlin] PHP Notice:  Undefined variable: feedBackQuery in E:\xampp\htdocs\wellness\server.php on line 133
-[02-Aug-2019 15:36:49 Europe/Berlin] PHP Warning:  mysqli_stmt_execute() expects parameter 1 to be mysqli_stmt, null given in E:\xampp\htdocs\wellness\server.php on line 133
