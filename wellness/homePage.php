@@ -45,6 +45,11 @@
   </div>
 
   <style>
+  
+    <?php 
+		include('server.php');
+		include('errors.php');	
+	?>
 
 html {
     height:100%;
@@ -223,11 +228,8 @@ html {
       <div class="w3-col s5">
         <h2><b>Contact Us</b></h2>
         Questions? Go ahead.
-
-          <?php include('server.php') ?>
+		
         <form method = "post" action="homePage.php" >
-
-          <?php include('errors.php'); ?>
 
           <p><input class="w3-input w3-border" type="text" placeholder="Name" name="Name" required></p>
           <p><input class="w3-input w3-border" type="email" placeholder="Email" name="Email" required></p>
