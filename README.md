@@ -21,3 +21,12 @@ The front-end is written in HTML5, CSS, and Javascript for drawing charts and gr
 Database code is written in SQL and all back-end is done in PHP.
 
 ## Screenshots
+
+![Home](screenshots/Home.jpg);
+![Dashboard1](screenshots/Dashboard1.png);
+![Dashboard2](screenshots/Dashboard2.png);
+![WellnessTest](screenshots/WellnessTest.png);
+![Challenges](screenshots/Challenges.png);
+![FitnessTracker](screenshots/FitnessTracker.png);
+![DietTracker](screenshots/DietTracker.png);
+![Articles](screenshots/Articles.png);
