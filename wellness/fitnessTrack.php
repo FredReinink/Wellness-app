@@ -10,7 +10,7 @@ html {
   }
   
   body {
-    margin:0;
+    margin:5;
   }
   
   .bg {
@@ -35,7 +35,7 @@ html {
   }
   
   .content {
-    background-color:rgba(255,255,255,.8);
+    background-color:rgba(250,256,255,.8);
     border-radius:.25em;
     box-shadow:0 0 .25em rgba(0,0,0,.25);
     box-sizing:border-box;
