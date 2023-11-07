@@ -18,6 +18,8 @@ INSERT INTO users (username, email, password, first_name, last_name) VALUES ("Cl
 INSERT INTO users (username, email, password, first_name, last_name) VALUES ("Steven_Swag", "steven@gmail.com", "6F5393979D674DE36C433B47B7D8908E", "Steven","Taylor");
 INSERT INTO users (username, email, password, first_name, last_name) VALUES ("Pankti_coolBean", "pankti@gmail.com", "6F5393979D674DE36C433B47B7D8908E", "Pankti","Shah");
 INSERT INTO users (username, email, password, first_name, last_name) VALUES ("Frank", "frank@gmail.com", "912ec803b2ce49e4a541068d495ab570", "Frank","Guy");
+INSERT INTO users (username, email, password, first_name, last_name) VALUES ("atharva", "atharva@gmail.com", "912ec803b2ce49e4a541068d495ab570", "atharva","Guy");
+INSERT INTO users (username, email, password, first_name, last_name) VALUES ("swaraa", "swaraa@gmail.com", "912ec803b2ce49e4a541068d495ab570", "swaraa","Girl");
 
 
 
@@ -100,6 +102,10 @@ INSERT INTO userPoints (username, points) VALUES ("Claire_Bear", 50);
 INSERT INTO userPoints (username, points) VALUES ("Steven_Swag", 100);
 INSERT INTO userPoints (username, points) VALUES ("Pankti_coolBean", 45);
 INSERT INTO userPoints (username, points) VALUES ("admin101", 17);
+INSERT INTO userPoints (username, points) VALUES ("swaraa", 97);
+INSERT INTO userPoints (username, points) VALUES ("atharva",60);
+
+
 
 
 DROP TABLE IF EXISTS foodItem;
